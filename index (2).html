@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>東進学力POS NEO(非公式ファンサイト)</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#070d0b;--p:#12281f;--p2:#1b3d2f;--bd:#2f7a5a;--tx:#e8f5ee;--mu:#86a395;--g:#22e08f;--g2:#0fa968;--ng:#ff6b7a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(600px 420px at 0 -5%,rgba(57,255,156,.3),transparent 62%),radial-gradient(520px 420px at 100% 15%,rgba(0,229,255,.22),transparent 60%),radial-gradient(560px 460px at 50% 110%,rgba(255,46,200,.22),transparent 62%),linear-gradient(rgba(57,255,156,.06) 1px,transparent 1px) 0 0/36px 36px,linear-gradient(90deg,rgba(57,255,156,.06) 1px,transparent 1px) 0 0/36px 36px,var(--bg);background-attachment:fixed;color:var(--tx);font:14px/1.6 system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;min-height:100vh}
+main{max-width:640px;margin:0 auto;padding:12px 14px calc(84px + env(safe-area-inset-bottom,0px))}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.logo{font:800 20px/1 ui-monospace,Menlo,monospace;letter-spacing:.04em}.logo span{color:var(--g)}
+.tag{font-size:10px;color:var(--g);border:1px solid var(--g2);border-radius:99px;padding:3px 8px}
+.card{background:var(--p);border:1px solid rgba(80,220,255,.95);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 0 5px rgba(80,220,255,.8),0 0 16px rgba(80,220,255,.35),inset 0 0 10px rgba(80,220,255,.12)}
+h2{font:700 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;color:var(--mu);margin:0 0 10px;text-transform:uppercase}
+.big{font:800 44px/1 ui-monospace,Menlo,monospace;color:var(--g);text-shadow:0 0 22px rgba(34,224,143,.4)}
+.mu{color:var(--mu);font-size:12px}.up{color:var(--g)}.dn{color:var(--ng)}
+input,select,textarea{width:100%;background:var(--p2);border:1px solid var(--bd);border-radius:10px;color:var(--tx);padding:10px;font:inherit;margin-bottom:8px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--g2)}
+button{background:linear-gradient(90deg,var(--g2),var(--g));color:#04140d;border:0;border-radius:10px;padding:11px 16px;font:700 14px inherit;cursor:pointer}
+button:disabled{opacity:.5}button.s{background:var(--p2);color:var(--tx);border:1px solid var(--bd);padding:6px 10px;font-weight:500;font-size:12px}
+label.drop{display:block;border:2px dashed var(--bd);border-radius:12px;padding:20px;text-align:center;color:var(--mu);cursor:pointer;margin-bottom:8px}
+label.drop:hover{border-color:var(--g)}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:rgba(10,18,15,.94);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px);backdrop-filter:blur(10px);z-index:5}
+.nav button{flex:1;background:none;color:var(--mu);border-radius:0;padding:12px 0;font-size:12px}.nav button.on{color:var(--g);box-shadow:inset 0 2px 0 var(--g)}
+.plate{display:inline-flex;align-items:stretch;border-radius:6px;overflow:hidden;color:#fff;font-size:12px;max-width:100%;vertical-align:middle;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.plate i{font-style:normal;padding:2px 8px;background:rgba(0,0,0,.28);white-space:nowrap;font-size:11px}.plate b{padding:2px 10px;overflow-wrap:anywhere}
+.gfx{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;cursor:pointer}
+.stage{position:relative;width:96px;height:96px}
+.orb{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--oc) 45%,#0b1d2a 100%);box-shadow:0 0 30px var(--oc);animation:orbshake .18s linear infinite,orbpulse 1s ease-in-out infinite}
+.orb.burst{animation:orbburst .6s ease-out forwards}
+.orb.ssr{background:conic-gradient(#ff3b3b,#ffb02e,#f2ec3a,#2ee86b,#2ec8ff,#8b5cff,#ff4fd8,#ff3b3b)}
+.ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--oc);animation:ring .9s ease-out forwards}
+.flash{position:absolute;inset:0;background:var(--oc);opacity:0;animation:flash .5s ease-out forwards}
+.rt{position:relative;font:800 44px ui-monospace,Menlo,monospace;text-shadow:0 0 18px currentColor;animation:pop .5s ease-out both}
+.pop{animation:pop .45s ease-out both}
+@keyframes orbshake{0%{transform:translateX(-3px) rotate(-3deg)}50%{transform:translateX(3px) rotate(3deg)}100%{transform:translateX(-3px) rotate(-3deg)}}
+@keyframes orbpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.5)}}
+@keyframes orbburst{0%{transform:scale(1);opacity:1}60%{transform:scale(2.2);opacity:1}100%{transform:scale(3);opacity:0}}
+@keyframes ring{from{transform:scale(1);opacity:.9}to{transform:scale(6);opacity:0}}
+@keyframes flash{0%{opacity:.8}100%{opacity:0}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.orb,.ring,.flash,.rt,.pop{animation:none!important}.flash{display:none}}
+.cfx{position:absolute;inset:0;background:radial-gradient(circle,rgba(251,191,36,.55),transparent 65%);animation:cfblink .25s ease-in-out infinite alternate}
+.cft{position:relative;font:800 34px ui-monospace,Menlo,monospace;color:#fbbf24;letter-spacing:.1em;text-shadow:0 0 16px #fbbf24,0 0 32px #f0abfc;animation:pop .35s ease-out both}
+@keyframes cfblink{from{opacity:.25}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.cfx,.cft{animation:none!important}}
+@keyframes bgmove{from{background-position:0 0}to{background-position:300% 0}}
+.cp{background:var(--p2);color:var(--tx);border:1px solid var(--bd);padding:8px 6px;font-size:12px;text-align:left;font-weight:400;border-radius:8px}.cp:disabled{opacity:.5;cursor:default}
+@keyframes frame{from{background-position:0 0,0 0}to{background-position:0 0,150% 0}}
+@keyframes glw{0%,100%{filter:brightness(1)}50%{filter:brightness(1.3)}}
+@keyframes dna{from{background-position:0 center,0 0}to{background-position:40px center,0 0}}
+@media (prefers-reduced-motion:reduce){.plate{animation:none!important}}
+.plate.gen b{background:#0d0520;color:#fff;text-shadow:none;letter-spacing:0;font-weight:700;border-left:1px solid #b46bff}.plate.gen i{background:rgba(20,5,45,.45)}.plate.gen2 b{background:rgba(20,5,45,.6)}
+.plate.neo i{background:rgba(255,255,255,.4)}
+.plate{font-size:12px;border-radius:6px}.plate i{padding:2px 32px;font-size:11px;text-align:center}.plate b{padding:2px 10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--bd)}.row:first-of-type{border-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.chip{border:1px solid var(--bd);border-radius:99px;padding:3px 10px;font-size:12px;color:var(--mu);background:var(--p2);cursor:pointer}.chip.on{color:#04140d;background:var(--g);border-color:var(--g)}
+.star{color:#ffcf4a;letter-spacing:2px}.st{font-size:22px;cursor:pointer;color:#3a4a42}.st.on{color:#ffcf4a}
+.tl{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tc{border:1px solid var(--bd);border-radius:12px;padding:10px;background:var(--p2)}.tc.lk{opacity:.45;filter:grayscale(1)}
+svg{width:100%;height:auto;display:block}
+#msg{margin-top:8px;font-size:13px}
+</style></head><body><main>
+<div class="top"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0"><div class="logo">POS<span>NEO</span></div><span id="who"></span></div><span class="tag">非公式ファンサイト・東進とは無関係</span></div>
+<div id="app"><p class="mu">読み込み中…</p></div>
+</main><div id="fb" style="position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:9;background:#3a1219;border:1px solid #ff6b7a;color:#ffd5da;border-radius:10px;padding:10px 12px;font-size:13px" hidden></div>
+<div class="nav" id="nav" hidden></div>
+<script>
+(function(){
+ window.__step="開始";window.__errs=[];
+ function E(t){return String(t).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+ function stuck(){var a=document.getElementById("app");return a&&/^\s*読み込み中/.test(a.textContent)}
+ function show(head,body){var a=document.getElementById("app");if(!a)return;
+  a.innerHTML='<div class="card"><p class="dn">'+E(head)+'</p><pre style="white-space:pre-wrap;word-break:break-all;font-size:12px;margin:8px 0 0">'+E(body)+'</pre></div>'}
+ window.addEventListener("error",function(e){
+  var m=e.target&&e.target!==window&&(e.target.src||e.target.href)?"読み込めませんでした: "+(e.target.src||e.target.href):(e.message||"error")+(e.lineno?" (行 "+e.lineno+")":"");
+  window.__errs.push(m);if(stuck())show("エラーで止まりました。この文面を、そのまま送ってください。",m+"\n段階: "+window.__step)},true);
+ window.addEventListener("unhandledrejection",function(e){var m=(e.reason&&e.reason.message)||String(e.reason);window.__errs.push(m);if(stuck())show("エラーで止まりました。この文面を、そのまま送ってください。",m+"\n段階: "+window.__step)});
+ setTimeout(function(){if(stuck())show("読み込みが終わりません。この文面を、そのまま送ってください。","段階: "+window.__step+"\nライブラリ: "+(window.supabase?"あり":"なし")+"\nエラー: "+(window.__errs.join(" / ")||"なし"))},12000);
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script type="text/plain" id="sqlsrc">
+-- 東進学力POS NEO (非公式ファンサイト) Supabase用スキーマ
+-- Supabase の SQL Editor に全部貼って Run するだけです。何度流しても大丈夫です。
+-- 最後に「管理者の合言葉」が表示されるので、コピーして保管してください。
+
+-- ① 管理者まわり(テーブルは直接は誰も読み書きできません)
+create table if not exists public.admins (
+  uid uuid primary key
+);
+alter table public.admins enable row level security;
+
+create table if not exists public.admin_secret (
+  pass text primary key
+);
+alter table public.admin_secret enable row level security;
+
+-- 合言葉を自動で1つ作ります(すでにあれば作りません)
+insert into public.admin_secret (pass)
+select replace(gen_random_uuid()::text, '-', '')
+where not exists (select 1 from public.admin_secret);
+
+create or replace function public.is_admin()
+returns boolean
+language sql
+security definer
+stable
+set search_path = public
+as $$
+  select exists (select 1 from public.admins where uid = auth.uid());
+$$;
+
+-- 合言葉が合っていれば、そのアカウントを管理者にします
+create or replace function public.claim_admin(p text)
+returns boolean
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if auth.uid() is null then
+    return false;
+  end if;
+  if exists (select 1 from public.admin_secret where pass = p) then
+    insert into public.admins (uid) values (auth.uid()) on conflict do nothing;
+    return true;
+  end if;
+  return false;
+end;
+$$;
+
+revoke execute on function public.is_admin() from public, anon;
+revoke execute on function public.claim_admin(text) from public, anon;
+grant execute on function public.is_admin() to authenticated;
+grant execute on function public.claim_admin(text) to authenticated;
+
+-- ② ドキュメント保存用テーブル(users / scores / reviews / contacts を1つに集約)
+create table if not exists public.docs (
+  collection text not null,
+  id         text not null,
+  data       jsonb not null default '{}'::jsonb,
+  owner      uuid not null default auth.uid(),
+  updated_at timestamptz not null default now(),
+  primary key (collection, id)
+);
+alter table public.docs enable row level security;
+alter table public.docs replica identity full;  -- リアルタイム更新(削除含む)のため
+
+-- 自分のドキュメントかどうか(users/scores/contacts は自分のID、reviews は「自分のID_」で始まるID)
+create or replace function public.can_write_doc(c text, i text)
+returns boolean
+language sql
+stable
+set search_path = public
+as $$
+  select (c in ('users', 'scores', 'contacts') and i = auth.uid()::text)
+      or (c = 'reviews' and left(i, length(auth.uid()::text) + 1) = auth.uid()::text || '_');
+$$;
+
+-- 読み取り: users / scores / reviews は全員(ライバル表示に必要)。問合せは本人と管理者だけ。
+drop policy if exists docs_select on public.docs;
+create policy docs_select on public.docs for select to authenticated
+using (
+  collection in ('users', 'scores', 'reviews')
+  or (collection = 'contacts' and (id = auth.uid()::text or public.is_admin()))
+);
+
+-- 追加: 自分のドキュメントだけ。管理者は、誰の scores でも追加できます。
+drop policy if exists docs_insert on public.docs;
+create policy docs_insert on public.docs for insert to authenticated
+with check (
+  octet_length(data::text) < 262144
+  and (
+    public.can_write_doc(collection, id)
+    or (collection = 'scores' and public.is_admin())
+  )
+);
+
+-- 更新: 自分のドキュメントだけ。管理者は、誰の scores・問合せでも更新できます。
+drop policy if exists docs_update on public.docs;
+create policy docs_update on public.docs for update to authenticated
+using (
+  public.can_write_doc(collection, id)
+  or (collection in ('scores', 'contacts') and public.is_admin())
+)
+with check (
+  octet_length(data::text) < 262144
+  and (
+    public.can_write_doc(collection, id)
+    or (collection in ('scores', 'contacts') and public.is_admin())
+  )
+);
+
+-- 削除: 自分のドキュメントだけ(ただし scores は削除できません)。管理者は問合せ・レビューを削除できます。
+drop policy if exists docs_delete on public.docs;
+create policy docs_delete on public.docs for delete to authenticated
+using (
+  (public.can_write_doc(collection, id) and collection <> 'scores')
+  or (collection in ('contacts', 'reviews') and public.is_admin())
+);
+
+-- ③ 点数のロック: 一般ユーザーは「今日の分」を何度でも登録・上書きできます。前日までの分は変更・削除できません。
+--    管理者はこの制限を受けません。日付は日本時間(Asia/Tokyo)で判定します。
+create or replace function public.docs_guard()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  today    text;
+  old_days jsonb;
+  new_days jsonb;
+  k        text;
+  added    int := 0;
+  pv       numeric;
+begin
+  if new.collection <> 'scores' or public.is_admin() then
+    return new;
+  end if;
+
+  -- upsert では INSERT のトリガーが先に動くため、すでに行があるときは UPDATE 側で検査します
+  if tg_op = 'INSERT' and exists (
+    select 1 from public.docs where collection = new.collection and id = new.id
+  ) then
+    return new;
+  end if;
+
+  today := to_char((now() at time zone 'Asia/Tokyo')::date, 'YYYY-MM-DD');
+  new_days := coalesce(new.data -> 'days', '{}'::jsonb);
+  old_days := case when tg_op = 'UPDATE' then coalesce(old.data -> 'days', '{}'::jsonb) else '{}'::jsonb end;
+
+  if jsonb_typeof(new_days) <> 'object' then
+    raise exception '点数のデータが正しくありません';
+  end if;
+
+  -- 登録済みの日は、残っていること。今日の分以外は、中身も変わっていないこと
+  -- (今日の分は、何度でも上書きできます。日付が変わると、前日の分は自動で固定されます)
+  for k in select jsonb_object_keys(old_days) loop
+    if not (new_days ? k) then
+      raise exception '登録済みの点数は削除できません。修正は管理者に依頼してください';
+    end if;
+    if k <> today and (new_days -> k) is distinct from (old_days -> k) then
+      raise exception '前日までの点数は修正できません。修正は管理者に依頼してください';
+    end if;
+  end loop;
+
+  -- 新しく増える日は、今日の1日分だけ
+  for k in select jsonb_object_keys(new_days) loop
+    if not (old_days ? k) then
+      added := added + 1;
+      if k <> today then
+        raise exception '登録できるのは今日の分だけです(日本時間 %)', today;
+      end if;
+    end if;
+  end loop;
+
+  if added > 1 then
+    raise exception '一度に登録できるのは1日分だけです';
+  end if;
+
+  -- 今日の分の得点は、0〜500の範囲であること
+  if new_days ? today then
+    pv := (new_days -> today ->> 'pts')::numeric;
+    if pv is null or pv < 0 or pv > 500 then
+      raise exception '向上得点は0〜500の範囲で入れてください';
+    end if;
+  end if;
+
+  return new;
+end;
+$$;
+
+drop trigger if exists docs_guard_trg on public.docs;
+create trigger docs_guard_trg
+before insert or update on public.docs
+for each row execute function public.docs_guard();
+
+-- ④ リアルタイム更新を有効化
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = 'docs'
+  ) then
+    alter publication supabase_realtime add table public.docs;
+  end if;
+end $$;
+
+-- ⑤ 証拠写真用ストレージ(非公開。本人と管理者だけが見られます)
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('proofs', 'proofs', false, 3145728, array['image/jpeg', 'image/png', 'image/webp'])
+on conflict (id) do nothing;
+
+drop policy if exists proofs_insert on storage.objects;
+create policy proofs_insert on storage.objects for insert to authenticated
+with check (
+  bucket_id = 'proofs'
+  and (storage.foldername(name))[1] = auth.uid()::text
+);
+
+drop policy if exists proofs_select on storage.objects;
+create policy proofs_select on storage.objects for select to authenticated
+using (
+  bucket_id = 'proofs'
+  and ((storage.foldername(name))[1] = auth.uid()::text or public.is_admin())
+);
+
+-- ⑥ 管理者の合言葉を表示します(結果の欄に出ます。コピーして保管してください)
+select pass as "管理者の合言葉(コピーして保管)" from public.admin_secret;
+</script>
+<script>
+/* この行は、ファイルを開くと出る設定画面が自動で書き換えます。手で編集する必要はありません。 */
+window.POSNEO_CONFIG={url:"https://YOUR_PROJECT_REF.supabase.co",anonKey:"YOUR_SUPABASE_ANON_KEY"};
+</script>
+<script>
+(function(){
+var SRC0=document.documentElement.outerHTML;
+var $=function(s){return document.querySelector(s)};
+var S={uid:null,users:{},scores:{},rv:[],tab:"home",flt:"全て",q:"",star:5,got:{u:0,s:0,r:0}};
+var db,SB,busy=false;
+var pad=function(n){return String(n).padStart(2,"0")};
+var f2=function(n){return (Math.round(n*100)/100).toFixed(2)};
+function esc(s){var d=document.createElement("div");d.textContent=s==null?"":s;return d.innerHTML}
+function dk(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function kd(k){var p=k.split("-");return new Date(+p[0],+p[1]-1,+p[2],12)}
+function addD(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+function wst(d){return addD(d,-((d.getDay()+6)%7))}
+var TT=[
+["void","虚無の0.00","得点0.00を登録","background:#3b3f45"],
+["pio","NEOの開拓者","初回スクショ登録","background:#0fa968"],
+["kiz","刻み込む者","同日に2回以上上書き","background:repeating-linear-gradient(45deg,#06b6d4 0 10px,#10d97a 10px 20px)"],
+["mid","深夜の自宅受講勢","23:00〜02:59に更新","background:linear-gradient(90deg,#0b1a4a,#5b2a9a)"],
+["cls","閉館ギリギリの粘り","21:30〜22:15に更新","background:linear-gradient(90deg,#ff5e3a,#ffb15c)"],
+["mor","朝活の覇者","05:00〜08:30に更新","background:linear-gradient(90deg,#ffd36b,#8fd8ff);color:#12202a"],
+["fst","高速マスターの鬼","1日+5.00点以上","background:linear-gradient(90deg,#e11d1d,#ff8a1f)"],
+["trn","受講の暴走機関車","1日+10.00点以上","background:#0a0a0a;box-shadow:inset 0 0 0 2px #d4a017,inset 0 0 0 4px #c4161c"],
+["str","毎日登校の鉄人","7日連続登録","background:linear-gradient(90deg,#9aa4b2,#f2f5f8,#aeb8c6);color:#1b2430"],
+["wkd","週末の狂戦士","土日合計+10.00点以上","background:linear-gradient(90deg,#3b0a5c,#ff2fa0)"],
+["gnt","ジャイアントキリング","ライバルを逆転して週間1位","background:#050505;box-shadow:inset 0 0 0 2px #e8b923"],
+["som","講座ソムリエ","講座レビュー3件以上","background:linear-gradient(90deg,#1f3fbf,#10b981)"]];
+function tt(id){return TT.filter(function(t){return t[0]===id})[0]}
+var BG={bronze:"background:linear-gradient(90deg,#8a5a2b,#d09a5b)",silver:"background:linear-gradient(90deg,#8d97a6,#e3e8f0);color:#1b2430",gold:"background:linear-gradient(90deg,#b8860b,#ffd54a);color:#2a1d00",platinum:"background:linear-gradient(90deg,#9fb6c8,#eef6fc,#9fb6c8);color:#14202b",rainbow:"background:linear-gradient(90deg,#ff3b3b,#ffb02e,#f2ec3a,#2ee86b,#2ec8ff,#8b5cff,#ff4fd8);color:#111;box-shadow:0 0 14px rgba(255,255,255,.5)",day:"background:linear-gradient(90deg,#e11d48,#fb923c)",wk:"background:linear-gradient(90deg,#1d4ed8,#38bdf8)",mo:"background:linear-gradient(90deg,#6d28d9,#10b981)"};
+var RKN={bronze:"ブロンズ",silver:"シルバー",gold:"ゴールド",platinum:"プラチナ",rainbow:"虹色／ダイヤ"};
+var MAIN=[[1,"知識の扉を開きし者","bronze"],[10,"暁の探究者","bronze"],[25,"蒼き魔導の継承者","bronze"],[50,"境界を越える異端者（アウトサイダー）","silver"],[75,"深淵を覗く求道者","silver"],[100,"第壱の封印を解きし者（ブレイクスルー）","gold"],[150,"運命に抗う反逆者（リベリオン）","gold"],[200,"双極の覚醒者（ダブル・アウェイク）","platinum"],[250,"真理へ至る超越者","platinum"],[300,"全知を司る絶対王者（ソブリン）","rainbow"]];
+var DAYT=[[1,"覚醒の兆し"],[3,"紅蓮の集中状態（ゾーン突入）"],[5,"限界突破（リミットブレイク）"],[10,"因果律を狂わせる暴走機関（オーバードライブ）"]];
+var WKT=[[5,"闇夜を駆ける狩人（ハンター）"],[10,"疾風迅雷の挑戦者"],[15,"蒼炎を纏う修羅の歩み"],[25,"光速を超えし次元跳躍者"]];
+var MOT=[[15,"静寂なる知識の収集家"],[30,"無限の書庫を統べる者"],[50,"校舎の頂点に君臨する覇王"],[80,"記録を塗り替える伝説の創世主（ジェネシス）"]];
+var SBT=[["英語","background:linear-gradient(90deg,#ca8a04,#fde047);color:#2b1d00",["言の葉の欠片を拾う者","異界の言語を解読する者","言霊を操る魔術師","バベルの塔を制圧せし言語の支配者"]],["数学","background:linear-gradient(90deg,#1e3a8a,#60a5fa)",["数式の迷宮に踏み込む者","虚数空間の観測者","黄金比と論理の錬金術師","世界の理（ロゴス）を証明する賢者"]],["国語","background:linear-gradient(90deg,#9d174d,#f472b6)",["文字の海に漕ぎ出す者","行間の深淵を視る者","文脈を掌握する精神感応者","森羅万象を読み解く絶対の眼"]],["理科","background:linear-gradient(90deg,#14532d,#22c55e)",["理の火種を灯す者","元素の囁きを聞く者","自然界の法則を操る調律者","宇宙の真理を解き明かす開拓者"]],["地歴公民","background:linear-gradient(90deg,#9a3412,#fb923c)",["時の回廊を歩き出す者","時空を旅する観測者","世界線の記憶を継ぐ者","人類史のすべてを刻む時の支配者"]]];
+TT.forEach(function(t){if(!t[4])t[4]="実績"});
+MAIN.forEach(function(r,i){TT.push(["m"+i,r[1],"累計"+r[0]+"点以上で解放（"+RKN[r[2]]+"）",BG[r[2]],"メインランク"])});
+DAYT.forEach(function(r,i){TT.push(["d"+i,r[1],"1日で"+r[0]+"点以上で解放",BG.day,"1日"])});
+WKT.forEach(function(r,i){TT.push(["w"+i,r[1],"1週間で"+r[0]+"点以上で解放",BG.wk,"週間"])});
+MOT.forEach(function(r,i){TT.push(["o"+i,r[1],"1か月で"+r[0]+"点以上で解放",BG.mo,"月間"])});
+SBT.forEach(function(s,j){[10,25,75,100].forEach(function(p,i){var gc=(s[1].match(/,(#[0-9a-f]{6})\)/)||[])[1]||"#fff",css=s[1];
+ if(i===2)css+=";box-shadow:0 0 8px "+gc;
+ if(i===3){var gp=s[1].slice(11).split(";");css="border:2px solid transparent;background:"+gp[0]+" 0 0/100% 100% padding-box,linear-gradient(120deg,#fff,"+gc+",#fff,"+gc+",#fff) 0 0/300% 100% border-box"+(gp[1]?";"+gp[1]:"")+";box-shadow:0 0 10px "+gc+",0 0 24px "+gc+";animation:frame 3s linear infinite"}
+ TT.push(["s"+j+"_"+i,s[2][i],s[0]+"の累計"+p+"点以上で解放（ランク"+(i+1)+"）",css,"科目別"])})});
+var HX="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="22" viewBox="0 0 40 22"><path d="M0 11Q10 -7 20 11T40 11" fill="none" stroke="#b46bff" stroke-width="1.6"/><path d="M0 11Q10 29 20 11T40 11" fill="none" stroke="#ff4fd8" stroke-width="1.6"/><path d="M5 4.6V17.4M10 2V20M15 4.6V17.4M25 4.6V17.4M30 2V20M35 4.6V17.4" stroke="#e9d5ff" stroke-width="1" opacity=".8"/></svg>');
+TT.push(["gen","THE GENESIS","すべての始まりであり、この世界（システム）を生み出した唯一の始祖。","background:url("+HX+") 0 center/40px 22px repeat-x,linear-gradient(90deg,#1a0538,#3b0f7a,#1a0538);color:#fff;font-weight:800;letter-spacing:.18em;text-shadow:0 1px 3px #000,0 0 8px rgba(190,100,255,.95);box-shadow:0 0 12px #b46bff,0 0 28px rgba(160,60,255,.7);animation:dna 3s linear infinite","DEVELOPER"]);
+function stats(uid,o){var D=days(uid,o),t=0,b=0,w={},m={};Object.keys(D).forEach(function(k){var p=D[k].pts;t+=p;if(p>b)b=p;var a=dk(wst(kd(k))),c=k.slice(0,7);w[a]=(w[a]||0)+p;m[c]=(m[c]||0)+p});
+ var mx=function(x){var r=0;Object.keys(x).forEach(function(k){if(x[k]>r)r=x[k]});return r};return{tot:t,day:b,wk:mx(w),mo:mx(m)}}
+function derived(uid,o){var s=stats(uid,o),d={};
+ MAIN.forEach(function(r,i){if(s.tot>=r[0])d["m"+i]=1});DAYT.forEach(function(r,i){if(s.day>=r[0])d["d"+i]=1});
+ WKT.forEach(function(r,i){if(s.wk>=r[0])d["w"+i]=1});MOT.forEach(function(r,i){if(s.mo>=r[0])d["o"+i]=1});var uu=S.users[uid]||{},gg=uu.g||{};if(gg.st)[7,30,100,365].forEach(function(n){if(gg.st.m>=n)d["k"+n]=1});if(gg.fo&&gg.fo.indexOf("shop")>=0)d.fshop=1;return d}
+function allUnlocked(){var u=Object.assign({},(me()&&me().unlocked)||{}),d=derived(S.uid);Object.keys(d).forEach(function(k){u[k]=1});if(S.admin)u.gen=1;return u}
+function plateT(n,id){var t=tt(id);return'<span class="plate" style="'+t[3]+'"><i>'+(id==="gen"?esc(t[1]):"【"+esc(t[1])+"】")+'</i><b>'+esc(n)+'</b></span>'}
+function rankV(){var st=stats(S.uid),cur=-1,nx=null;MAIN.forEach(function(r,i){if(st.tot>=r[0])cur=i;else if(!nx)nx=r});
+ var prev=cur>=0?MAIN[cur][0]:0;
+ return'<div class="card"><h2>MAIN RANK</h2>'+(cur>=0?plateT(me().name,"m"+cur)+' <span class="mu">'+RKN[MAIN[cur][2]]+'</span>':'<span class="mu">向上得点を記録すると、累計に応じたランクが解放されます</span>')+
+ '<div class="mu" style="margin-top:8px">累計 <b style="color:var(--tx)">'+f2(st.tot)+'点</b>'+(nx?' ・ 次のランクまであと <b style="color:var(--tx)">'+f2(nx[0]-st.tot)+'点</b>':' ・ 最高ランクに到達しました')+'</div>'+
+ (nx?'<div style="height:6px;border-radius:3px;background:var(--p2);margin-top:6px"><div style="height:6px;border-radius:3px;background:var(--g);width:'+Math.max(0,Math.min(100,(st.tot-prev)/(nx[0]-prev)*100))+'%"></div></div>':'')+'</div>'}
+function titleV2(){var m=me(),u=allUnlocked(),G={};TT.forEach(function(t){if(t[0]==="gen"&&!S.admin)return;(G[t[4]]=G[t[4]]||[]).push(t)});
+ var h='<div class="card"><h2>FAVORITE お気に入り称号</h2>'+plate(S.uid)+'<p class="mu">獲得した称号から1つを選んで飾れます。装備するとネームプレートの背景が変わります。</p></div>';
+ ["メインランク","1日","週間","月間","科目別","実績","ログイン","ショップ","DEVELOPER"].forEach(function(g){if(!G[g])return;
+  h+='<div class="card"><h2>'+g+'</h2>'+(g==="科目別"?'<p class="mu">科目別の向上得点は、いまのスクショ登録では取得できないため、現在は解放されません。</p>':'')+'<div class="tl">'+G[g].map(function(t){var o=u[t[0]],gn=t[0]==="gen";
+   return'<div class="tc'+(o?"":" lk")+'"><span class="plate'+(gn?" gen2":"")+'" style="'+t[3]+'"><i>'+(o?"解放":"未解放")+'</i><b>'+(o?esc(t[1]):"？？？")+'</b></span><div class="mu" style="margin:6px 0">'+esc(t[2])+'</div>'+(o?(m.title===t[0]?'<button class="s" data-a="eq" data-v="">外す</button>':'<button class="s" data-a="eq" data-v="'+t[0]+'">装備する</button>'):'')+'</div>'}).join("")+'</div></div>'});
+ return h}
+function plate(uid){var u=S.users[uid];if(!u)return'<span class="plate"><b>退会済み</b></span>';var t=u.title&&tt(u.title);if(u.title==="custom"&&u.g&&u.g.eq)return cplate(u);
+ return'<span class="plate'+(t?(t[0]==="gen"?" gen":""):" neo")+'" style="'+(t?t[3]:"background:#34e0a1;color:#04140d")+'"><i>'+(t?(t[0]==="gen"?esc(t[1]):"【"+esc(t[1])+"】"):"NEO生")+'</i><b>'+esc(u.name)+'</b></span>'}
+function me(){return S.users[S.uid]}
+function hs(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+var GC={k:null,v:null};
+function G(){var w=wst(new Date());w.setHours(0,0,0,0);var wk=dk(w),wt0=w.getTime(),key=wk+"|"+S.ver;if(GC.k===key)return GC.v;var by={},out={};
+ Object.keys(S.users).forEach(function(i){var u=S.users[i];if(u.gr&&u.jt)(by[u.gr]=by[u.gr]||[]).push(i)});
+ Object.keys(by).forEach(function(g){var L=by[g],base=L.filter(function(i){return S.users[i].jt<wt0}).sort(function(a,b){return hs(wk+a)-hs(wk+b)||(a<b?-1:1)}),late=L.filter(function(i){return S.users[i].jt>=wt0}).sort(function(a,b){return S.users[a].jt-S.users[b].jt||(a<b?-1:1)}),k=Math.ceil(base.length/20),gs=[];
+  for(var x=0;x<k;x++)gs.push([]);base.forEach(function(i,n){gs[n%k].push(i)});
+  late.forEach(function(i){var best=null;gs.forEach(function(a){if(a.length<20&&(!best||a.length<best.length))best=a});if(!best){best=[];gs.push(best)}best.push(i)});
+  gs.forEach(function(a,n){a.forEach(function(i){out[i]={n:n+1,ids:a}})})});
+ GC={k:key,v:out};return out}
+function mem(){var g=G()[S.uid];return g?g.ids:[]}
+function days(uid,o){var d=(o||S.scores)[uid];return d&&d.days||{}}
+function wtot(uid,ws,o){var s=0,D=days(uid,o);for(var i=0;i<7;i++){var k=dk(addD(ws,i));if(D[k])s+=D[k].pts}return s}
+function leader(ws,o){var b=null,v=0,n=0;mem().forEach(function(i){var t=wtot(i,ws,o);if(Object.keys(days(i,o)).length)n++;if(t>v){v=t;b=i}});return n>=2?b:null}
+function warn(t){var b=$("#fb");b.textContent=t;b.hidden=false;clearTimeout(warn.t);warn.t=setTimeout(function(){b.hidden=true},9000)}
+function toast(t){S.hm=t;var m=$("#msg");if(m)m.innerHTML=t}
+
+/* ---------- views ---------- */
+function loginV(){var m=me()||{};return'<div class="card"><h2>LOGIN</h2><p class="mu">本名は使わず、ニックネームだけで参加します。同じ学年の利用者から、ランダムに最大20人のグループに分けられ、毎週月曜にシャッフルされます。</p><input id="nick" maxlength="12" placeholder="ニックネーム(本名NG)" value="'+esc(m.name||"")+'"><select id="gr">'+["中学生","高1","高2","高3","既卒"].map(function(g){return'<option'+(m.gr===g?" selected":"")+'>'+g+'</option>'}).join("")+'</select><button data-a="login">はじめる</button><p class="mu" style="margin-top:8px">※学年を変えると、新しい学年のグループにランダムで入り直します。</p></div>'}
+function rivalTableV(){var ids=mem(),ws=wst(new Date()),tk=dk(new Date());if(ids.length<2)return'';var tot=wtot(S.uid,ws);
+ var rows=ids.map(function(i){var x=days(i)[tk];return{i:i,td:x?x.pts:null,wk:wtot(i,ws),pr:x&&x.img?1:0}}).sort(function(a,b){return b.wk-a.wk});
+ return'<div class="card"><h2>RIVAL 向上得点</h2><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px"><tr class="mu" style="text-align:right"><th style="text-align:left;font-weight:500">ライバル</th><th style="font-weight:500;padding:4px 8px">今日</th><th style="font-weight:500;padding:4px 8px">今週</th><th style="font-weight:500">自分との差</th></tr>'+
+ rows.map(function(r){var me2=r.i===S.uid,df=tot-r.wk;return'<tr style="border-top:1px solid var(--bd);text-align:right;'+(me2?'background:rgba(34,224,143,.08)':'')+'"><td style="text-align:left;padding:7px 0">'+plate(r.i)+(S.admin&&r.pr?' <button class="s" data-a="proof" data-v="'+r.i+'|'+tk+'">📷</button>':'')+'</td><td style="padding:0 8px;font-family:ui-monospace,monospace">'+(r.td==null?'--':f2(r.td))+'</td><td style="padding:0 8px;font-family:ui-monospace,monospace"><b>'+f2(r.wk)+'</b></td><td class="'+(me2?'mu':df>=0?'up':'dn')+'" style="font-family:ui-monospace,monospace">'+(me2?'—':(df>=0?'+':'')+f2(df))+'</td></tr>'}).join("")+'</table></div><div class="mu" style="margin-top:6px">'+esc(me().gr)+' グループ#'+G()[S.uid].n+'('+ids.length+'人 / 最大20人)・毎週月曜にグループが組み替わります。差は今週の合計で、+はあなたがリードです</div></div>'}
+function homeV(){var m=me(),D=days(S.uid),tk=dk(new Date()),t=D[tk],ws=wst(new Date());
+ var h='<div class="card"><h2>TODAY</h2><div class="big">'+(t?f2(t.pts):"--.--")+'<span class="mu" style="font-size:14px"> 点</span></div>'+
+ (t?'<div class="mu">'+esc(t.period||"")+' ・ 更新 '+esc(t.upd)+' ・ 登録'+t.n+'回'+(t.d!=null?' ・ 前回比 <b class="'+(t.d>=0?"up":"dn")+'">'+(t.d>=0?"+":"")+f2(t.d)+'点</b>':"")+'</div>':'<div class="mu">今日はまだ登録していません</div>')+
+ '<div style="margin-top:8px" class="mu">今週の合計 <b style="color:var(--tx)">'+f2(wtot(S.uid,ws))+'点</b> ・ 所持コイン <b style="color:var(--tx)">'+coins().toLocaleString()+'</b> ・ 連続ログイン <b style="color:var(--tx)">'+streakD()+'日</b></div></div>'+
+ rankV()+'<div class="card"><h2>REGISTER 今日の向上得点</h2><p class="mu">POSホーム画面のスクショを選ぶと、画像から数字を自動で読み取ります(読み取りは端末の中で行われ、画像は外部の読み取りサービスには送られません)。読み取れた数字から今日の向上得点を選ぶか、直接入力してください。同じ日なら何度でも登録でき、最新の得点で上書きされます。前日までの記録は修正できません(間違えたときは問合せから「点数の修正依頼」を送ってください)。写真は証拠として保存され、本人と管理者だけが見られます。</p><input id="pt" type="number" inputmode="decimal" step="0.01" min="0" max="500" placeholder="本日の向上得点(例 12.34)" value="'+esc(S.pt||"")+'">'+
+ '<label class="drop" for="f">'+(S.pfile?"✅ "+esc(S.pfile.name):"📷 証拠のスクショを選ぶ")+'</label><input id="f" type="file" accept="image/*" hidden>'+ocrV()+'<button data-a="reg">登録する</button><div id="msg">'+(S.hm||"")+'</div></div>'+
+ rivalTableV()+rivalV()+'<div class="card"><h2>LOG</h2>';
+ var ks=Object.keys(D).sort().reverse().slice(0,7);
+ h+=ks.length?ks.map(function(k){return'<div class="row"><span>'+k.slice(5).replace("-","/")+'<span class="mu"> '+esc(D[k].upd)+'</span></span><span><b>'+f2(D[k].pts)+' 点</b>'+(D[k].img?' <button class="s" data-a="proof" data-v="'+S.uid+'|'+k+'">写真</button>':'')+'</span></div>'}).join(""):'<p class="mu">まだ記録がありません</p>';
+ return h+'</div><button class="s" data-a="logout">ニックネーム・学年変更</button> <button class="s" data-a="signout">ログアウト</button>'+(S.admin?'<p class="mu" style="margin-top:10px">あなたは管理者です</p>':'<details class="mu" style="margin-top:10px"><summary>管理者になる</summary><input id="adm" type="password" placeholder="合言葉" style="margin-top:6px"><button class="s" data-a="claim">登録</button></details>')}
+var COL=["#5b9bff","#ffb347","#ff5e8a","#b58cff","#4fd1d9","#e0e04f","#ff8a5b"];
+function colors(){var ids=mem(),c={},k=0;ids.forEach(function(i){c[i]=i===S.uid?"#22e08f":COL[k++%COL.length]});return c}
+function rivalV(){var ids=mem(),c=colors(),ws=wst(new Date()),now=new Date(),ti=Math.round((kd(dk(now))-kd(dk(ws)))/864e5);
+ if(ids.length<2)return'<div class="card"><h2>RIVAL</h2><p class="mu">グループにはまだあなただけです。同じ学年の利用者が増えると、ここに表示されます。</p></div>';
+ var W=340,H=170,L=30,B=22,T=10,mx=1,series={};
+ ids.forEach(function(i){var D=days(i),a=[],s=0;for(var d=0;d<=ti;d++){var k=dk(addD(ws,d));s+=D[k]?D[k].pts:0;a.push(s)}series[i]=a;mx=Math.max(mx,s)});mx*=1.1;
+ var X=function(d){return L+d*(W-L-8)/6},Y=function(v){return T+(H-T-B)*(1-v/mx)};
+ var g='';for(var q=0;q<=3;q++){var v=mx*q/3;g+='<line x1="'+L+'" x2="'+(W-8)+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="#23382f"/><text x="2" y="'+(Y(v)+4)+'" fill="#86a395" font-size="9">'+v.toFixed(1)+'</text>'}
+ "月火水木金土日".split("").forEach(function(l,d){g+='<text x="'+X(d)+'" y="'+(H-6)+'" fill="#86a395" font-size="10" text-anchor="middle">'+l+'</text>'});
+ ids.forEach(function(i){g+='<polyline fill="none" stroke="'+c[i]+'" stroke-width="'+(i===S.uid?3:2)+'" points="'+series[i].map(function(v,d){return X(d)+","+Y(v)}).join(" ")+'"/>'});
+ var bm=0.5,ds=[];for(var d=6;d>=0;d--)ds.push(dk(addD(now,-d)));
+ ids.forEach(function(i){ds.forEach(function(k){var x=days(i)[k];if(x&&x.pts>bm)bm=x.pts})});bm*=1.1;
+ var gw=(W-L-8)/7,bw=Math.min(14,(gw-4)/ids.length),g2='';
+ for(var q2=0;q2<=2;q2++){var v2=bm*q2/2,y=T+(H-T-B)*(1-v2/bm);g2+='<line x1="'+L+'" x2="'+(W-8)+'" y1="'+y+'" y2="'+y+'" stroke="#23382f"/><text x="2" y="'+(y+4)+'" fill="#86a395" font-size="9">'+v2.toFixed(1)+'</text>'}
+ ds.forEach(function(k,j){g2+='<text x="'+(L+gw*j+gw/2)+'" y="'+(H-6)+'" fill="#86a395" font-size="9" text-anchor="middle">'+k.slice(8)+'</text>';
+  ids.forEach(function(i,n){var x=days(i)[k],v=x?x.pts:0,hh=(H-T-B)*v/bm;g2+='<rect x="'+(L+gw*j+(gw-bw*ids.length)/2+bw*n)+'" y="'+(H-B-hh)+'" width="'+(bw-1)+'" height="'+hh+'" fill="'+c[i]+'" rx="2"/>'})});
+ var tot=wtot(S.uid,ws);
+ var st=ids.filter(function(i){return i!==S.uid}).sort(function(a,b){return wtot(b,ws)-wtot(a,ws)}).map(function(i){var df=tot-wtot(i,ws);
+  return'<div class="row"><span>'+plate(i)+'</span><span class="'+(df>=0?"up":"dn")+'">'+(df>0?"リード +"+f2(df)+"点":df<0?"あと "+f2(-df)+"点で逆転":"同点")+'</span></div>'}).join("");
+ var lg=ids.map(function(i){return'<span class="chip" style="border-color:'+c[i]+'">'+esc(S.users[i].name)+'</span>'}).join("");
+ return'<div class="card"><h2>STATUS(今週)</h2>'+st+'</div><div class="card"><h2>WEEKLY 累積</h2><svg viewBox="0 0 '+W+' '+H+'">'+g+'</svg></div><div class="card"><h2>DAILY 日別</h2><svg viewBox="0 0 '+W+' '+H+'">'+g2+'</svg><div class="chips" style="margin:8px 0 0">'+lg+'</div></div>'}
+var SUBJ=["英語","数学","国語","現代文","古文","漢文","物理","化学","生物","地学","日本史","世界史","地理","公民","情報","その他"],QT=["#神授業","#わかりやすい","#ハード","#神テキスト","#演習多め","#初心者向け","#共テ対策","#二次対策","#先生が面白い","#スピード感","#復習しやすい","#難しめ"];
+var CAT0={
+"数学":{
+"高等学校対応":["高等学校対応 数学Ⅰ・A－上級－(新課程)","高等学校対応 数学Ⅰ・A－標準－(新課程)","高等学校対応 数学Ⅰ・A－基礎－(新課程)","高等学校対応 数学Ⅰ・A実践演習(新課程)","高等学校対応 数学Ⅰ・A基礎演習(新課程)","高等学校対応 数学Ⅱ・B－上級－(新課程)","高等学校対応 数学Ⅱ・B－標準－(新課程)","高等学校対応 数学Ⅱ・B－基礎－(新課程)","高等学校対応 数学Ⅱ・B実践演習","高等学校対応 数学Ⅲ・C－標準－(新課程)","高等学校対応 数学Ⅲ・C－基礎－(新課程)","高等学校対応 数学Ⅲ・C実践演習","高等学校対応 数学Ⅲ・C基礎演習"],
+"その他通期講座":["東大対策数学［文理共通］―中級から上級そして超上級へ―（長岡 恭史 先生ver）","東大対策理系数学［理系上級微積分＋α］ －中級から上級そして超上級へ－（長岡 恭史 先生ver）","解答戦略講座 東大文系数学 最適なアプローチと伝わる答案で高得点をもぎとる！（青木 純二 先生ver）","解答戦略講座 東大文系数学 問題を見極めて得点を最大化する！（長岡 恭史 先生ver）","解答戦略講座 東大文系数学 問題を見極めて得点を最大化する！（青木 純二 先生ver）","解答戦略講座 東大理系数学 最適なアプローチと伝わる答案で高得点をもぎとる！（青木 純二 先生ver）","解答戦略講座 東大理系数学 問題を見極めて得点を最大化する！（長岡 恭史 先生ver）","解答戦略講座 東大理系数学 問題を見極めて得点を最大化する！（青木 純二 先生ver）","数学の真髄－基本原理追究編－文理共通 PART1／PART2（青木 純二 先生ver）","数学の真髄－基本原理追究編－理系（青木 純二 先生ver）","最上位への数学（宮嶋 俊和 先生ver）","私大医学部対策数学（寺田 英智 先生ver）","数学ぐんぐん［応用編］（長岡 恭史 先生ver）","数学ぐんぐん［基本編］（長岡 恭史 先生ver）","微積もぐんぐん［理系微積分＋α］－応用編－（長岡 恭史 先生ver）","微積もぐんぐん［理系微積分＋α］－基本編－（長岡 恭史 先生ver）","入試数学の戦術(文理共通)（吉原 修一郎 先生ver）","テーマ別数学(文理共通)（志田 晶 先生ver）","テーマ別数学(理系)（志田 晶 先生ver）","今から始める受験数学(文理共通)～テーマ別数学への準備～（志田 晶 先生ver）","今から始める受験数学(理系)～テーマ別数学への準備～（志田 晶 先生ver）","受験数学(文理共通) 難関（志田 晶 先生ver）","受験数学(文理共通) 難関（松田 聡平 先生ver）","受験数学(文理共通) 難関（寺田 英智 先生ver）","受験数学(文理共通) 応用（志田 晶 先生ver）","受験数学(文理共通) 応用（河合 正人 先生ver）","受験数学(文理共通) 応用（吉原 修一郎 先生ver）","受験数学(文理共通) 基礎（中村 悠人 先生ver）","受験数学(文理共通) 基礎（住吉 千波 先生ver）","受験数学(文理共通) 基礎（山之内 聖拡 先生ver）","受験数学(理系)難関（志田 晶 先生ver）","受験数学(理系)難関（松田 聡平 先生ver）","受験数学(理系)難関（寺田 英智 先生ver）","受験数学(理系)応用（志田 晶 先生ver）","受験数学(理系)応用（河合 正人 先生ver）","受験数学(理系)応用（吉原 修一郎 先生ver）","受験数学(理系)基礎（中村 悠人 先生ver）","受験数学(理系)基礎（住吉 千波 先生ver）","受験数学(理系)基礎（山之内 聖拡 先生ver）","大学入学共通テスト対策 数学Ⅰ・A 実力完成（志田 晶 先生ver）","大学入学共通テスト対策 数学Ⅱ・B・C 実力完成（志田 晶 先生ver）","大学入学共通テスト対策 数学Ⅰ・A 基礎力練成（寺田 英智 先生ver）","大学入学共通テスト対策 数学Ⅱ・B・C 基礎力練成（寺田 英智 先生ver）"]},
+"英語":{
+"難度別システム英語":["難度別システム英語 文法編Ⅴ（渡辺 勝彦 先生ver）","難度別システム英語 英文法Ⅳ（慎 一之 先生ver）","新 難度別システム英語 文法編Ⅲ（大岩 秀樹 先生ver）","難度別システム英語 文法編Ⅲ（渡辺 勝彦 先生ver）","新 難度別システム英語 文法編Ⅱ（安河内 哲也 先生ver）","新 難度別システム英語 文法編Ⅰ（渡辺 勝彦 先生ver）","難度別システム英語 文法編Ⅰ（大岩 秀樹 先生ver）","難度別システム英語 構文編Ⅴ（今井 宏 先生ver）","難度別システム英語 構文編Ⅳ（香川 龍志郎 先生ver）","難度別システム英語 構文編Ⅳ（慎 一之 先生ver）","難度別システム英語 構文編Ⅲ（渡辺 勝彦 先生ver）","難度別システム英語 構文編Ⅱ（慎 一之 先生ver）","難度別システム英語 総合編(長文読解中心)Ⅵ（宮崎 尊 先生ver）","難度別システム英語 総合編(長文読解中心)Ⅴ（渡辺 勝彦 先生ver）","難度別システム英語 総合編(長文読解中心)Ⅳ（今井 宏 先生ver）","難度別システム英語 総合編(長文読解中心)Ⅲ（安河内 哲也 先生ver）","新 難度別システム英語 総合編(長文読解中心)Ⅰ（慎 一之 先生ver）"],
+"特設単科":["難関国公立大英語（森田 鉄也 先生ver）","難関国立大総合英語（宮崎 尊 先生ver）","上位国公立大総合英語（今井 宏 先生ver）","上位国公立大総合英語（慎 一之 先生ver）","国公立大対策英語長文(標準編)（大岩 秀樹 先生ver）","Tetsuya Yasu-coach's Top Level English（安河内 哲也 先生ver）","安河内哲也の有名大突破！ 戦略英語解法（安河内 哲也 先生ver）","安河内哲也の基礎から偏差値アップ総合英語（安河内 哲也 先生ver）","今井宏の英語A組・上級者養成教室（今井 宏 先生ver）","今井宏の英語B組・実力アップ教室（今井 宏 先生ver）","今井宏の英語C組・基礎力完成教室（今井 宏 先生ver）","今井宏の英語D組・基礎力強化教室（今井 宏 先生ver）","今井宏の英語E組・スタートダッシュ教室（今井 宏 先生ver）","渡辺勝彦の有名難関大〈逆転合格〉へのスーパー総合英語（渡辺 勝彦 先生ver）","至高の英語（土岐田 健太 先生ver）","極める英語 読むため書くための英文法（新野 元基 先生ver）","English Literacy Mastery（駒橋 輝圭 先生ver）","クリティカル英文読解（香川 龍志郎 先生ver）","入試英語＠勝利のストラテジー（福崎 伍郎 先生ver）","福崎伍郎の基礎から究める入試英語＠勝利のストラテジー（福崎 伍郎 先生ver）","基礎力で読む理系英語長文（大岩 秀樹 先生ver）","飛翔のための英文読解講義(発展)（西 きょうじ 先生ver）","飛翔のための英文読解講義(応用)（西 きょうじ 先生ver）","飛翔のための英文読解講義(標準)（西 きょうじ 先生ver）","飛翔のための英文読解講義(基礎)（西 きょうじ 先生ver）","飛翔のための英語表現(応用編)（西 きょうじ 先生ver）","飛翔のための英語表現(必修編)（西 きょうじ 先生ver）","ダイナミック英文法講義（西 きょうじ 先生ver）","武藤一也のEnglish Champion－英語力の革命－（武藤 一也 先生ver）","武藤一也のレベルアップ英語（武藤 一也 先生ver）","英作文Ⅵ（宮崎 尊 先生ver）","英作文Ⅳ（宮崎 尊 先生ver）","構文理解から難関大の英文を読み解く（太 庸吉 先生ver）","ベースチャレンジ英語（武藤 一也 先生ver）","難関大英単語集中講義1～4（宮崎 尊 先生ver）","高等学校対応英文法"]},
+"物理":{"通期講座":["大学の物理（苑田 尚之 先生ver）","東大対策物理（苑田 尚之 先生ver）","トップレベル物理Ⅰ・Ⅱ①②（苑田 尚之 先生ver）","ハイレベル物理 力学／電磁気学／熱力学・波動（苑田 尚之 先生ver）","ハイレベル物理演習（苑田 尚之 先生ver）","医学部対策物理（高橋 法彦 先生ver）","難関物理 PART1／PART2（三宅 唯 先生ver）","難関物理演習（三宅 唯 先生ver）","難関大物理Ⅰ・Ⅱ①②（橋元 淳一郎 先生ver）","スタンダード物理 PART1／PART2（宮内 舞子 先生ver）","スタンダード物理 PART1／PART2（やまぐち 健一 先生ver）","スタンダード物理 PART1／PART2（稲垣 満 先生ver）","新スタンダード物理Ⅰ・Ⅱ①②（橋元 淳一郎 先生ver）","スタンダード物理演習(応用)（やまぐち 健一 先生ver）","スタンダード物理演習（宮内 舞子 先生ver）","新スタンダード物理Ⅰ・Ⅱ演習（橋元 淳一郎 先生ver）","新 ベーシック物理Ⅰ・Ⅱ①②（橋元 淳一郎 先生ver）","大学入学共通テスト対策 物理（三宅 唯 先生ver）","高等学校対応 理系物理の基礎（苑田 尚之 先生ver）","高等学校対応 物理基礎","高等学校対応 物理"]},
+"化学":{"通期講座":["東大対策化学（鎌田 真彰 先生ver）","難関医学部対策化学（鎌田 真彰 先生ver）","ハイレベル化学 PART1／PART2（鎌田 真彰 先生ver）","ハイレベル化学演習（鎌田 真彰 先生ver）","難関化学 PART1／PART2（樹葉 瑛士 先生ver）","難関化学演習（樹葉 瑛士 先生ver）","スタンダード化学 PART1／PART2（橋爪 健作 先生ver）","スタンダード化学 PART1／PART2（岸 良祐 先生ver）","ベーシック化学 PART1／PART2（立脇 香奈 先生ver）","上位私大対策化学演習（立脇 香奈 先生ver）","大学入学共通テスト対策 化学（橋爪 健作 先生ver）","高等学校対応 化学基礎"]},
+"現代文":{"通期講座・通年講習":["東大対策国語（林 修 先生ver／栗原 隆 先生ver／寺師 貴憲 先生ver）","京大対策国語（林 修 先生ver／栗原 隆 先生ver／寺師 貴憲 先生ver）","現代文記述・論述トレーニング（林 修 先生ver）","難関国立大対策現代文（宗 慶二 先生ver）","阪大・神大対策現代文（宗 慶二 先生ver）","関関同立大対策現代文（宗 慶二 先生ver）","私大現代文読解（宗 慶二 先生ver）","ハイレベル私大現代文トレーニング（輿水 淳一 先生ver）","現代文トレーニング（宗 慶二 先生ver）","現代文基礎トレーニング（宗 慶二 先生ver）","ハイパー現代文（板野 博行 先生ver）","スタンダード現代文（西原 利行 先生ver）","大学入学共通テスト対策 現代文（林 修 先生ver）","大学入学共通テスト対応 思考力・判断力・表現力養成講座（西原 利行 先生ver／輿水 淳一 先生ver）","現代文トレーニング＜語彙力強化／頻出テーマの攻略＞（板野 博行 先生ver）","ベースチャレンジ現代文（板野 博行 先生ver）","高2ハイレベル現代文トレーニング（林 修 先生ver）","ベーシック現代文トレーニング（永井 玲衣 先生ver）","小説読解入門（宗 慶二 先生ver）","現代文の基礎の基礎 読解力養成講座（板野 博行 先生ver）"]},
+"古文":{"通年講習":["的中パワーアップ古文(標準編) PART4（吉野 敬介 先生ver）","基礎からの的中パワーアップ古文(PART1文法編)（吉野 敬介 先生ver）","基礎からの的中パワーアップ古文(PART2読解入門編)（吉野 敬介 先生ver）","基礎からの的中パワーアップ古文(PART3読解基礎編)（吉野 敬介 先生ver）","基礎からの的中パワーアップ古文(PART4読解基礎→応用編)（吉野 敬介 先生ver）","古文スペシャル(文法編)（吉野 敬介 先生ver）","古文スペシャル(基礎編)（吉野 敬介 先生ver）","古文スペシャル(標準編)PART1（吉野 敬介 先生ver）","古文スペシャル(標準編)PART2（吉野 敬介 先生ver）","基礎からの的中パワーアップ古文(敬語中心)（吉野 敬介 先生ver）","古文常識＆文学史スペシャル（吉野 敬介 先生ver）","早大古文スペシャル（吉野 敬介 先生ver）","スーパーパワーアップ古文(国公立大編)（吉野 敬介 先生ver）","関関同立古文スペシャル（吉野 敬介 先生ver）","記述に強くなる古文ゼミ（栗原 隆 先生ver）","読解に強くなる古文ゼミ（栗原 隆 先生ver）","古典文法強化ゼミ（栗原 隆 先生ver）","古文読解基礎強化ゼミ（栗原 隆 先生ver）"]},
+"漢文":{"通年講習":["漢文基礎トレーニング(句法＆基礎知識の完成)（三羽 邦美 先生ver）","大学入学共通テスト対策 漢文（三羽 邦美 先生ver）","大学入学共通テスト対策 漢文（寺師 貴憲 先生ver）","漢文読解(上位・難関国公立大対策)（三羽 邦美 先生ver）","漢文読解(上位・難関私大対策)（三羽 邦美 先生ver）","旧帝大合格を決める漢文（寺師 貴憲 先生ver）","基礎から学ぶ漢文（寺師 貴憲 先生ver）","基礎から学ぶ漢文(読解中心編)（寺師 貴憲 先生ver）"]},
+"世界史":{"通期講座・通年講習":["東大対策世界史～東大完全攻略法～（斎藤 整 先生ver）","京大対策世界史Ⅰ 東洋史編（斎藤 整 先生ver）","京大対策世界史Ⅱ 西洋史編（斎藤 整 先生ver）","世界史記述問題演習Ⅰ（荒巻 豊志 先生ver）","世界史記述問題演習Ⅱ（荒巻 豊志 先生ver）","一橋大対策世界史Ⅰ アジア史編（荒巻 豊志 先生ver）","一橋大対策世界史Ⅱ 欧米史編（荒巻 豊志 先生ver）","ハイレベル世界史Ⅰ〔東洋史①〕世界の古代文明（斎藤 整 先生ver）","ハイレベル世界史Ⅱ〔東洋史②〕イスラームの成立と拡大（斎藤 整 先生ver）","ハイレベル世界史Ⅲ〔東洋史③〕中国史(1) 秦～元（斎藤 整 先生ver）","ハイレベル世界史Ⅳ〔東洋史④〕中国史(2) 明～列強の中国分割（斎藤 整 先生ver）","ハイレベル世界史Ⅴ〔西洋史①〕古代～中世ヨーロッパ（斎藤 整 先生ver）","ハイレベル世界史Ⅵ〔西洋史②〕中世～近代ヨーロッパ（斎藤 整 先生ver）","ハイレベル世界史Ⅶ〔西洋史③〕18～19世紀の欧米（斎藤 整 先生ver）","ハイレベル世界史Ⅷ〔西洋史④〕帝国主義と第一次世界大戦（斎藤 整 先生ver）","ハイレベル世界史Ⅸ〔近現代史①〕戦間期と第二次世界大戦（斎藤 整 先生ver）","ハイレベル世界史Ⅹ〔近現代史②〕現代の世界（斎藤 整 先生ver）","ハイレベル世界史〔テーマ史・地域史〕（斎藤 整 先生ver）","ハイレベル世界史〔文化史〕（斎藤 整 先生ver）","スタンダード世界史Ⅰ 文明の誕生（荒巻 豊志 先生ver）","スタンダード世界史Ⅱ ヨーロッパ文明の源流（荒巻 豊志 先生ver）","スタンダード世界史Ⅲ 東アジア世界の形成（荒巻 豊志 先生ver）","スタンダード世界史Ⅳ イスラーム世界の成立と発展（荒巻 豊志 先生ver）","スタンダード世界史Ⅴ ヨーロッパの拡大（荒巻 豊志 先生ver）","スタンダード世界史Ⅵ 近世帝国の時代（荒巻 豊志 先生ver）","スタンダード世界史Ⅶ 絶対主義の終わりと国民国家の形成（荒巻 豊志 先生ver）","スタンダード世界史Ⅷ 大分岐の時代（荒巻 豊志 先生ver）","スタンダード世界史Ⅸ 帝国主義の時代（荒巻 豊志 先生ver）","スタンダード世界史Ⅹ ふたつの世界大戦～ヨーロッパの没落～（荒巻 豊志 先生ver）","スタンダード世界史Ⅺ ふたつの世界大戦～苦悩のアジア～（荒巻 豊志 先生ver）","スタンダード世界史Ⅻ 20世紀後半の世界（荒巻 豊志 先生ver）","スタンダード世界史Ⅰ オリエントと地中海世界（加藤 和樹 先生ver）","スタンダード世界史Ⅱ ヨーロッパ世界の形成（加藤 和樹 先生ver）","スタンダード世界史Ⅲ アジア世界の形成（加藤 和樹 先生ver）","スタンダード世界史Ⅳ イスラーム世界・近世ヨーロッパ世界の形成（加藤 和樹 先生ver）","スタンダード世界史Ⅴ 近世ヨーロッパ世界（加藤 和樹 先生ver）","スタンダード世界史Ⅵ 欧米における近代国民国家の形成（加藤 和樹 先生ver）","スタンダード世界史Ⅶ 二つの世界大戦（加藤 和樹 先生ver）","スタンダード世界史Ⅷ 世界分割とアジアの民族運動（加藤 和樹 先生ver）","スタンダード世界史Ⅸ 近代の東アジア世界（加藤 和樹 先生ver）","スタンダード世界史Ⅹ 第二次世界大戦後の世界（加藤 和樹 先生ver）","スタンダード世界史Ⅺ 西洋文化史・テーマ史（加藤 和樹 先生ver）","スタンダード世界史Ⅻ 東洋文化史・テーマ史（加藤 和樹 先生ver）","スタンダード世界史探究 西洋文化史・テーマ史編（加藤 和樹 先生ver）","スタンダード世界史探究 東洋文化史・テーマ史編（加藤 和樹 先生ver）"]},
+"日本史":{"通期講座":["東大日本史 古代～近世編／近代・文化編（野島 博之 先生ver）","テーマ別論述日本史（井之上 勇 先生ver）","早慶大対策日本史（金谷 俊一郎 先生ver）","難関私大日本史演習（金谷 俊一郎 先生ver）","難関日本史Ⅰ～Ⅳ 古代・中世・近世編／Ⅴ～Ⅷ 近代・現代編（山中 裕典 先生ver）","ハイレベル日本史B①②（井之上 勇 先生ver）","スタンダード日本史B PART1／PART2（金谷 俊一郎 先生ver）","大学入学共通テスト対策 日本史（金谷 俊一郎 先生ver）","ベーシック日本史（金谷 俊一郎 先生ver）"]},
+"地理":{"通期講座":["東大対策地理（村瀬 哲史 先生ver）","ハイレベル地理B演習（山岡 信幸 先生ver）","地理B PART1／PART2（山岡 信幸 先生ver）","大学入学共通テスト対策 地理(系統地理編)（村瀬 哲史 先生ver）","ベーシック地理（山岡 信幸 先生ver）"]},
+"公民":{"通期講座・通年講習":["政治・経済 政治編／経済編（清水 雅博 先生ver）","政治経済演習（清水 雅博 先生ver）","大学入学共通テスト対策 倫理，政治・経済（清水 雅博 先生ver）","大学入学共通テスト対策 現代社会（執行 康弘 先生ver）","大学入学共通テスト対策 政治・経済（清水 雅博 先生ver）","大学入学共通テスト対策 倫理（清水 雅博 先生ver）"]}};
+var CAT=[];Object.keys(CAT0).forEach(function(s){Object.keys(CAT0[s]).forEach(function(g){CAT0[s][g].forEach(function(n){CAT.push({s:s,g:g,n:n})})})});
+function catList(){var R={};S.rv.forEach(function(r){var x=R[r.course]=R[r.course]||{n:0,s:0};x.n++;x.s+=r.star});
+ var q=(S.cq||"").toLowerCase(),l=[];CAT.forEach(function(c,i){if((!S.cs||S.cs==="全て"||c.s===S.cs)&&(!q||c.n.toLowerCase().indexOf(q)>=0))l.push(i)});
+ var h=l.slice(0,40).map(function(i){var c=CAT[i],x=R[c.n];return'<div class="row"><span style="min-width:0;overflow-wrap:anywhere">'+esc(c.n)+'<small class="mu" style="display:block">'+esc(c.s)+' ・ '+esc(c.g)+'</small></span><span style="text-align:right;white-space:nowrap">'+(x?'<span class="star">★</span> <b>'+(x.s/x.n).toFixed(1)+'</b> <span class="mu">('+x.n+'件)</span><br>':'')+'<button class="s" data-a="rcs" data-v="'+i+'">レビュー</button></span></div>'}).join("");
+ return'<div class="mu" style="margin:0 0 6px">'+l.length+'講座'+(l.length>40?'(先頭40件を表示。講師名や講座名で絞り込めます)':'')+'</div>'+(h||'<p class="mu">該当する講座がありません</p>')}
+function catV(){return'<div class="card"><h2>COURSES 講座一覧</h2><input id="cq" placeholder="講座名・講師名で検索" value="'+esc(S.cq||"")+'"><div class="chips">'+["全て","数学","英語","物理","化学","現代文","古文","漢文","世界史","日本史","地理","公民"].map(function(s){return'<span class="chip'+((S.cs||"全て")===s?" on":"")+'" data-a="cs" data-v="'+s+'">'+s+'</span>'}).join("")+'</div><div id="cl">'+catList()+'</div></div>'}
+function topV(){var C={},T={};S.rv.forEach(function(r){var c=C[r.course]=C[r.course]||{n:0,s:0,subj:r.subj};c.n++;c.s+=r.star;(r.tags||[]).forEach(function(t){T[t]=(T[t]||0)+1})});
+ var cs=Object.keys(C).map(function(k){return{k:k,n:C[k].n,a:C[k].s/C[k].n,subj:C[k].subj}}).sort(function(a,b){return b.a-a.a||b.n-a.n}).slice(0,5),ts=Object.keys(T).sort(function(a,b){return T[b]-T[a]}).slice(0,10);
+ return'<div class="card"><h2>RANKING 高評価の講座</h2>'+(cs.length?cs.map(function(c,i){return'<div class="row"><span>'+(i+1)+'. '+esc(c.k)+' <span class="mu">'+esc(c.subj)+'</span></span><span><span class="star">★</span> <b>'+c.a.toFixed(1)+'</b> <span class="mu">('+c.n+'件)</span></span></div>'}).join(""):'<p class="mu">レビューが集まるとここに講座ランキングが出ます</p>')+'</div>'+
+ '<div class="card"><h2>TOPICS 人気タグ</h2><div class="chips">'+(ts.length?ts.map(function(t){return'<span class="chip'+(S.tag===t?" on":"")+'" data-a="tag" data-v="'+esc(t)+'">'+esc(t)+' '+T[t]+'</span>'}).join(""):'<span class="mu">まだタグがありません</span>')+'</div><div class="chips" style="margin-bottom:0"><span class="mu">並び替え:</span><span class="chip'+(S.sort!=="hi"?" on":"")+'" data-a="sort" data-v="new">新着順</span><span class="chip'+(S.sort==="hi"?" on":"")+'" data-a="sort" data-v="hi">高評価順</span></div></div>'}
+function rvList(){var q=S.q.toLowerCase(),l=S.rv.filter(function(r){return(S.flt==="全て"||r.subj===S.flt)&&(!S.tag||(r.tags||[]).indexOf(S.tag)>=0)&&(!q||(r.course+" "+(r.tags||[]).join(" ")+" "+r.text).toLowerCase().indexOf(q)>=0)}).sort(function(a,b){return S.sort==="hi"?b.star-a.star||b.at-a.at:b.at-a.at});
+ return l.length?l.map(function(r){return'<div class="card"><b>'+esc(r.course)+'</b> <span class="mu">'+esc(r.subj)+'</span><div class="star">'+"★".repeat(r.star)+"☆".repeat(5-r.star)+'</div><div class="chips">'+(r.tags||[]).map(function(t){return'<span class="chip">'+esc(t)+'</span>'}).join("")+'</div><div>'+esc(r.text)+'</div><div style="margin-top:6px;display:flex;justify-content:space-between;align-items:center;gap:8px">'+plate(r.uid)+(r.uid===S.uid?'<button class="s" data-a="rdel" data-v="'+esc(r.id)+'">削除</button>':'')+'</div></div>'}).join(""):'<p class="mu">該当するレビューがありません</p>'}
+var RC={N:"#8a99a8",R:"#22e08f",SR:"#38bdf8",SSR:"#fbbf24"},RAR=[["N",40],["R",26],["SR",16],["SSR",8]];
+var ZP="見習い,駆け出し,新米,夜更かし,早起き,朝活,昼寝,居残り,放課後,自習室,通学,登校,休憩,集中,勤勉,地道,堅実,素朴,無口,几帳面,寡黙,慎重,平凡,普通の,静かな,眠たげな,腹ペコ,寝坊,参考書,蛍光ペン,消しゴム,付箋,ノート,鉛筆,計算,暗記,音読,板書,予習,復習,努力の,粘り強い,不屈の,熟練,孤高の,疾風の,鉄壁の,冷静な,精密な,論理の,閃きの,鋼鉄の,深夜の,暁の,白銀の,蒼き,紅の,翠の,双翼の,無双の,連勝の,満点への,合格圏の,偏差値,校舎の,講義室の,神速の,絶対の,覚醒せし,超越者,理を識る,零の,極限の,次元を超えた,星を継ぐ,雷鳴の,終焉の,黎明の,蒼炎の,氷結の,王道の,孤独な,全知の,創世の,永劫の,無限の,神域の,銀河の,時を超えし,究極の".split(",");
+var ZS="闘士,学徒,書生,受験生,生徒,候補生,志望者,挑戦者,旅人,見習,修行僧,勉強家,努力家,秀才,凡人,夜型,朝型,居眠り,暗記係,計算係,書記,司書,助手,隊員,兵士,戦士,剣士,弓兵,探索者,観測者,記録係,当番,班長,委員,部員,常連,新人,新入生,通学路,自習生,騎士,魔導士,錬金術師,剣豪,賢者見習,狩人,守護者,斥候,隊長,軍師,参謀,策士,職人,匠,達人,猛者,勇者,求道者,開拓者,調律者,解読者,演算者,管理者,巡礼者,番人,旅団長,賢者,魔王,覇者,覚醒者,支配者,超越者,守護神,破壊者,創造者,審判者,預言者,英雄,王,帝,修羅,仙人,神,創世神,絶対王者,全知者,無限の王,星の王,時の支配者,終焉の主".split(",");
+function mkp(k,ws){return ws.map(function(w,i){var n=i,r="N";for(var j=0;j<RAR.length;j++){if(n<RAR[j][1]){r=RAR[j][0];break}n-=RAR[j][1]}return{id:k+"_"+String(i+1).padStart(3,"0"),w:w,r:r}})}
+var PRE=mkp("p",ZP),SUF=mkp("s",ZS),PALL=PRE.concat(SUF);
+var DUPR={N:1,R:3,SR:10,SSR:50},RATE={normal:[["N",70],["R",25],["SR",5]],rare:[["R",80],["SR",17],["SSR",3]]};
+function pk(a){return a[Math.floor(Math.random()*a.length)]}
+function rl(t){var x=Math.random()*100;for(var i=0;i<t.length;i++){if(x<t[i][1])return t[i][0];x-=t[i][1]}return t[0][0]}
+function coins(){var m=me();return m&&m.g?Math.round(stats(S.uid).tot*100)+m.g.rf-m.g.sp:0}
+function streakD(){var m=me();return m&&m.g&&m.g.st?m.g.st.d:1}
+var dly=0;
+async function daily(){var m=me();if(!m||!m.gr||dly)return;dly=1;var ch=false,t=dk(new Date());
+ if(!m.g){m.g={sp:0,rf:0,tk:{n:3,r:1},sh:0,up:["p_001","s_001"],eq:{p:"見習い",s:"闘士"},fo:[],st:{d:1,m:1,l:""}};ch=true}
+ var st=m.g.st;if(st.l!==t){if(st.l){var gap=Math.round((kd(t)-kd(st.l))/864e5);if(gap===1)st.d++;else if(gap>1){if(m.g.sh>0){m.g.sh--;st.d++}else st.d=1}}else st.d=1;st.m=Math.max(st.m,st.d);st.l=t;ch=true}
+ if(ch){try{await saveMe()}catch(e){}}}
+async function doDraw(kind,pay){if(S.gfx)return;var m=me(),g=m.g,need=kind==="normal"?10:150,tk=kind==="normal"?"n":"r";
+ if(pay==="t"&&g.tk[tk]<1){S.gmsg="チケットが足りません";render();return}
+ if(pay==="p"&&coins()<need){S.gmsg="コインが足りません";render();return}
+ var r=rl(RATE[kind]),it=pk(PALL.filter(function(x){return x.r===r})),neo=g.up.indexOf(it.id)<0;
+ if(pay==="t")g.tk[tk]--;else g.sp+=need;if(neo)g.up.push(it.id);else g.rf+=DUPR[r];
+ S.gres=null;S.gmsg="";S.gfx={it:it,neo:neo,ph:0,cf:r==="SSR"&&Math.random()<0.1};render();var rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,fin=function(){(S.gt||[]).forEach(clearTimeout);S.gres={it:it,neo:neo};S.gfx=null;render()};S.gfxFin=fin;S.gt=[setTimeout(function(){if(S.gfx){S.gfx.ph=1;render()}},rm?300:1000),setTimeout(fin,rm?700:2000)];await saveMe()}
+async function doBuy(k,pr){var m=me(),g=m.g;if(coins()<pr){S.gmsg="コインが足りません";render();return}
+ if(k==="shop"&&g.fo.indexOf("shop")>=0){S.gmsg="購入済みです";render();return}
+ g.sp+=pr;if(k==="n")g.tk.n++;if(k==="sh")g.sh++;if(k==="r")g.tk.r++;if(k==="shop")g.fo.push("shop");S.gmsg="購入しました";render();await saveMe()}
+async function doCset(id){var m=me(),x=PALL.filter(function(y){return y.id===id})[0];if(!x||m.g.up.indexOf(id)<0)return;m.g.eq[id[0]]=x.w;m.title="custom";render();await saveMe()}
+async function doCrnd(){var m=me(),P=PRE.filter(function(x){return m.g.up.indexOf(x.id)>=0}),Q=SUF.filter(function(x){return m.g.up.indexOf(x.id)>=0});m.g.eq={p:pk(P).w,s:pk(Q).w};m.title="custom";render();await saveMe()}
+function cplate(u){var e=u.g.eq,p=PRE.filter(function(x){return x.w===e.p})[0],s=SUF.filter(function(x){return x.w===e.s})[0],ssr=p&&s&&p.r==="SSR"&&s.r==="SSR";
+ return'<span class="plate" style="'+(ssr?'border:2px solid transparent;background:linear-gradient(#0a0f0d,#0a0f0d) padding-box,linear-gradient(90deg,#22e6ff,#ff3df2) border-box':'background:#0a0f0d;box-shadow:0 0 0 1px #2a3a33')+'"><i style="background:none"><span style="color:'+(p?RC[p.r]:"#ccc")+'">'+esc(e.p)+'</span> <span style="color:'+(s?RC[s.r]:"#ccc")+'">'+esc(e.s)+'</span></i><b>'+esc(u.name)+'</b></span>'}
+function gfxV(){var f=S.gfx,it=f.it,c=RC[it.r],ph=f.ph;
+ return'<div class="gfx" data-a="skip" style="--oc:'+((ph||f.cf)?c:"#7dd3fc")+'">'+(ph?'<div class="flash"></div><div class="stage"><div class="ring"></div><div class="ring" style="animation-delay:.15s"></div><div class="orb burst'+(it.r==="SSR"?" ssr":"")+'"></div></div><div class="rt" style="color:'+c+'">'+it.r+'</div>':(f.cf?'<div class="cfx"></div><div class="stage"><div class="orb ssr"></div></div><div class="cft">SSR 確定!!</div>':'<div class="stage"><div class="orb"></div></div><div class="mu">ガチャ中…</div>'))+'<div class="mu" style="position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));font-size:11px">タップでスキップ</div></div>'}
+function gachaTab(){var m=me();if(!m||!m.g)return'<div class="card"><p class="mu">準備中…</p></div>';var g=m.g;
+ var h=(S.gfx?gfxV():'')+'<div class="card" style="display:flex;justify-content:space-between;gap:8px"><span>所持コイン <b class="up">'+coins().toLocaleString()+'</b></span><span>R確定チケ <b class="up">'+g.tk.r+'枚</b></span></div><div class="chips"><span class="chip'+(S.gs!=="s"?" on":"")+'" data-a="gs" data-v="g">ガチャ</span><span class="chip'+(S.gs==="s"?" on":"")+'" data-a="gs" data-v="s">交換所</span></div>'+(S.gmsg?'<div style="color:#fbbf24;margin-bottom:8px;font-size:13px">'+esc(S.gmsg)+'</div>':'');
+ if(S.gs==="s"){return h+[["n","通常ガチャチケット",10],["sh","連続ログイン保護シールド",100],["r","R確定ガチャチケット",150],["shop","ショップ限定称号（動く背景つき）",10000]].map(function(x){var own=x[0]==="shop"&&g.fo.indexOf("shop")>=0;return'<div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div style="min-width:0">'+esc(x[1])+'<div class="mu">'+x[2].toLocaleString()+' コイン'+(x[0]==="sh"?'（所持 '+g.sh+'）':'')+'</div></div><button class="s" data-a="buy" data-v="'+x[0]+'" data-p="'+x[2]+'">'+(own?"購入済":"購入")+'</button></div>'}).join("")}
+ h+=[["normal","通常ガチャ","N / R / SR","10 コイン またはチケット1枚","n",10],["rare","R以上確定ガチャ","R / SR / SSR","150 コイン またはチケット1枚","r",150]].map(function(x){return'<div class="card"><h2>'+x[1]+'</h2><div class="mu" style="margin-bottom:8px">'+x[2]+' ・ '+x[3]+'<br>排出率 '+RATE[x[0]].map(function(a){return a[0]+" "+a[1]+"%"}).join(" / ")+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="s" data-a="draw" data-v="'+x[0]+'|t">チケット ('+g.tk[x[4]]+')</button><button class="s" data-a="draw" data-v="'+x[0]+'|p">'+x[5]+' コイン</button></div></div>'}).join("");
+ if(S.gres){var it=S.gres.it;h+='<div class="card pop" style="border-color:'+RC[it.r]+'"><h2>RESULT</h2><div style="font-size:24px;color:'+RC[it.r]+';margin:6px 0">'+it.r+' '+esc(it.w)+'</div><div class="mu">'+(it.id[0]==="p"?"前半パーツ":"後半パーツ")+' ・ '+(S.gres.neo?"NEW":"重複 +"+DUPR[it.r]+" コイン")+'</div></div>'}
+ return h}
+function customV(){var m=me(),g=m.g;if(!g)return'<div class="card"><p class="mu">準備中…</p></div>';
+ var sd=S.cside==="s"?"s":"p",own=function(x){return g.up.indexOf(x.id)>=0},L=(sd==="s"?SUF:PRE).filter(function(x){return!S.crf||S.crf==="ALL"||x.r===S.crf}),cn=function(a){return a.filter(own).length};
+ return'<div class="card"><h2>EQUIPPED</h2>'+plate(S.uid)+'<div class="mu" style="margin-top:6px">SSR × SSR の組み合わせで、ネオンの2色枠がつきます</div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px"><span class="mu">所持率 <b style="color:var(--tx)">'+cn(PALL)+'/'+PALL.length+'</b>（前半 '+cn(PRE)+'/'+PRE.length+'・後半 '+cn(SUF)+'/'+SUF.length+'）</span><button class="s" data-a="crnd">🎲 ランダム</button></div>'+
+ '<div class="chips"><span class="chip'+(sd==="p"?" on":"")+'" data-a="cside" data-v="p">前半パーツ</span><span class="chip'+(sd==="s"?" on":"")+'" data-a="cside" data-v="s">後半パーツ</span></div><div class="chips">'+["ALL","SSR","SR","R","N"].map(function(r){return'<span class="chip'+((S.crf||"ALL")===r?" on":"")+'" data-a="crf" data-v="'+r+'">'+r+'</span>'}).join("")+'</div>'+
+ '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">'+L.map(function(x){var o=own(x),on=m.title==="custom"&&g.eq[sd]===x.w;return'<button class="cp" '+(o?'data-a="cset" data-v="'+x.id+'"':'disabled')+' style="border-color:'+(on?RC[x.r]:"var(--bd)")+';color:'+(o?RC[x.r]:"#4d6358")+'">'+(o?esc(x.w):'🔒 ■■■■')+'<div style="font-size:9px;color:#4d6358">'+x.r+'</div></button>'}).join("")+'</div></div>'}
+function titleTab(){return'<div class="chips"><span class="chip'+(S.ts!=="c"?" on":"")+'" data-a="ts" data-v="a">実績称号</span><span class="chip'+(S.ts==="c"?" on":"")+'" data-a="ts" data-v="c">カスタム称号</span></div>'+(S.ts==="c"?customV():titleV2())}
+var MVB="0 0/300% 100%;animation:bgmove 6s linear infinite";
+[[7,"七日の継続者","background:linear-gradient(90deg,#14532d,#22c55e)"],[30,"三十日の習慣者","background:linear-gradient(90deg,#065f46,#2dd4bf)"],[100,"百日の不退転","background:linear-gradient(90deg,#1e3a8a,#38bdf8)"],[365,"一年の守護者","background:linear-gradient(90deg,#22e08f,#38bdf8,#22e08f) "+MVB+";color:#001a10"]].forEach(function(x){TT.push(["k"+x[0],x[1],"連続ログイン"+x[0]+"日で解放"+(x[0]===365?"（動く背景）":""),x[2],"ログイン"])});
+TT.push(["fshop","金庫を空にせし者","ショップで10,000コインで購入（動く背景）","background:linear-gradient(90deg,#fbbf24,#a855f7,#22e6ff,#fbbf24) "+MVB+";color:#fff;text-shadow:0 1px 2px #000","ショップ"]);
+function contactV(){var h='<div class="card"><h2>CONTACT お問い合わせ</h2><p class="mu">不具合・要望・講座データの間違いなどを送れます。メールアドレスや本名は書かないでください。個別の返信はできない場合があります。</p><select id="cc"><option>不具合</option><option>要望</option><option>講座データの間違い</option><option>点数の修正依頼</option><option>その他</option></select><textarea id="ct" rows="5" maxlength="500" placeholder="内容(500文字まで)"></textarea><button data-a="send">送信する</button><div id="cmsg" style="margin-top:8px;font-size:13px"></div></div>';
+ if(S.admin){var l=(S.ct||[]).slice().sort(function(a,b){return b.at-a.at});
+  h+='<div class="card"><h2>INBOX(管理者のみ)</h2>'+(l.length?l.map(function(c){return'<div class="row" style="align-items:flex-start"><span style="min-width:0;overflow-wrap:anywhere"><span class="chip on">'+esc(c.cat)+'</span> <span class="mu">'+new Date(c.at).toLocaleString("ja-JP")+'</span><div style="margin:4px 0">'+esc(c.text)+'</div>'+plate(c.uid)+'</span><button class="s" data-a="cdel" data-v="'+esc(c.id)+'">削除</button></div>'}).join(""):'<p class="mu">まだ届いていません</p>')+'</div>'}
+ return h}
+function rvV(){return topV()+catV()+'<div class="card"><h2>REVIEW</h2><input id="q" placeholder="講座名・タグで検索" value="'+esc(S.q)+'"><div class="chips">'+["全て"].concat(SUBJ).map(function(s){return'<span class="chip'+(S.flt===s?" on":"")+'" data-a="flt" data-v="'+s+'">'+s+'</span>'}).join("")+'</div></div>'+
+ '<details class="card" id="rf"><summary><b>＋ レビューを投稿</b></summary><div style="margin-top:10px"><input id="rc" maxlength="120" list="cdl" placeholder="講座名(候補から選べます)"><datalist id="cdl">'+CAT.map(function(c){return'<option value="'+esc(c.n)+'">'}).join("")+'</datalist><select id="rs">'+SUBJ.map(function(s){return'<option>'+s+'</option>'}).join("")+'</select><div id="stars">'+stars()+'</div><div class="chips">'+QT.map(function(t){return'<span class="chip" data-a="qt" data-v="'+t+'">'+t+'</span>'}).join("")+'</div><input id="rt" maxlength="60" placeholder="タグ(例 #神授業 #わかりやすい)"><textarea id="rx" rows="3" maxlength="300" placeholder="感想・おすすめポイント"></textarea><button data-a="post">投稿する</button><div id="msg"></div></div></details><div id="rvlist">'+rvList()+'</div>'}
+function stars(){var s="";for(var i=1;i<=5;i++)s+='<span class="st'+(i<=S.star?" on":"")+'" data-a="star" data-v="'+i+'">★</span>';return s}
+function titleV(){var m=me(),u=m.unlocked||{};return'<div class="card"><h2>EQUIPPED</h2>'+plate(S.uid)+'<p class="mu">条件を達成すると自動で解放されます。装備するとネームプレートの背景が変わります。</p></div><div class="tl">'+TT.map(function(t){var o=u[t[0]];return'<div class="tc'+(o?"":" lk")+'"><span class="plate" style="'+t[3]+'"><i>'+(o?"解放":"未解放")+'</i><b>'+(o?esc(t[1]):"？？？")+'</b></span><div class="mu" style="margin:6px 0">'+esc(t[2])+'</div>'+(o?(m.title===t[0]?'<button class="s" data-a="eq" data-v="">外す</button>':'<button class="s" data-a="eq" data-v="'+t[0]+'">装備する</button>'):'')+'</div>'}).join("")+'</div>'}
+
+function battleV(){var m=me();if(m.bg==null)return'<div class="card"><p class="mu">バトルに参加登録中…</p></div>';
+ var ws=wst(new Date()),we=addD(ws,6),ids=Object.keys(S.users).filter(function(i){return S.users[i].bg===m.bg});
+ var rows=ids.map(function(i){return{i:i,t:wtot(i,ws)}}).sort(function(a,b){return b.t-a.t||(a.i<b.i?-1:1)});
+ var rk=rows.map(function(r){return r.i}).indexOf(S.uid),top=rows[0].t,mx=Math.max(top,1),mt=rows[rk].t;
+ var st=rk===0?(rows.length>1?'<b class="up">1位!2位との差 +'+f2(mt-rows[1].t)+'点</b>':'<b class="up">1位</b>'):'<b>'+(rk+1)+'位</b> ・ 1位まであと <b class="dn">'+f2(top-mt)+'点</b>';
+ return'<div class="card"><h2>BATTLE #'+m.bg+'</h2><div class="big" style="font-size:34px">'+(rk+1)+'<span class="mu" style="font-size:14px"> 位 / '+rows.length+'人</span></div><div style="margin-top:6px">'+st+'</div><div class="mu">今週('+(ws.getMonth()+1)+'/'+ws.getDate()+'〜'+(we.getMonth()+1)+'/'+we.getDate()+')の向上得点の合計で競います</div></div>'+
+ '<div class="card"><h2>RANKING</h2>'+rows.map(function(r,n){var me2=r.i===S.uid;return'<div class="row" style="'+(me2?'background:rgba(34,224,143,.08);border-radius:8px;padding:8px':'')+'"><span style="width:28px;font:700 16px ui-monospace,monospace;color:'+(n<3?'var(--g)':'var(--mu)')+'">'+(['🥇','🥈','🥉'][n]||(n+1))+'</span><span style="flex:1;min-width:0">'+plate(r.i)+'<div style="height:4px;border-radius:2px;background:var(--p2);margin-top:5px"><div style="height:4px;border-radius:2px;background:var(--g);width:'+(r.t/mx*100)+'%"></div></div></span><b>'+f2(r.t)+'</b></div>'}).join("")+'</div>'+
+ '<p class="mu">バトルはリンクを知っている全員が対象で、1バトル最大20人です。人数が増えたら新しいバトルに振り分けられます。</p>'}
+function render(){var a=document.activeElement;if((S.tab==="contact"||S.tab==="home"||S.tab==="admin")&&a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName))return;
+ if(S.tab==="rv"&&a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&$("#rvlist")){$("#rvlist").innerHTML=rvList();return}
+ var app=$("#app"),nav=$("#nav");var wh=$("#who");if(wh)wh.innerHTML=(S.uid&&me()&&me().gr)?plate(S.uid):"";
+ if(!S.uid){app.innerHTML='<p class="mu">サインインが必要です。</p>';return}
+ if(!me()||!me().gr||S.tab==="login"){nav.hidden=true;app.innerHTML=loginV();return}
+ nav.hidden=false;nav.innerHTML=[["home","ホーム"],["rival","ライバル"],["rv","講座"],["gacha","ガチャ"],["title","称号"],["contact","問合せ"]].concat(S.admin?[["admin","管理"]]:[]).map(function(t){return'<button data-a="tab" data-v="'+t[0]+'" class="'+(S.tab===t[0]?"on":"")+'">'+t[1]+'</button>'}).join("");
+ app.innerHTML=S.tab==="home"?homeV():S.tab==="rival"?rivalV():S.tab==="rv"?rvV():S.tab==="gacha"?gachaTab():S.tab==="contact"?contactV():S.tab==="admin"&&S.admin?adminV():titleTab()}
+
+/* ---------- logic ---------- */
+async function sha(s){var h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(h)).slice(0,8).map(function(x){return pad(x.toString(16))}).join("")}
+function saveMe(){var m=me();return db.collection("users").doc(S.uid).set(m)}
+function unlock(ids,m){var got=[];ids.forEach(function(id){if(!m.unlocked[id]){m.unlocked[id]=Date.now();got.push(tt(id)[1])}});return got}
+function adminV(){var us=Object.keys(S.users).filter(function(i){return S.users[i].gr}).sort(function(a,b){return(S.users[a].name||"")<(S.users[b].name||"")?-1:1}),sel=S.au&&S.users[S.au]?S.au:"";
+ var h='<div class="card"><h2>ADMIN 点数の修正</h2><p class="mu">管理者だけが、ユーザーの点数を修正・追加・削除できます。一般ユーザーは、登録後の点数を変更できません。</p><select id="au"><option value="">ユーザーを選ぶ</option>'+us.map(function(i){return'<option value="'+esc(i)+'"'+(i===sel?" selected":"")+'>'+esc(S.users[i].name)+'('+esc(S.users[i].gr)+')</option>'}).join("")+'</select>';
+ if(sel){var D=days(sel),ks=Object.keys(D).sort().reverse().slice(0,31);
+  h+=(ks.length?ks.map(function(k){return'<div class="row"><span>'+k.slice(5).replace("-","/")+'</span><span style="display:flex;gap:6px;align-items:center"><input class="ad" data-k="'+k+'" type="number" step="0.01" min="0" max="500" value="'+D[k].pts+'" style="width:90px;margin:0"><button class="s" data-a="asave" data-v="'+k+'">保存</button><button class="s" data-a="adel" data-v="'+k+'">削除</button>'+(D[k].img?'<button class="s" data-a="proof" data-v="'+esc(sel)+'|'+k+'">📷</button>':'')+'</span></div>'}).join(""):'<p class="mu">記録がありません</p>')+
+  '<div class="row" style="margin-top:8px"><input id="adk" type="date" style="margin:0;width:150px"><input id="adp" type="number" step="0.01" min="0" max="500" placeholder="得点" style="margin:0;width:90px"><button class="s" data-a="aadd">追加</button></div>'}
+ return h+'<div id="msg">'+(S.hm||"")+'</div></div>'}
+async function adminPut(doc,msg){await db.collection("scores").doc(S.au).set(doc);toast('<span class="up">'+esc(msg)+'</span>')}
+async function adminSave(k){if(!S.admin||!S.au)return;var el=document.querySelector('.ad[data-k="'+k+'"]'),v=parseFloat(el&&el.value);
+ if(!isFinite(v)||v<0||v>500){toast('<span class="dn">0〜500の数字で入れてください</span>');return}
+ var doc={days:Object.assign({},days(S.au))};doc.days[k]=Object.assign({},doc.days[k]||{},{pts:Math.round(v*100)/100,adm:1});
+ await adminPut(doc,k+" を "+f2(v)+" 点に修正しました")}
+async function adminDel(k){if(!S.admin||!S.au)return;if(!confirm(k+" の記録を削除しますか?"))return;
+ var doc={days:Object.assign({},days(S.au))};delete doc.days[k];await adminPut(doc,k+" の記録を削除しました")}
+async function adminAdd(){if(!S.admin||!S.au)return;var k=($("#adk")||{}).value,v=parseFloat(($("#adp")||{}).value);
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(k||"")||!isFinite(v)||v<0||v>500){toast('<span class="dn">日付と、0〜500の得点を入れてください</span>');return}
+ var doc={days:Object.assign({},days(S.au))};doc.days[k]={pts:Math.round(v*100)/100,mins:720,upd:k.slice(5).replace("-","/")+" 12:00",period:"",n:1,d:null,adm:1};
+ await adminPut(doc,k+" の得点を追加しました")}
+var tessP=null;
+function loadTess(){if(window.Tesseract)return Promise.resolve();if(!tessP)tessP=new Promise(function(res,rej){var el=document.createElement("script");el.src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js";el.onload=res;el.onerror=function(){tessP=null;rej(new Error("読み取りエンジンを読み込めませんでした"))};document.head.appendChild(el)});return tessP}
+function parseOcr(t){var c=[],seen={},re=/(?<![\d.,])(\d{1,3})[.,](\d{2})(?!\d)/g,m;
+ while((m=re.exec(t))){var v=parseFloat(m[1]+"."+m[2]);if(v<=500&&!seen[v]){seen[v]=1;c.push(v)}}
+ var dm=/(\d{1,2})\s*[\/月]\s*(\d{1,2})\D{0,4}(\d{1,2})\s*[:：]\s*(\d{2})/.exec(t);
+ return{c:c,dt:dm?{mo:+dm[1],d:+dm[2],h:+dm[3],mi:+dm[4]}:null}}
+async function runOcr(file){var tok=S.otok=(S.otok||0)+1;S.ocr={st:"run"};render();
+ try{await loadTess();var r=await window.Tesseract.recognize(file,"eng"),p=parseOcr((r&&r.data&&r.data.text)||"");
+  if(tok!==S.otok)return;S.ocr={st:"done",c:p.c.slice(0,8),dt:p.dt};if(p.c.length===1&&!S.pt)S.pt=String(p.c[0])}
+ catch(e){if(tok!==S.otok)return;S.ocr={st:"err"}}
+ render()}
+function ocrV(){var o=S.ocr;if(!o)return"";
+ if(o.st==="run")return'<div class="mu" style="margin-bottom:8px">🔍 画像から数字を読み取り中…(初回は読み取りエンジンの読み込みで少し時間がかかります)</div>';
+ if(o.st==="err")return'<div class="mu" style="margin-bottom:8px">読み取りに失敗しました。得点を手入力してください。</div>';
+ var h='<div class="mu" style="margin-bottom:6px">'+(o.c.length?'読み取れた数字です。今日の向上得点をタップしてください(違う場合は手入力)':'数字を読み取れませんでした。手入力してください')+'</div>';
+ if(o.c.length)h+='<div class="chips">'+o.c.map(function(v){return'<span class="chip'+(parseFloat(S.pt)===v?" on":"")+'" data-a="pick" data-v="'+v+'">'+f2(v)+'</span>'}).join("")+'</div>';
+ return h}
+function shrink(file){return new Promise(function(res,rej){var u=URL.createObjectURL(file),im=new Image();im.onload=function(){var k=Math.min(1,1280/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(function(b){b?res(b):rej(new Error("画像を変換できませんでした"))},"image/jpeg",0.72)};im.onerror=function(){URL.revokeObjectURL(u);rej(new Error("画像を読み込めませんでした。別のスクショで試してください"))};im.src=u})}
+async function uploadProof(file,k){var b=await shrink(file),p=S.uid+"/"+k+"_"+Date.now()+".jpg",r=await SB.storage.from("proofs").upload(p,b,{contentType:"image/jpeg"});if(r.error)throw r.error;return p}
+async function showProof(v){var pp=v.split("|"),dd=days(pp[0])[pp[1]]||{};if(!dd.img){warn("この日の証拠写真はありません");return}
+ var w=window.open("","_blank"),sr=await SB.storage.from("proofs").createSignedUrl(dd.img,120);
+ if(sr.error){if(w)w.close();throw sr.error}
+ if(w)w.location=sr.data.signedUrl;else warn("ポップアップがブロックされました。許可してもう一度押してください")}
+async function submitManual(){
+ if(busy)return;
+ var pts=parseFloat(S.pt),file=S.pfile;
+ if(!isFinite(pts)||pts<0||pts>500){toast('<span class="dn">向上得点は0〜500の数字で入れてください</span>');return}
+ if(!file){toast('<span class="dn">証拠のスクショを選んでください</span>');return}
+ var od=S.ocr&&S.ocr.dt,nw0=new Date();
+ if(od&&(od.mo!==nw0.getMonth()+1||od.d!==nw0.getDate())){toast('<span class="dn">スクショの更新日が今日ではないようです(読み取り: '+od.mo+'/'+od.d+')。今日のスクショを選び直してください。</span>');return}
+ busy=true;toast("登録しています…");
+ try{
+  pts=Math.round(pts*100)/100;
+  var now=new Date(),k=dk(now),mins=now.getHours()*60+now.getMinutes(),upd=pad(now.getMonth()+1)+"/"+pad(now.getDate())+" "+pad(now.getHours())+":"+pad(now.getMinutes());
+  var doc={days:Object.assign({},days(S.uid))},cur=doc.days[k],m=me();
+  if(cur&&cur.pts===pts){toast('<span class="dn">同じ得点が登録済みです。</span>');return}
+  var ws=wst(now),lb=leader(ws),first=!Object.keys(doc.days).length,img=await uploadProof(file,k);
+  doc.days[k]={pts:pts,mins:mins,upd:upd,period:"",n:cur?cur.n+1:1,d:cur?Math.round((pts-cur.pts)*100)/100:null,img:img};
+  var o={};o[S.uid]=doc;var la=leader(ws,Object.assign({},S.scores,o));
+  var D=doc.days,ids=[],h=mins/60;
+  if(pts===0)ids.push("void");if(first)ids.push("pio");if(doc.days[k].n>=2)ids.push("kiz");
+  if(h>=23||h<3)ids.push("mid");if(mins>=1290&&mins<=1335)ids.push("cls");if(mins>=300&&mins<=510)ids.push("mor");
+  if(pts>=5)ids.push("fst");if(pts>=10)ids.push("trn");
+  var s7=true;for(var i=0;i<7;i++)if(!D[dk(addD(now,-i))])s7=false;if(s7)ids.push("str");
+  var sa=D[dk(addD(ws,5))],su=D[dk(addD(ws,6))];if((sa?sa.pts:0)+(su?su.pts:0)>=10)ids.push("wkd");
+  if(la===S.uid&&lb&&lb!==S.uid)ids.push("gnt");
+  await db.collection("scores").doc(S.uid).set(doc);
+  var o2=Object.assign({},S.scores,o),d0=derived(S.uid),d1=derived(S.uid,o2),nw=Object.keys(d1).filter(function(k2){return!d0[k2]}).map(function(k2){return tt(k2)[1]});var got=unlock(ids,m);if(got.length)await saveMe();got=got.concat(nw);
+  var dd=doc.days[k].d;
+  S.pt="";S.pfile=null;S.ocr=null;
+  toast('<span class="up">登録しました:'+f2(pts)+'点'+(dd!=null?'(前回比 '+(dd>=0?"+":"")+f2(dd)+'点・上書き)':'')+'</span>'+(got.length?'<br>🏅 称号解放:'+got.map(esc).join("、"):""));
+  render();
+ }catch(e){toast('<span class="dn">登録に失敗しました:'+esc((e&&e.message)||"通信・権限を確認してください")+'</span>')}
+ finally{busy=false}}
+
+document.addEventListener("click",async function(e){var t=e.target.closest("[data-a]");if(!t)return;var a=t.dataset.a,v=t.dataset.v;
+ try{
+ if(a==="signout"){try{await SB.auth.signOut()}catch(e){}location.reload();return}if(a==="tab"){S.tab=v;S.hm="";render()}else if(a==="reg"){await submitManual()}else if(a==="pick"){S.pt=v;render();var pe=$("#pt");if(pe)pe.value=v}else if(a==="asave"){await adminSave(v)}else if(a==="adel"){await adminDel(v)}else if(a==="aadd"){await adminAdd()}else if(a==="claim"){var pw=($("#adm")||{}).value;pw=(pw||"").trim();if(!pw){warn("合言葉を入れてください");return}var cr2=await SB.rpc("claim_admin",{p:pw});if(cr2.error)throw cr2.error;if(cr2.data===true){location.reload()}else warn("合言葉が違います")}else if(a==="proof"){await showProof(v)}
+ else if(a==="logout"){S.tab="login";render()}
+ else if(a==="login"){var n=$("#nick").value.trim(),p=$("#gr").value;if(!n||!p){warn("ニックネームと学年を入れてください");return}
+  var m=JSON.parse(JSON.stringify(me()||{unlocked:{},title:""}));m.unlocked=m.unlocked||{};m.name=n;if(m.gr!==p||!m.jt)m.jt=Date.now();m.gr=p;delete m.room;warn("保存しています…");var m2=JSON.parse(JSON.stringify(m));await db.collection("users").doc(S.uid).set(m2);S.users[S.uid]=m2;S.ver=(S.ver||0)+1;S.tab="home";$("#fb").hidden=true;render()}
+ else if(a==="flt"){S.flt=v;render()}else if(a==="tag"){S.tag=S.tag===v?"":v;render()}else if(a==="sort"){S.sort=v;render()}else if(a==="cs"){S.cs=v;render()}else if(a==="rcs"){var cc=CAT[+v];$("#rf").open=true;$("#rc").value=cc.n;$("#rs").value=cc.s;$("#rf").scrollIntoView({behavior:"smooth"})}else if(a==="rdel"){await db.collection("reviews").doc(v).delete()}else if(a==="skip"){if(S.gfxFin)S.gfxFin()}else if(a==="gs"){S.gs=v;S.gres=null;S.gmsg="";render()}else if(a==="draw"){var pr0=v.split("|");await doDraw(pr0[0],pr0[1])}else if(a==="buy"){await doBuy(v,+t.dataset.p)}else if(a==="ts"){S.ts=v;render()}else if(a==="cside"){S.cside=v;render()}else if(a==="crf"){S.crf=v;render()}else if(a==="cset"){await doCset(v)}else if(a==="crnd"){await doCrnd()}else if(a==="cdel"){var pr=v.split("|"),dd=S.ctd[pr[0]]||{},nm=(dd.msgs||[]).filter(function(m){return String(m.at)!==pr[1]});if(nm.length)await db.collection("contacts").doc(pr[0]).upd({uid:pr[0],name:dd.name||"",msgs:nm});else await db.collection("contacts").doc(pr[0]).delete()}else if(a==="send"){var tx=$("#ct").value.trim(),cm=$("#cmsg");if(tx.length<5){cm.innerHTML='<span class="dn">5文字以上で内容を書いてください</span>';return}if(Date.now()-(S.lastc||0)<30000){cm.innerHTML='<span class="dn">続けて送れません。少し待ってからもう一度送ってください</span>';return}var cr=db.collection("contacts").doc(S.uid),ms=[];try{var co=await cr.get();if(co&&co.exists)ms=co.data().msgs||[]}catch(e2){}ms.push({cat:$("#cc").value,text:tx,at:Date.now()});await cr.set({uid:S.uid,name:me().name,msgs:ms.slice(-20)});S.lastc=Date.now();$("#ct").value="";cm.innerHTML='<span class="up">送信しました。ありがとうございます!</span>'}
+ else if(a==="star"){S.star=+v;$("#stars").innerHTML=stars()}
+ else if(a==="qt"){var i=$("#rt");i.value=(i.value+" "+v).trim()}
+ else if(a==="eq"){var m2=me();m2.title=v;await saveMe();render()}
+ else if(a==="post"){var c=$("#rc").value.trim(),x=$("#rx").value.trim();if(!c||!x){toast('<span class="dn">講座名と感想を入れてください</span>');return}
+  var tg=($("#rt").value.match(/#?[^\s#,、]+/g)||[]).map(function(s){return s[0]==="#"?s:"#"+s}).slice(0,6);
+  await db.collection("reviews").doc(S.uid+"_"+Date.now()).set({uid:S.uid,course:c,subj:$("#rs").value,star:S.star,tags:tg,text:x,at:Date.now()});
+  var m3=me(),cnt=S.rv.filter(function(r){return r.uid===S.uid}).length+1,g=cnt>=3?unlock(["som"],m3):[];if(g.length)await saveMe();
+  ["#rc","#rt","#rx"].forEach(function(s){$(s).value=""});toast('<span class="up">投稿しました!</span>'+(g.length?'<br>🏅 称号解放:'+g.map(esc).join("、"):""))}
+ }catch(err){var cd=(err&&(err.code||err.message))||"";warn(/42501|row-level/i.test(cd)?"書き込みが許可されませんでした。ページを読み込み直してから、もう一度試してください。":"失敗しました。通信・権限を確認してください("+cd+")")}});
+document.addEventListener("change",function(e){if(e.target.id==="au"){S.au=e.target.value;e.target.blur();render();return}if(e.target.id==="rc"){var c0=CAT.filter(function(x){return x.n===e.target.value})[0];if(c0)$("#rs").value=c0.s}if(e.target.id==="f"&&e.target.files[0]){S.pfile=e.target.files[0];runOcr(S.pfile)}});
+document.addEventListener("input",function(e){if(e.target.id==="q"){S.q=e.target.value;$("#rvlist").innerHTML=rvList()}else if(e.target.id==="cq"){S.cq=e.target.value;$("#cl").innerHTML=catList()}else if(e.target.id==="pt"){S.pt=e.target.value}});
+
+function mkDb(){
+ function chk(r){if(r&&r.error)throw r.error;return r}
+ return{collection:function(c){return{
+  doc:function(id){return{
+   set:async function(d){chk(await SB.from("docs").upsert({collection:c,id:id,data:d},{onConflict:"collection,id"}))},
+   upd:async function(d){chk(await SB.from("docs").update({data:d}).eq("collection",c).eq("id",id))},
+   get:async function(){var r=chk(await SB.from("docs").select("data").eq("collection",c).eq("id",id).maybeSingle());return{exists:!!r.data,data:function(){return r.data?r.data.data:undefined}}},
+   delete:async function(){chk(await SB.from("docs").delete().eq("collection",c).eq("id",id))}
+  }},
+  onSnapshot:function(ok,ng){
+   var alive=true,run=false,again=false,tm=0;
+   async function load(){
+    if(run){again=true;return}run=true;
+    try{
+     var all=[],from=0,step=1000;
+     for(;;){var r=chk(await SB.from("docs").select("id,data").eq("collection",c).order("id").range(from,from+step-1));all=all.concat(r.data);if(r.data.length<step)break;from+=step}
+     if(alive)ok({docs:all.map(function(x){return{id:x.id,data:function(){return x.data}}})});
+    }catch(e){if(alive&&ng)ng(e)}
+    run=false;if(again){again=false;load()}
+   }
+   load();
+   var ch=SB.channel("docs-"+c+"-"+Math.random().toString(36).slice(2)).on("postgres_changes",{event:"*",schema:"public",table:"docs",filter:"collection=eq."+c},function(){clearTimeout(tm);tm=setTimeout(load,300)}).subscribe();
+   return function(){alive=false;SB.removeChannel(ch)}
+  }
+ }}}}
+function snap(col,fn){db.collection(col).onSnapshot(function(s){fn(s);render()},function(){$("#app").innerHTML='<p class="dn">読み込めませんでした。権限を確認してください。</p>'})}
+var ens=false;
+async function ensure(){var m=me();if(m&&m.gr&&!m.jt&&!ens){ens=true;m.jt=Date.now();try{await saveMe()}catch(e){}ens=false}return}
+async function ensureOld(){var m=me();if(!m||ens||!m.gr)return;var cnt={},U=Object.keys(S.users);U.forEach(function(i){var b=S.users[i].bg;if(b!=null&&S.users[i].gr===m.gr)cnt[b]=(cnt[b]||0)+1});
+ var need=m.bg==null;
+ if(!need){var g=U.filter(function(i){return S.users[i].bg===m.bg&&S.users[i].gr===m.gr}).sort(function(a,b){return (S.users[a].bj||0)-(S.users[b].bj||0)||(a<b?-1:1)});need=g.indexOf(S.uid)>=20}
+ if(!need)return;ens=true;
+ var open=Object.keys(cnt).filter(function(b){return cnt[b]<20&&+b!==m.bg}),ks=Object.keys(cnt).map(Number);
+ m.bg=open.length?+open[Math.floor(Math.random()*open.length)]:(ks.length?Math.max.apply(null,ks)+1:1);m.bj=Date.now();
+ try{await saveMe()}catch(e){}ens=false}
+function copyText(t){return new Promise(function(res,rej){
+ function fb(){try{var ta=document.createElement("textarea");ta.value=t;ta.style.cssText="position:fixed;top:0;left:0;opacity:0";document.body.appendChild(ta);ta.focus();ta.select();var ok=document.execCommand("copy");document.body.removeChild(ta);ok?res():rej(new Error("copy"))}catch(e){rej(e)}}
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(res,fb);else fb()})}
+function jwtRole(k){try{var p=k.split(".")[1].replace(/-/g,"+").replace(/_/g,"/");return JSON.parse(atob(p+"===".slice((p.length+3)%4))).role}catch(e){return""}}
+function setupV(){
+ var el=document.getElementById("sqlsrc"),SQLT=el?el.textContent.replace(/^\s+/,""):"";
+ var st='margin:0 0 6px;font-size:15px';
+ $("#app").innerHTML='<div class="card"><h2>はじめの設定(公開する人だけ)</h2><p class="mu">この画面は、まだSupabaseにつながっていないときだけ出ます。上から順に、コピーと貼り付けだけで公開まで進めます。</p></div>'+
+ '<div class="card"><h2 style="'+st+'">① データベースを作る</h2><p class="mu">Supabase(supabase.com)でプロジェクトを作り、左メニューの「SQL Editor」を開きます。下のボタンでSQLをコピーして貼り付け、「Run」を押します。結果に出る<b>「管理者の合言葉」</b>は、コピーして保管してください。</p><button id="s1">SQLをコピー</button> <span id="s1m" class="mu"></span></div>'+
+ '<div class="card"><h2 style="'+st+'">② メール確認をオフにする</h2><p class="mu">Supabaseの「Authentication」→「Sign In / Providers」→「Email」を開き、<b>「Confirm email」をオフ</b>にして保存します。(オンのままだと、登録のたびに確認メールが必要になります。無料枠はメールの送信数が少ないため、友達が登録できなくなることがあります。)「Allow new users to sign up」はオンのままにしてください。</p></div>'+
+ '<div class="card"><h2 style="'+st+'">③ 接続情報を貼る</h2><p class="mu">Supabaseの「Project Settings」→「API」から、次の2つをコピーして貼り付けます(anon または publishable のキーです)。</p><input id="cu" placeholder="Project URL(https://xxxx.supabase.co)" autocomplete="off"><input id="ck" placeholder="anon / publishable key" autocomplete="off"><div id="cm" class="mu"></div></div>'+
+ '<div class="card"><h2 style="'+st+'">④ 公開用のHTMLをコピーする</h2><p class="mu">③を入れると押せます。コピーしたものを、ホスティングに貼り付けて公開します(貼り付け先の手順は手順書にあります)。</p><button id="s4">公開用HTMLをコピー</button> <span id="s4m" class="mu"></span><textarea id="s4t" readonly rows="4" style="display:none;margin-top:8px;width:100%"></textarea></div>';
+ function flash(id,t,bad){var m=document.getElementById(id);if(m){m.textContent=t;m.className=bad?"dn":"mu"}}
+ document.getElementById("s1").onclick=function(){copyText(SQLT).then(function(){flash("s1m","コピーしました。SQL Editorに貼り付けてください")},function(){flash("s1m","コピーできませんでした。もう一度押してください",1)})};
+ document.getElementById("s4").onclick=function(){
+  var u=($("#cu").value||"").trim().replace(/\/+$/,""),k=($("#ck").value||"").trim();
+  if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(u)){flash("cm","Project URLは https://xxxx.supabase.co の形で入れてください",1);return}
+  if(/^sb_secret_/.test(k)||jwtRole(k)==="service_role"){flash("cm","それは公開してはいけない秘密のキーです。anon / publishable のキーを入れてください",1);return}
+  if(k.length<20||/\s/.test(k)){flash("cm","キーが正しく貼れていないようです",1);return}
+  flash("cm","");
+  var out=SRC0.replace(/window\.POSNEO_CONFIG=\{[^}]*\};/,function(){return"window.POSNEO_CONFIG="+JSON.stringify({url:u,anonKey:k})+";"})
+   .replace(/<script type="text\/plain" id="sqlsrc">[\s\S]*?<\/script>\s*/,"");
+  out="<!doctype html>\n"+out;
+  copyText(out).then(function(){flash("s4m","コピーしました。公開先に貼り付けてください")},function(){var t=document.getElementById("s4t");t.style.display="block";t.value=out;t.focus();t.select();flash("s4m","自動コピーできませんでした。下の欄を全選択してコピーしてください",1)})}}
+function authV(mode){
+ mode=mode||S.am||"in";S.am=mode;
+ var up=mode==="up",rs=mode==="reset",np=mode==="newpw";
+ var ttl=np?"新しいパスワード":rs?"パスワードの再設定":up?"アカウント登録":"ログイン";
+ var h='<div class="card"><h2>'+ttl+'</h2>';
+ if(np)h+='<p class="mu">新しいパスワードを入れてください(8文字以上)。</p>';
+ else if(rs)h+='<p class="mu">登録したメールアドレスに、再設定用のリンクを送ります。</p>';
+ else if(up)h+='<p class="mu">メールアドレスとパスワードで登録します。メールアドレスは、ほかの利用者には見えません。ニックネームは、このあとで決めます。</p>';
+ else h+='<p class="mu">登録したメールアドレスとパスワードでログインします。</p>';
+ if(!np)h+='<input id="ae" type="email" inputmode="email" autocomplete="email" placeholder="メールアドレス" value="'+esc(S.ae||"")+'">';
+ if(!rs)h+='<input id="ap" type="password" autocomplete="'+(up||np?"new-password":"current-password")+'" placeholder="パスワード'+(up||np?"(8文字以上)":"")+'">';
+ if(up||np)h+='<input id="ap2" type="password" autocomplete="new-password" placeholder="パスワード(確認)">';
+ h+='<button id="ago">'+(np?"変更する":rs?"再設定メールを送る":up?"登録する":"ログイン")+'</button><div id="am" class="mu" style="margin-top:8px"></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">';
+ if(mode==="in")h+='<button class="s" data-m="up">新しく登録する</button><button class="s" data-m="reset">パスワードを忘れた</button>';
+ else if(!np)h+='<button class="s" data-m="in">ログインへ戻る</button>';
+ h+='</div></div>';
+ $("#app").innerHTML=h;
+ var nav=$("#nav");if(nav)nav.hidden=true;
+ function say(t,bad){var m=$("#am");if(m){m.innerHTML=t;m.className=bad?"dn":"mu"}}
+ function vErr(e){var t=(e&&e.message)||"";
+  if(/invalid login/i.test(t))return"メールアドレスかパスワードが違います";
+  if(/already registered|already been registered/i.test(t))return"このメールアドレスは登録済みです。ログインしてください";
+  if(/rate limit|too many/i.test(t))return"短時間に操作が多すぎます。しばらく待ってから、もう一度試してください";
+  if(/email not confirmed/i.test(t))return"メールの確認が終わっていません。届いたメールのリンクを開いてください";
+  if(/signups? not allowed|disabled/i.test(t))return"新しい登録は、今は受け付けていません";
+  if(/password/i.test(t)&&/(short|least|weak)/i.test(t))return"パスワードは8文字以上にしてください";
+  return"失敗しました:"+esc(t||"通信を確認してください")}
+ Array.prototype.forEach.call(document.querySelectorAll("[data-m]"),function(b){b.onclick=function(){var e=$("#ae");if(e)S.ae=e.value;authV(b.getAttribute("data-m"))}});
+ var go=$("#ago"),run=false;
+ async function submit(){
+  if(run)return;
+  var em=(($("#ae")||{}).value||"").trim(),pw=($("#ap")||{}).value||"",pw2=($("#ap2")||{}).value||"";
+  S.ae=em;
+  if(!np&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){say("メールアドレスの形が正しくありません",1);return}
+  if(!rs&&!pw){say("パスワードを入れてください",1);return}
+  if((up||np)&&pw.length<8){say("パスワードは8文字以上にしてください",1);return}
+  if((up||np)&&pw!==pw2){say("確認用のパスワードが一致しません",1);return}
+  run=true;go.disabled=true;say("処理しています…");
+  try{
+   if(mode==="in"){var r=await SB.auth.signInWithPassword({email:em,password:pw});if(r.error)throw r.error;await start(r.data.session)}
+   else if(up){var r2=await SB.auth.signUp({email:em,password:pw});if(r2.error)throw r2.error;
+    if(r2.data&&r2.data.session)await start(r2.data.session);
+    else say("確認メールを送りました。メールのリンクを開いてから、ログインしてください。")}
+   else if(rs){var r3=await SB.auth.resetPasswordForEmail(em,{redirectTo:location.origin+location.pathname});if(r3.error)throw r3.error;say("再設定のメールを送りました。届いたリンクから、新しいパスワードを決めてください。")}
+   else{var r4=await SB.auth.updateUser({password:pw});if(r4.error)throw r4.error;S.rec=0;var g=await SB.auth.getSession();await start(g.data.session)}
+  }catch(e){say(vErr(e),1)}
+  run=false;go.disabled=false}
+ go.onclick=submit;
+ Array.prototype.forEach.call(document.querySelectorAll("#app input"),function(i){i.onkeydown=function(ev){if(ev.key==="Enter")submit()}})}
+async function start(ses){
+ S.uid=ses.user.id;S.canW=true;S.ctd={};
+ try{var ad=await SB.rpc("is_admin");S.admin=ad.data===true}catch(e){S.admin=false}
+ db=mkDb();
+ snap("users",function(s){S.users={};s.docs.forEach(function(d){S.users[d.id]=JSON.parse(JSON.stringify(d.data()||{}))});S.ver=(S.ver||0)+1;ensure();daily()});
+ snap("scores",function(s){S.scores={};s.docs.forEach(function(d){S.scores[d.id]=d.data()})});
+ snap("reviews",function(s){S.rv=s.docs.map(function(d){return Object.assign({id:d.id},d.data())})});
+ if(S.admin)snap("contacts",function(s){S.ct=[];S.ctd={};s.docs.forEach(function(d){var x=d.data()||{};S.ctd[d.id]=x;(x.msgs||[]).forEach(function(m){S.ct.push({id:d.id+"|"+m.at,uid:d.id,cat:m.cat,text:m.text,at:m.at})})})});
+ render()}
+async function init(){
+ try{
+  var C=window.POSNEO_CONFIG||{};
+  window.__step="設定の確認";
+  if(!C.url||!C.anonKey||/YOUR_/.test(C.url+C.anonKey)){setupV();return}
+  if(!window.supabase){$("#app").innerHTML='<div class="card"><p class="dn">接続用の部品(Supabase)を読み込めませんでした。</p><p class="mu">通信が不安定か、広告ブロックなどが止めている可能性があります。別の通信(Wi-Fiとモバイル回線)や別のブラウザで、開き直してください。</p></div>';return}
+  var REC=/type=recovery/.test(location.hash)||/type=recovery/.test(location.search);
+  window.__step="接続の準備";
+  SB=window.supabase.createClient(C.url,C.anonKey,{auth:{lock:async function(n,t,fn){return await fn()}}});
+  SB.auth.onAuthStateChange(function(ev){
+   if(ev==="PASSWORD_RECOVERY"){S.rec=1;if(!S.uid)authV("newpw")}
+   else if(ev==="SIGNED_OUT"&&S.uid)location.reload()});
+  window.__step="ログイン状態の確認";
+  var ss=await Promise.race([SB.auth.getSession(),new Promise(function(r){setTimeout(function(){r({data:{session:null},tmo:1})},8000)})]),ses=ss.data&&ss.data.session;
+  window.__step=ss.tmo?"確認が時間切れ":"画面の表示";
+  if(REC||S.rec){S.rec=1;authV("newpw");return}
+  if(!ses){authV("in");return}
+  await start(ses);
+ }catch(e){$("#app").innerHTML='<p class="dn">接続できませんでした:'+esc((e&&e.message)||"")+'</p>'}}
+init();
+})();
+</script></body></html>
