@@ -400,7 +400,25 @@ async function submitManual(){
 
 document.addEventListener("click",async function(e){var t=e.target.closest("[data-a]");if(!t)return;var a=t.dataset.a,v=t.dataset.v;
  try{
- if(a==="signout"){try{await SB.auth.signOut()}catch(e){}location.reload();return}if(a==="tab"){S.tab=v;S.hm="";render()}else if(a==="reg"){await submitManual()}else if(a==="pick"){S.pt=v;render();var pe=$("#pt");if(pe)pe.value=v}else if(a==="asave"){await adminSave(v)}else if(a==="adel"){await adminDel(v)}else if(a==="aadd"){await adminAdd()}else if(a==="claim"){var pw=($("#adm")||{}).value;pw=(pw||"").trim();if(!pw){warn("合言葉を入れてください");return}var cr2=await SB.rpc("claim_admin",{p:pw});if(cr2.error)throw cr2.error;if(cr2.data===true){location.reload()}else warn("合言葉が違います")}else if(a==="proof"){await showProof(v)}
+if(a==="signout"){try{await SB.auth.signOut()}catch(e){}location.reload();return}
+else if(a==="grant_title"){
+ if(!S.admin||!S.au)return;
+ var uObj=S.users[S.au];
+ uObj.unlocked=uObj.unlocked||{};
+ if(uObj.unlocked[v]){
+  delete uObj.unlocked[v];
+  toast('<span class="dn">称号を回収しました</span>');
+ }else{
+  uObj.unlocked[v]=Date.now();
+  toast('<span class="up">「至高の思考」を配りました！</span>');
+ }
+ await db.collection("users").doc(S.au).set(uObj);
+ S.users[S.au]=uObj;
+ render();
+}
+else if(a==="tab"){S.tab=v;S.hm="";render()}
+else if(a==="reg"){await submitManual()}
+else if(a==="logout")
  else if(a==="logout"){S.tab="login";render()}
  else if(a==="login"){var n=$("#nick").value.trim(),p=$("#gr").value;if(!n||!p){warn("ニックネームと学年を入れてください");return}
   var m=JSON.parse(JSON.stringify(me()||{unlocked:{},title:""}));m.unlocked=m.unlocked||{};m.name=n;if(m.gr!==p||!m.jt)m.jt=Date.now();m.gr=p;delete m.room;warn("保存しています…");var m2=JSON.parse(JSON.stringify(m));await db.collection("users").doc(S.uid).set(m2);S.users[S.uid]=m2;S.ver=(S.ver||0)+1;S.tab="home";$("#fb").hidden=true;render()}
