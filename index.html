@@ -432,12 +432,21 @@ document.addEventListener("click",async function(e){var t=e.target.closest("[dat
    ["#rc","#rt","#rx"].forEach(function(s){$(s).value=""});toast('<span class="up">投稿しました!</span>'+(g.length?'<br>🏅 称号解放:'+g.map(esc).join("、"):""))}
  }catch(err){var cd=(err&&(err.code||err.message))||"";warn(/42501|row-level/i.test(cd)?"書き込みが許可されませんでした。ページを読み込み直してから、もう一度試してください。":"失敗しました。通信・権限を確認してください("+cd+")")}
 });
-
-  await db.collection("users").doc(S.au).set(uObj);
-  S.users[S.au]=uObj;
-  render();
-  return;
- }
+if(a==="grant_title"){
+   if(!S.admin||!S.au)return;
+   var uObj = S.users[S.au];
+   uObj.unlocked = uObj.unlocked || {};
+   if(uObj.unlocked[v]){
+    delete uObj.unlocked[v];
+    toast('<span class="dn">称号を回収しました</span>');
+   }else{
+    uObj.unlocked[v] = Date.now();
+    toast('<span class="up">「至高の思考」を配りました！</span>');
+   }
+   await db.collection("users").doc(S.au).set(uObj);
+   S.users[S.au] = uObj;
+   render();
+  }
  if(a==="tab"){S.tab=v;S.hm="";render();return}
  if(a==="reg"){await submitManual();return}
  if(a==="logout"){S.tab="login";render();return}
