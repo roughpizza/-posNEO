@@ -2,10 +2,7 @@
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>東進学力POS NEO(非公式ファンサイト)</title>
-<meta name="robots" content="noindex">
-<link rel="icon" href="./icon.png?v=1" type="image/png">
-<link rel="apple-touch-icon" href="./icon.png?v=1">
- <style>
+<style>
 :root{--bg:#070d0b;--p:#12281f;--p2:#1b3d2f;--bd:#2f7a5a;--tx:#e8f5ee;--mu:#86a395;--g:#22e08f;--g2:#0fa968;--ng:#ff6b7a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
@@ -24,10 +21,10 @@ button{background:linear-gradient(90deg,var(--g2),var(--g));color:#04140d;border
 button:disabled{opacity:.5}button.s{background:var(--p2);color:var(--tx);border:1px solid var(--bd);padding:6px 10px;font-weight:500;font-size:12px}
 label.drop{display:block;border:2px dashed var(--bd);border-radius:12px;padding:20px;text-align:center;color:var(--mu);cursor:pointer;margin-bottom:8px}
 label.drop:hover{border-color:var(--g)}
-.nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:radial-gradient(circle at center, #065f46 0%, #0d9488 50%, #14b8a6 80%, #2dd4bf 100%);border-top:1px solid rgba(255,255,255,0.2);padding-bottom:env(safe-area-inset-bottom,0px);backdrop-filter:blur(10px);z-index:5;box-shadow:0 -2px 15px rgba(13,148,136,0.4)}
-.nav button{flex:1;background:none;color:#000;border-radius:0;padding:12px 0;font-size:12px}.nav button.on{color:#000;box-shadow:inset 0 2px 0 #000}
-```[cite: 1]
-var HX="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="60" height="24" viewBox="0 0 60 24"><path d="M0 12 C 15 0, 45 24, 60 12" fill="none" stroke="#a855f7" stroke-width="1.8"/><path d="M0 12 C 15 24, 45 0, 60 12" fill="none" stroke="#ec4899" stroke-width="1.8"/><path d="M7.5 7.5 L7.5 16.5 M22.5 5 L22.5 19 M37.5 5 L37.5 19 M52.5 7.5 L52.5 16.5" stroke="#9333ea" stroke-width="1.2" opacity=".7"/></svg>');
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:rgba(10,18,15,.94);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px);backdrop-filter:blur(10px);z-index:5}
+.nav button{flex:1;background:none;color:var(--mu);border-radius:0;padding:12px 0;font-size:12px}.nav button.on{color:var(--g);box-shadow:inset 0 2px 0 var(--g)}
+.plate{display:inline-flex;align-items:stretch;border-radius:6px;overflow:hidden;color:#fff;font-size:12px;max-width:100%;vertical-align:middle;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.plate i{font-style:normal;padding:2px 8px;background:rgba(0,0,0,.28);white-space:nowrap;font-size:11px}.plate b{padding:2px 10px;overflow-wrap:anywhere}
 .gfx{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;cursor:pointer}
 .stage{position:relative;width:96px;height:96px}
 .orb{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--oc) 45%,#0b1d2a 100%);box-shadow:0 0 30px var(--oc);animation:orbshake .18s linear infinite,orbpulse 1s ease-in-out infinite}
@@ -50,11 +47,15 @@ var HX="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2
 @media (prefers-reduced-motion:reduce){.cfx,.cft{animation:none!important}}
 @keyframes bgmove{from{background-position:0 0}to{background-position:300% 0}}
 .cp{background:var(--p2);color:var(--tx);border:1px solid var(--bd);padding:8px 6px;font-size:12px;text-align:left;font-weight:400;border-radius:8px}.cp:disabled{opacity:.5;cursor:default}
+@keyframes seasonfall{from{background-position:0 0,0 0,0 0,0 0}to{background-position:0 60px,0 32px,0 36px,0 0}}
+@keyframes coinfall{from{background-position:0 0,0 0,0 0,0 0}to{background-position:0 28px,0 40px,0 0,0 0}}
 @keyframes frame{from{background-position:0 0,0 0}to{background-position:0 0,150% 0}}
 @keyframes glw{0%,100%{filter:brightness(1)}50%{filter:brightness(1.3)}}
 @keyframes dna{from{background-position:0 center,0 0}to{background-position:40px center,0 0}}
 @media (prefers-reduced-motion:reduce){.plate{animation:none!important}}
 .plate.gen b{background:#0d0520;color:#fff;text-shadow:none;letter-spacing:0;font-weight:700;border-left:1px solid #b46bff}.plate.gen i{background:rgba(20,5,45,.45)}.plate.gen2 b{background:rgba(20,5,45,.6)}
+.plate.gold b{background:#1c1000;color:#fde68a;text-shadow:none;font-weight:700;border-left:1px solid #fbbf24}.plate.gold i{background:rgba(255,250,210,.4)}.plate.gold2 b{background:rgba(255,250,210,.4)}
+.plate.season b{background:#0b2540;color:#fff;text-shadow:none;font-weight:700;border-left:1px solid #bae6fd}.plate.season i{background:rgba(255,255,255,.35)}.plate.season2 b{background:rgba(255,255,255,.35)}
 .plate.neo i{background:rgba(255,255,255,.4)}
 .plate{font-size:12px;border-radius:6px}.plate i{padding:2px 32px;font-size:11px;text-align:center}.plate b{padding:2px 10px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--bd)}.row:first-of-type{border-top:0}
@@ -65,35 +66,85 @@ var HX="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2
 svg{width:100%;height:auto;display:block}
 #msg{margin-top:8px;font-size:13px}
 </style></head><body><main>
-<div class="top"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0"><div class="logo">POS<span>NEO</span></div><span id="who"></span></div><span class="tag">非公式ファンサイト・東進とは無関係</span></div>
+<div class="top"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0"><div class="logo">POS<span>NEO</span></div><span id="who"></span></div><span class="tag">非公式ファンサイト・東進とは無関係</span><button class="s" id="so">ログアウト</button></div>
 <div id="app"><p class="mu">読み込み中…</p></div>
-</main><div id="fb" style="position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:9;background:#3a1219;border:1px solid #ff6b7a;color:#ffd5da;border-radius:10px;padding:10px 12px;font-size:13px" hidden=""></div>
-<div class="nav" id="nav" hidden=""></div>
+</main><div id="fb" style="position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:9;background:#3a1219;border:1px solid #ff6b7a;color:#ffd5da;border-radius:10px;padding:10px 12px;font-size:13px" hidden></div>
+<div class="nav" id="nav" hidden></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js"></script>
 <script>
+/* ▼▼ ここだけ書き換えてください(Supabaseの Project Settings → API からコピー) ▼▼ */
+var SUPABASE_URL = "https://jcszgzmddurfmbltpopl.supabase.co";
+var SUPABASE_ANON_KEY = "sb_publishable_QF_kc4oTueYy3rtD5Al2dg_OpowLMes";
+/* ▲▲ ここまで ▲▲ */
 (function(){
- window.__step="開始";window.__errs=[];
- function E(t){return String(t).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
- function stuck(){var a=document.getElementById("app");return a&&/^\s*読み込み中/.test(a.textContent)}
- function show(head,body){var a=document.getElementById("app");if(!a)return;
-  a.innerHTML='<div class="card"><p class="dn">'+E(head)+'</p><pre style="white-space:pre-wrap;word-break:break-all;font-size:12px;margin:8px 0 0">'+E(body)+'</pre></div>'}
- window.addEventListener("error",function(e){
-  var m=e.target&&e.target!==window&&(e.target.src||e.target.href)?"読み込めませんでした: "+(e.target.src||e.target.href):(e.message||"error")+(e.lineno?" (行 "+e.lineno+")":"");
-  window.__errs.push(m);if(stuck())show("エラーで止まりました。この文面を、そのまま送ってください。",m+"\n段階: "+window.__step)},true);
- window.addEventListener("unhandledrejection",function(e){var m=(e.reason&&e.reason.message)||String(e.reason);window.__errs.push(m);if(stuck())show("エラーで止まりました。この文面を、そのまま送ってください。",m+"\n段階: "+window.__step)});
- setTimeout(function(){if(stuck())show("読み込みが終わりません。この文面を、そのまま送ってください。","段階: "+window.__step+"\nライブラリ: "+(window.supabase?"あり":"なし")+"\nエラー: "+(window.__errs.join(" / ")||"なし"))},12000);
+ var cfg=SUPABASE_URL&&SUPABASE_ANON_KEY,sb=cfg&&window.supabase?window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY):null;
+ var uid=null,isAdm=false,LOAD={},cache={};
+ function chk(r){if(r.error)throw r.error;return r.data}
+ function showErr(t){var a=document.getElementById("app");if(a)a.innerHTML='<div class="card"><p class="dn">'+t+'</p></div>'}
+ function jp(m){m=String(m||"");if(/Invalid login/i.test(m))return"メールアドレスかパスワードが違います";if(/already registered/i.test(m))return"このメールアドレスはすでに登録されています";if(/not confirmed/i.test(m))return"メールの確認がまだです。届いたメールのリンクを開いてください";if(/rate limit/i.test(m))return"短時間に送りすぎです。しばらく待ってください";if(/at least|weak|short/i.test(m))return"パスワードは8文字以上にしてください";return m}
+ var recovering=false;
+ if(sb)sb.auth.onAuthStateChange(function(ev){if(ev==="PASSWORD_RECOVERY")recovering=true});
+ function authUI(){return new Promise(function(done){
+  var a=document.getElementById("app");
+  a.innerHTML='<div class="card"><h2>LOGIN</h2><p class="mu">メールアドレスとパスワードでログインします。メールアドレスは画面に表示されず、ほかの利用者にも見えません。初めての人は「新規登録」を押してください。</p><input id="em" type="email" autocomplete="email" placeholder="メールアドレス"><input id="pw1" type="password" autocomplete="current-password" placeholder="パスワード(8文字以上)"><button id="bi">ログイン</button> <button class="s" id="bs">新規登録</button><div style="margin-top:10px"><a href="#" id="bf" class="mu">パスワードを忘れた</a></div><div id="am" style="margin-top:8px;font-size:13px"></div></div>';
+  var msg=function(t,ok){var m=document.getElementById("am");m.className=ok?"up":"dn";m.textContent=t};
+  var val=function(){var e=document.getElementById("em").value.trim(),p=document.getElementById("pw1").value;if(!e||p.length<8){msg("メールアドレスと、8文字以上のパスワードを入れてください");return null}return{email:e,password:p}};
+  document.getElementById("bi").onclick=async function(){var v=val();if(!v)return;var r=await sb.auth.signInWithPassword(v);if(r.error)msg(jp(r.error.message));else done(r.data.session)};
+  document.getElementById("bs").onclick=async function(){var v=val();if(!v)return;var r=await sb.auth.signUp(v);if(r.error)msg(jp(r.error.message));else if(r.data.session)done(r.data.session);else msg("確認メールを送りました。メールのリンクを開いてから、ログインしてください。",true)};
+  document.getElementById("bf").onclick=async function(ev){ev.preventDefault();var e=document.getElementById("em").value.trim();if(!e){msg("メールアドレスを入れてください");return}var r=await sb.auth.resetPasswordForEmail(e,{redirectTo:location.href.split("#")[0]});if(r.error)msg(jp(r.error.message));else msg("再設定のメールを送りました。",true)}})}
+ function newPwUI(){return new Promise(function(done){
+  var a=document.getElementById("app");
+  a.innerHTML='<div class="card"><h2>NEW PASSWORD</h2><p class="mu">新しいパスワードを入れてください(8文字以上)。</p><input id="np1" type="password" autocomplete="new-password" placeholder="新しいパスワード"><button id="bn">変更する</button><div id="am" class="dn" style="margin-top:8px;font-size:13px"></div></div>';
+  document.getElementById("bn").onclick=async function(){var p=document.getElementById("np1").value;if(p.length<8){document.getElementById("am").textContent="8文字以上にしてください";return}var r=await sb.auth.updateUser({password:p});if(r.error)document.getElementById("am").textContent=jp(r.error.message);else{history.replaceState(null,"",location.pathname);done()}}})}
+ var ready=(async function(){
+  if(!sb){showErr("設定が未入力です。index.html の先頭にある SUPABASE_URL と SUPABASE_ANON_KEY を入力してください。");return false}
+  var r=await sb.auth.getSession(),ses=r.data.session;
+  if(ses&&recovering)await newPwUI();
+  if(!ses)ses=await authUI();
+  uid=ses.user.id;isAdm=!!chk(await sb.rpc("is_admin"));return true})();
+ ready.catch(function(e){showErr("ログインに失敗しました: "+jp((e&&e.message)||e))});
+ document.addEventListener("click",function(e){if(e.target&&e.target.id==="so"&&sb)sb.auth.signOut().then(function(){location.reload()})});
+ var T={users:"profiles",scores:"scores",reviews:"reviews",contacts:"contacts",rooms:"rooms",room_members:"room_members"};
+ function conv(c,rows){
+  if(c==="users")return rows.map(function(r){return{id:r.id,d:r.data}});
+  if(c==="reviews")return rows.map(function(r){return{id:r.id,d:Object.assign({},r.data,{uid:r.uid})}});
+  if(c==="contacts")return rows.map(function(r){return{id:r.uid,d:r.data}});
+  if(c==="rooms")return rows.map(function(r){return{id:r.id,d:{name:r.name,code:r.code,owner:r.owner}}});
+  if(c==="room_members"){var m={};rows.forEach(function(r){var o=m[r.room_id]=m[r.room_id]||{uids:[],joined:{}};o.uids.push(r.uid);o.joined[r.uid]=Date.parse(r.joined_at)||0});return Object.keys(m).map(function(i){return{id:i,d:m[i]}})}
+  var g={};rows.forEach(function(r){var o=g[r.uid]=g[r.uid]||{days:{}};o.days[r.day]={pts:+r.pts,mins:r.mins,upd:r.upd,period:r.period,n:r.n,d:r.d==null?null:+r.d,img:r.img}});
+  cache=g;return Object.keys(g).map(function(i){return{id:i,d:g[i]}})}
+ var DB={collection:function(c){return{
+  onSnapshot:function(ok,err){var busy=false,again=false;var load=async function(){if(busy){again=true;return}busy=true;
+    try{var rows=chk(await sb.from(T[c]).select("*"));ok({docs:conv(c,rows).map(function(x){return{id:x.id,data:function(){return JSON.parse(JSON.stringify(x.d))}}})})}catch(e){if(err)err(e)}
+    busy=false;if(again){again=false;load()}};
+   LOAD[c]=load;load();sb.channel("rt_"+c).on("postgres_changes",{event:"*",schema:"public",table:T[c]},load).subscribe();setInterval(load,30000)},
+  doc:function(id){return{
+   get:async function(){var r=chk(await sb.from("contacts").select("*").eq("uid",id).maybeSingle());return{exists:!!r,data:function(){return r&&r.data}}},
+   set:async function(o){var now=new Date().toISOString();
+    if(c==="users")chk(await sb.from("profiles").upsert({id:uid,data:o,updated_at:now}));
+    else if(c==="reviews")chk(await sb.from("reviews").upsert({id:id,uid:uid,data:o}));
+    else if(c==="contacts")chk(await sb.from("contacts").upsert({uid:id,data:o,updated_at:now}));
+    else if(c==="scores"){var cur=(cache[id]||{days:{}}).days;
+     for(var k in o.days){var n=o.days[k],p=cur[k];
+      if(!p||p.pts!==n.pts||p.mins!==n.mins||p.upd!==n.upd)chk(await sb.rpc("submit_score",{p_pts:n.pts,p_mins:n.mins==null?null:n.mins,p_upd:n.upd||"",p_period:n.period||"",p_n:n.n||1,p_d:n.d==null?null:n.d,p_img:n.img||null}))}}
+    if(LOAD[c])LOAD[c]()},
+   delete:async function(){if(c==="reviews")chk(await sb.from("reviews").delete().eq("id",id));else if(c==="contacts")chk(await sb.from("contacts").delete().eq("uid",id));if(LOAD[c])LOAD[c]()}}}}}};
+ var USER={id:async function(){return uid},can:async function(){return true},canEdit:async function(){return isAdm}};
+ var ASSETS={upload:async function(blob){var jb=blob;
+   try{var bm=await createImageBitmap(blob),k=Math.min(1,1400/Math.max(bm.width,bm.height)),cv=document.createElement("canvas");cv.width=Math.round(bm.width*k);cv.height=Math.round(bm.height*k);cv.getContext("2d").drawImage(bm,0,0,cv.width,cv.height);jb=await new Promise(function(r){cv.toBlob(r,"image/jpeg",.82)})||blob}catch(e){jb=blob}
+   var path=uid+"/"+Date.now()+".jpg",r=await sb.storage.from("proofs").upload(path,jb,{contentType:"image/jpeg"});if(r.error)throw r.error;return{id:path}}};
+ var SAMPLE={json:async function(){return window.__pend||null}};
+ window.claude={use:async function(n){var ok=await ready.catch(function(){return false});if(!ok)return null;return({user:USER,db:DB,assets:ASSETS,sample:SAMPLE})[n]}};
+ window.SB={rpc:async function(n,a){return chk(await sb.rpc(n,a||{}))},refresh:async function(c){if(LOAD[c])await LOAD[c]()},
+  proofUrl:async function(p){var r=await sb.storage.from("proofs").createSignedUrl(p,300);if(r.error)throw r.error;return r.data.signedUrl}};
 })();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-/* この行は、ファイルを開くと出る設定画面が自動で書き換えます。手で編集する必要はありません。 */
-window.POSNEO_CONFIG={"url":"https://jcszgzmddurfmbltpopl.supabase.co","anonKey":"sb_publishable_QF_kc4oTueYy3rtD5Al2dg_OpowLMes"};
-</script>
 <script>
 (function(){
-var SRC0=document.documentElement.outerHTML;
 var $=function(s){return document.querySelector(s)};
 var S={uid:null,users:{},scores:{},rv:[],tab:"home",flt:"全て",q:"",star:5,got:{u:0,s:0,r:0}};
-var db,SB,busy=false;
+var db,user,assets,sample,busy=false;
 var pad=function(n){return String(n).padStart(2,"0")};
 var f2=function(n){return (Math.round(n*100)/100).toFixed(2)};
 function esc(s){var d=document.createElement("div");d.textContent=s==null?"":s;return d.innerHTML}
@@ -131,7 +182,7 @@ SBT.forEach(function(s,j){[10,25,75,100].forEach(function(p,i){var gc=(s[1].matc
  if(i===2)css+=";box-shadow:0 0 8px "+gc;
  if(i===3){var gp=s[1].slice(11).split(";");css="border:2px solid transparent;background:"+gp[0]+" 0 0/100% 100% padding-box,linear-gradient(120deg,#fff,"+gc+",#fff,"+gc+",#fff) 0 0/300% 100% border-box"+(gp[1]?";"+gp[1]:"")+";box-shadow:0 0 10px "+gc+",0 0 24px "+gc+";animation:frame 3s linear infinite"}
  TT.push(["s"+j+"_"+i,s[2][i],s[0]+"の累計"+p+"点以上で解放（ランク"+(i+1)+"）",css,"科目別"])})});
-var HX="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="22" viewBox="0 0 40 22"><path d="M0 11 C 7 -4, 13 -4, 20 11 C 27 26, 33 26, 40 11" fill="none" stroke="#b46bff" stroke-width="1.6"/><path d="M0 11 C 7 26, 13 26, 20 11 C 27 -4, 33 -4, 40 11" fill="none" stroke="#ff4fd8" stroke-width="1.6"/><path d="M5 4.6V17.4M10 2V20M15 4.6V17.4M25 4.6V17.4M30 2V20M35 4.6V17.4" stroke="#e9d5ff" stroke-width="1" opacity=".8"/></svg>');
+var HX="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="22" viewBox="0 0 40 22"><path d="M0 11Q10 -7 20 11T40 11" fill="none" stroke="#b46bff" stroke-width="1.6"/><path d="M0 11Q10 29 20 11T40 11" fill="none" stroke="#ff4fd8" stroke-width="1.6"/><path d="M5 4.6V17.4M10 2V20M15 4.6V17.4M25 4.6V17.4M30 2V20M35 4.6V17.4" stroke="#e9d5ff" stroke-width="1" opacity=".8"/></svg>');
 TT.push(["gen","THE GENESIS","すべての始まりであり、この世界（システム）を生み出した唯一の始祖。","background:url("+HX+") 0 center/40px 22px repeat-x,linear-gradient(90deg,#1a0538,#3b0f7a,#1a0538);color:#fff;font-weight:800;letter-spacing:.18em;text-shadow:0 1px 3px #000,0 0 8px rgba(190,100,255,.95);box-shadow:0 0 12px #b46bff,0 0 28px rgba(160,60,255,.7);animation:dna 3s linear infinite","DEVELOPER"]);
 function stats(uid,o){var D=days(uid,o),t=0,b=0,w={},m={};Object.keys(D).forEach(function(k){var p=D[k].pts;t+=p;if(p>b)b=p;var a=dk(wst(kd(k))),c=k.slice(0,7);w[a]=(w[a]||0)+p;m[c]=(m[c]||0)+p});
  var mx=function(x){var r=0;Object.keys(x).forEach(function(k){if(x[k]>r)r=x[k]});return r};return{tot:t,day:b,wk:mx(w),mo:mx(m)}}
@@ -149,10 +200,10 @@ function titleV2(){var m=me(),u=allUnlocked(),G={};TT.forEach(function(t){if(t[0
  var h='<div class="card"><h2>FAVORITE お気に入り称号</h2>'+plate(S.uid)+'<p class="mu">獲得した称号から1つを選んで飾れます。装備するとネームプレートの背景が変わります。</p></div>';
  ["メインランク","1日","週間","月間","科目別","実績","ログイン","ショップ","DEVELOPER"].forEach(function(g){if(!G[g])return;
   h+='<div class="card"><h2>'+g+'</h2>'+(g==="科目別"?'<p class="mu">科目別の向上得点は、いまのスクショ登録では取得できないため、現在は解放されません。</p>':'')+'<div class="tl">'+G[g].map(function(t){var o=u[t[0]],gn=t[0]==="gen";
-   return'<div class="tc'+(o?"":" lk")+'"><span class="plate'+(gn?" gen2":"")+'" style="'+t[3]+'"><i>'+(o?"解放":"未解放")+'</i><b>'+(o?esc(t[1]):"？？？")+'</b></span><div class="mu" style="margin:6px 0">'+esc(t[2])+'</div>'+(o?(m.title===t[0]?'<button class="s" data-a="eq" data-v="">外す</button>':'<button class="s" data-a="eq" data-v="'+t[0]+'">装備する</button>'):'')+'</div>'}).join("")+'</div></div>'});
+   return'<div class="tc'+(o?"":" lk")+'"><span class="plate'+(gn?" gen2":t[0]==="fshop"?" gold2":t[0]==="k365"?" season2":"")+'" style="'+t[3]+'"><i>'+(o?"解放":"未解放")+'</i><b>'+(o?esc(t[1]):"？？？")+'</b></span><div class="mu" style="margin:6px 0">'+esc(t[2])+'</div>'+(o?(m.title===t[0]?'<button class="s" data-a="eq" data-v="">外す</button>':'<button class="s" data-a="eq" data-v="'+t[0]+'">装備する</button>'):'')+'</div>'}).join("")+'</div></div>'});
  return h}
 function plate(uid){var u=S.users[uid];if(!u)return'<span class="plate"><b>退会済み</b></span>';var t=u.title&&tt(u.title);if(u.title==="custom"&&u.g&&u.g.eq)return cplate(u);
- return'<span class="plate'+(t?(t[0]==="gen"?" gen":""):" neo")+'" style="'+(t?t[3]:"background:#34e0a1;color:#04140d")+'"><i>'+(t?(t[0]==="gen"?esc(t[1]):"【"+esc(t[1])+"】"):"NEO生")+'</i><b>'+esc(u.name)+'</b></span>'}
+ return'<span class="plate'+(t?(t[0]==="gen"?" gen":t[0]==="fshop"?" gold":t[0]==="k365"?" season":""):" neo")+'" style="'+(t?t[3]:"background:#34e0a1;color:#04140d")+'"><i>'+(t?(t[0]==="gen"?esc(t[1]):"【"+esc(t[1])+"】"):"NEO生")+'</i><b>'+esc(u.name)+'</b></span>'}
 function me(){return S.users[S.uid]}
 function hs(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 var GC={k:null,v:null};
@@ -163,29 +214,30 @@ function G(){var w=wst(new Date());w.setHours(0,0,0,0);var wk=dk(w),wt0=w.getTim
   late.forEach(function(i){var best=null;gs.forEach(function(a){if(a.length<20&&(!best||a.length<best.length))best=a});if(!best){best=[];gs.push(best)}best.push(i)});
   gs.forEach(function(a,n){a.forEach(function(i){out[i]={n:n+1,ids:a}})})});
  GC={k:key,v:out};return out}
-function mem(){var g=G()[S.uid];return g?g.ids:[]}
+var OV=null,OVT="";
+function withIds(ids,t,fn){OV=ids;OVT=t;try{return fn()}finally{OV=null;OVT=""}}
+function mem(){if(OV)return OV;var g=G()[S.uid];return g?g.ids:[]}
 function days(uid,o){var d=(o||S.scores)[uid];return d&&d.days||{}}
 function wtot(uid,ws,o){var s=0,D=days(uid,o);for(var i=0;i<7;i++){var k=dk(addD(ws,i));if(D[k])s+=D[k].pts}return s}
 function leader(ws,o){var b=null,v=0,n=0;mem().forEach(function(i){var t=wtot(i,ws,o);if(Object.keys(days(i,o)).length)n++;if(t>v){v=t;b=i}});return n>=2?b:null}
 function warn(t){var b=$("#fb");b.textContent=t;b.hidden=false;clearTimeout(warn.t);warn.t=setTimeout(function(){b.hidden=true},9000)}
-function toast(t){S.hm=t;var m=$("#msg");if(m)m.innerHTML=t}
+function toast(t){S.tm=t;var m=$("#msg");if(m)m.innerHTML=t}
 
 /* ---------- views ---------- */
-function loginV(){var m=me()||{};return'<div class="card"><h2>LOGIN</h2><p class="mu">本名は使わず、ニックネームだけで参加します。同じ学年の利用者から、ランダムに最大20人のグループに分けられ、毎週月曜にシャッフルされます。</p><input id="nick" maxlength="12" placeholder="ニックネーム(本名NG)" value="'+esc(m.name||"")+'"><select id="gr">'+["中学生","高1","高2","高3","既卒"].map(function(g){return'<option'+(m.gr===g?" selected":"")+'>'+g+'</option>'}).join("")+'</select><button data-a="login">はじめる</button><p class="mu" style="margin-top:8px">※学年を変えると、新しい学年のグループにランダムで入り直します。</p></div>'}
+function loginV(){var m=me()||{};return(S.canW===false?'<div class="card dn">このアカウントは閲覧専用で、登録できません。サイトの持ち主に、共有設定で「投稿できる権限(Contributor)」を付けてもらってください。</div>':'')+'<div class="card"><h2>LOGIN</h2><p class="mu">本名は使わず、ニックネームだけで参加します。同じ学年の利用者から、ランダムに最大20人のグループに分けられ、毎週月曜にシャッフルされます。</p><input id="nick" maxlength="12" placeholder="ニックネーム(本名NG)" value="'+esc(m.name||"")+'"><select id="gr">'+["中学生","高1","高2","高3","既卒"].map(function(g){return'<option'+(m.gr===g?" selected":"")+'>'+g+'</option>'}).join("")+'</select><button data-a="login">はじめる</button><div class="mu" style="margin-top:8px;font-size:11px">状態: 書き込み権限 '+(S.canW===true?"あり":S.canW===false?"なし":"不明")+' / ID '+(S.uid?"あり":"なし")+'</div><p class="mu" style="margin-top:8px">※学年を変えると、新しい学年のグループにランダムで入り直します。</p></div>'}
 function rivalTableV(){var ids=mem(),ws=wst(new Date()),tk=dk(new Date());if(ids.length<2)return'';var tot=wtot(S.uid,ws);
- var rows=ids.map(function(i){var x=days(i)[tk];return{i:i,td:x?x.pts:null,wk:wtot(i,ws),pr:x&&x.img?1:0}}).sort(function(a,b){return b.wk-a.wk});
- return'<div class="card"><h2>RIVAL 向上得点</h2><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px"><tr class="mu" style="text-align:right"><th style="text-align:left;font-weight:500">ライバル</th><th style="font-weight:500;padding:4px 8px">今日</th><th style="font-weight:500;padding:4px 8px">今週</th><th style="font-weight:500">自分との差</th></tr>'+
- rows.map(function(r){var me2=r.i===S.uid,df=tot-r.wk;return'<tr style="border-top:1px solid var(--bd);text-align:right;'+(me2?'background:rgba(34,224,143,.08)':'')+'"><td style="text-align:left;padding:7px 0">'+plate(r.i)+(S.admin&&r.pr?' <button class="s" data-a="proof" data-v="'+r.i+'|'+tk+'">📷</button>':'')+'</td><td style="padding:0 8px;font-family:ui-monospace,monospace">'+(r.td==null?'--':f2(r.td))+'</td><td style="padding:0 8px;font-family:ui-monospace,monospace"><b>'+f2(r.wk)+'</b></td><td class="'+(me2?'mu':df>=0?'up':'dn')+'" style="font-family:ui-monospace,monospace">'+(me2?'—':(df>=0?'+':'')+f2(df))+'</td></tr>'}).join("")+'</table></div><div class="mu" style="margin-top:6px">'+esc(me().gr)+' グループ#'+G()[S.uid].n+'('+ids.length+'人 / 最大20人)・毎週月曜にグループが組み替わります。差は今週の合計で、+はあなたがリードです</div></div>'}
+ var rows=ids.map(function(i){var x=days(i)[tk];return{i:i,td:x?x.pts:null,wk:wtot(i,ws)}}).sort(function(a,b){return b.wk-a.wk});
+ return'<div class="card"><h2>'+(OV?esc(OVT):"RIVAL 向上得点")+'</h2><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px"><tr class="mu" style="text-align:right"><th style="text-align:left;font-weight:500">ライバル</th><th style="font-weight:500;padding:4px 8px">今日</th><th style="font-weight:500;padding:4px 8px">今週</th><th style="font-weight:500">自分との差</th></tr>'+
+ rows.map(function(r){var me2=r.i===S.uid,df=tot-r.wk;return'<tr style="border-top:1px solid var(--bd);text-align:right;'+(me2?'background:rgba(34,224,143,.08)':'')+'"><td style="text-align:left;padding:7px 0">'+plate(r.i)+'</td><td style="padding:0 8px;font-family:ui-monospace,monospace">'+(r.td==null?'--':f2(r.td))+'</td><td style="padding:0 8px;font-family:ui-monospace,monospace"><b>'+f2(r.wk)+'</b></td><td class="'+(me2?'mu':df>=0?'up':'dn')+'" style="font-family:ui-monospace,monospace">'+(me2?'—':(df>=0?'+':'')+f2(df))+'</td></tr>'}).join("")+'</table></div><div class="mu" style="margin-top:6px">'+(OV?ids.length+'人 / 最大10人・':esc(me().gr)+' グループ#'+G()[S.uid].n+'('+ids.length+'人 / 最大20人)・毎週月曜にグループが組み替わります。')+'差は今週の合計で、+はあなたがリードです</div></div>'}
 function homeV(){var m=me(),D=days(S.uid),tk=dk(new Date()),t=D[tk],ws=wst(new Date());
  var h='<div class="card"><h2>TODAY</h2><div class="big">'+(t?f2(t.pts):"--.--")+'<span class="mu" style="font-size:14px"> 点</span></div>'+
  (t?'<div class="mu">'+esc(t.period||"")+' ・ 更新 '+esc(t.upd)+' ・ 登録'+t.n+'回'+(t.d!=null?' ・ 前回比 <b class="'+(t.d>=0?"up":"dn")+'">'+(t.d>=0?"+":"")+f2(t.d)+'点</b>':"")+'</div>':'<div class="mu">今日はまだ登録していません</div>')+
  '<div style="margin-top:8px" class="mu">今週の合計 <b style="color:var(--tx)">'+f2(wtot(S.uid,ws))+'点</b> ・ 所持コイン <b style="color:var(--tx)">'+coins().toLocaleString()+'</b> ・ 連続ログイン <b style="color:var(--tx)">'+streakD()+'日</b></div></div>'+
- rankV()+'<div class="card"><h2>REGISTER 今日の向上得点</h2><p class="mu">POSホーム画面のスクショを選ぶと、画像から数字を自動で読み取ります(読み取りは端末の中で行われ、画像は外部の読み取りサービスには送られません)。読み取れた数字から今日の向上得点を選ぶか、直接入力してください。同じ日なら何度でも登録でき、最新の得点で上書きされます。前日までの記録は修正できません(間違えたときは問合せから「点数の修正依頼」を送ってください)。写真は証拠として保存され、本人と管理者だけが見られます。</p><input id="pt" type="number" inputmode="decimal" step="0.01" min="0" max="500" placeholder="本日の向上得点(例 12.34)" value="'+esc(S.pt||"")+'">'+
- '<label class="drop" for="f">'+(S.pfile?"✅ "+esc(S.pfile.name):"📷 証拠のスクショを選ぶ")+'</label><input id="f" type="file" accept="image/*" hidden>'+ocrV()+'<button data-a="reg">登録する</button><div id="msg">'+(S.hm||"")+'</div></div>'+
- rivalTableV()+rivalV()+'<div class="card"><h2>LOG</h2>';
+ rankV()+'<div class="card"><h2>UPLOAD</h2><p class="mu">POSホーム画面のスクショを選ぶと、端末の中で数字を読み取って候補を出します。今日の向上得点を選ぶか入力して「登録する」を押してください。証拠の写真は必須で、本人と管理者だけが見られます。同じ日は何度でも登録し直せて、最新の内容で上書きされます。</p><label class="drop" for="f">📷 ホーム画面のスクショを選ぶ</label><input id="f" type="file" accept="image/*" hidden><div id="cands" class="chips"></div><input id="pv" type="number" step="0.01" inputmode="decimal" placeholder="今日の向上得点(例 12.34)"><button data-a="reg">登録する</button><div id="msg"></div></div>'+
+ rivalTableV()+rivalV()+homeRoomV()+'<div class="card"><h2>LOG</h2>';
  var ks=Object.keys(D).sort().reverse().slice(0,7);
- h+=ks.length?ks.map(function(k){return'<div class="row"><span>'+k.slice(5).replace("-","/")+'<span class="mu"> '+esc(D[k].upd)+'</span></span><span><b>'+f2(D[k].pts)+' 点</b>'+(D[k].img?' <button class="s" data-a="proof" data-v="'+S.uid+'|'+k+'">写真</button>':'')+'</span></div>'}).join(""):'<p class="mu">まだ記録がありません</p>';
- return h+'</div><button class="s" data-a="logout">ニックネーム・学年変更</button> <button class="s" data-a="signout">ログアウト</button>'+(S.admin?'<p class="mu" style="margin-top:10px">あなたは管理者です</p>':'<details class="mu" style="margin-top:10px"><summary>管理者になる</summary><input id="adm" type="password" placeholder="合言葉" style="margin-top:6px"><button class="s" data-a="claim">登録</button></details>')}
+ h+=ks.length?ks.map(function(k){return'<div class="row"><span>'+k.slice(5).replace("-","/")+'<span class="mu"> '+esc(D[k].upd)+'</span></span><b>'+f2(D[k].pts)+' 点</b></div>'}).join(""):'<p class="mu">まだ記録がありません</p>';
+ return h+'</div>'+(S.admin?'':'<div class="card"><h2>ADMIN</h2><input id="ac" type="password" placeholder="管理者の合言葉"><button class="s" data-a="claim">管理者になる</button></div>')+'<button class="s" data-a="logout">ニックネーム・学年変更</button>'}
 var COL=["#5b9bff","#ffb347","#ff5e8a","#b58cff","#4fd1d9","#e0e04f","#ff8a5b"];
 function colors(){var ids=mem(),c={},k=0;ids.forEach(function(i){c[i]=i===S.uid?"#22e08f":COL[k++%COL.length]});return c}
 function rivalV(){var ids=mem(),c=colors(),ws=wst(new Date()),now=new Date(),ti=Math.round((kd(dk(now))-kd(dk(ws)))/864e5);
@@ -278,9 +330,37 @@ function customV(){var m=me(),g=m.g;if(!g)return'<div class="card"><p class="mu"
  '<div class="chips"><span class="chip'+(sd==="p"?" on":"")+'" data-a="cside" data-v="p">前半パーツ</span><span class="chip'+(sd==="s"?" on":"")+'" data-a="cside" data-v="s">後半パーツ</span></div><div class="chips">'+["ALL","SSR","SR","R","N"].map(function(r){return'<span class="chip'+((S.crf||"ALL")===r?" on":"")+'" data-a="crf" data-v="'+r+'">'+r+'</span>'}).join("")+'</div>'+
  '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">'+L.map(function(x){var o=own(x),on=m.title==="custom"&&g.eq[sd]===x.w;return'<button class="cp" '+(o?'data-a="cset" data-v="'+x.id+'"':'disabled')+' style="border-color:'+(on?RC[x.r]:"var(--bd)")+';color:'+(o?RC[x.r]:"#4d6358")+'">'+(o?esc(x.w):'🔒 ■■■■')+'<div style="font-size:9px;color:#4d6358">'+x.r+'</div></button>'}).join("")+'</div></div>'}
 function titleTab(){return'<div class="chips"><span class="chip'+(S.ts!=="c"?" on":"")+'" data-a="ts" data-v="a">実績称号</span><span class="chip'+(S.ts==="c"?" on":"")+'" data-a="ts" data-v="c">カスタム称号</span></div>'+(S.ts==="c"?customV():titleV2())}
-var MVB="0 0/300% 100%;animation:bgmove 6s linear infinite";
-[[7,"七日の継続者","background:linear-gradient(90deg,#14532d,#22c55e)"],[30,"三十日の習慣者","background:linear-gradient(90deg,#065f46,#2dd4bf)"],[100,"百日の不退転","background:linear-gradient(90deg,#1e3a8a,#38bdf8)"],[365,"一年の守護者","background:linear-gradient(90deg,#22e08f,#38bdf8,#22e08f) "+MVB+";color:#001a10"]].forEach(function(x){TT.push(["k"+x[0],x[1],"連続ログイン"+x[0]+"日で解放"+(x[0]===365?"（動く背景）":""),x[2],"ログイン"])});
-TT.push(["fshop","金庫を空にせし者","ショップで10,000コインで購入（動く背景）","background:linear-gradient(90deg,#fbbf24,#a855f7,#22e6ff,#fbbf24) "+MVB+";color:#fff;text-shadow:0 1px 2px #000","ショップ"]);
+var SN1="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" viewBox="0 0 40 30"><g fill="#fff" opacity=".95"><circle cx="6" cy="5" r="1.6"/><circle cx="22" cy="14" r="1.2"/><circle cx="34" cy="24" r="1.8"/><circle cx="12" cy="22" r="1"/></g></svg>'),SP1="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="32" viewBox="0 0 48 32"><ellipse cx="10" cy="8" rx="3.2" ry="2" fill="#f9a8d4" transform="rotate(35 10 8)"/><ellipse cx="34" cy="22" rx="3" ry="1.9" fill="#fbcfe8" transform="rotate(-30 34 22)"/></svg>'),SM1="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="64" height="36" viewBox="0 0 64 36"><g transform="translate(18 10) rotate(20)"><polygon points="0,-4 1.2,-1.5 3.8,-2.4 2.6,0 4.2,1.6 1.2,1.4 0,4 -1.2,1.4 -4.2,1.6 -2.6,0 -3.8,-2.4 -1.2,-1.5" fill="#ef4444"/></g><g transform="translate(48 27) rotate(-25)"><polygon points="0,-4 1.2,-1.5 3.8,-2.4 2.6,0 4.2,1.6 1.2,1.4 0,4 -1.2,1.4 -4.2,1.6 -2.6,0 -3.8,-2.4 -1.2,-1.5" fill="#ea580c"/></g></svg>');
+[[7,"七日の継続者","background:linear-gradient(90deg,#14532d,#22c55e)"],[30,"三十日の習慣者","background:linear-gradient(90deg,#065f46,#2dd4bf)"],[100,"百日の不退転","background:linear-gradient(90deg,#1e3a8a,#38bdf8)"],[365,"一年の守護者","background:url("+SN1+") 0 0/40px 30px repeat,url("+SP1+") 0 0/48px 32px repeat,url("+SM1+") 0 0/64px 36px repeat,linear-gradient(180deg,#0ea5e9 0%,#7dd3fc 55%,#e0f2fe 100%);color:#0b2540;text-shadow:0 1px 2px rgba(255,255,255,.8);box-shadow:0 0 14px rgba(125,211,252,.7);animation:seasonfall 3.2s linear infinite"]].forEach(function(x){TT.push(["k"+x[0],x[1],"連続ログイン"+x[0]+"日で解放"+(x[0]===365?"（桜と紅葉が舞い、青空に雪が降る背景）":""),x[2],"ログイン"])});
+var CN1="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="56" height="28" viewBox="0 0 56 28"><g stroke="#b45309" stroke-width="1"><circle cx="14" cy="8" r="6" fill="#fde047"/><circle cx="42" cy="21" r="5" fill="#fbbf24"/></g><g fill="none" stroke="#f59e0b" stroke-width=".8"><circle cx="14" cy="8" r="3.6"/><circle cx="42" cy="21" r="3"/></g><path d="M10.5 5.5a4.5 4.5 0 0 1 3-2" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>'),CN2="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="36" height="20" viewBox="0 0 36 20"><circle cx="8" cy="5" r="3" fill="#fef08a" stroke="#d97706" stroke-width=".8"/><circle cx="26" cy="14" r="2.5" fill="#fde047" stroke="#d97706" stroke-width=".8"/><path d="M30 3v4M28 5h4" stroke="#fff" stroke-width=".9"/></svg>');
+TT.push(["fshop","金庫を空にせし者","ショップで10,000コインで購入（動く背景）","background:url("+CN1+") 0 0/56px 28px repeat,url("+CN2+") 0 0/36px 20px repeat,radial-gradient(circle at 30% 30%,#fef08a 0%,#f59e0b 50%,#92400e 100%),linear-gradient(135deg,#b45309,#f59e0b,#fef08a,#f59e0b,#b45309) 0 0/300% 300%;color:#1c1000;text-shadow:0 1px 2px rgba(255,255,255,.7);box-shadow:0 0 18px rgba(245,158,11,.8);animation:coinfall 2.4s linear infinite,glw 2s ease-in-out infinite","ショップ"]);
+function nowUpd(){var n=new Date();return pad(n.getMonth()+1)+"/"+pad(n.getDate())+" "+pad(n.getHours())+":"+pad(n.getMinutes())}
+async function ocrPick(file){S.pend={blob:file,period:"",updated:null};var c=$("#cands");if(c)c.innerHTML="";toast("画像を読み取っています…(初回は少し時間がかかります)");
+ try{var r=await Tesseract.recognize(file,"eng"),tx=(r&&r.data&&r.data.text)||"",nums=[],m,re=/(?<![\d.])\d{1,3}\.\d{1,2}(?!\d)/g;
+  while((m=re.exec(tx))){if(nums.indexOf(m[0])<0)nums.push(m[0])}
+  var d=/(\d{1,2})\s*\/\s*(\d{1,2})\s+(\d{1,2})\s*:\s*(\d{2})/.exec(tx);if(d)S.pend.updated=pad(+d[1])+"/"+pad(+d[2])+" "+pad(+d[3])+":"+d[4];
+  nums=nums.slice(0,12);c=$("#cands");
+  if(c)c.innerHTML=nums.map(function(x){return'<span class="chip" data-a="cand" data-v="'+x+'">'+x+'</span>'}).join("");
+  if(nums.length===1&&$("#pv"))$("#pv").value=nums[0];
+  toast(nums.length?'<span class="up">読み取り候補を出しました。今日の向上得点を選ぶか、入力してください。</span>'+(d?'':' <span class="mu">(更新日時は読み取れませんでした)</span>'):'<span class="dn">数字を読み取れませんでした。手入力して登録できます。</span>')}
+ catch(e){toast('<span class="dn">読み取りに失敗しました。手入力して登録できます。</span>')}}
+function adminV(){var ids=Object.keys(S.users).sort(function(a,b){return(S.users[a].name||"").localeCompare(S.users[b].name||"")});
+ if(!ids.length)return'<div class="card"><p class="mu">ユーザーがいません</p></div>';if(!S.au||!S.users[S.au])S.au=ids[0];var D=days(S.au),ks=Object.keys(D).sort().reverse();
+ return'<div class="card"><h2>ADMIN 点数の修正</h2><p class="mu">選んだユーザーの点数を、修正・追加・削除できます。</p><select id="asel">'+ids.map(function(i){return'<option value="'+esc(i)+'"'+(i===S.au?" selected":"")+'>'+esc(S.users[i].name||i.slice(0,6))+'（'+esc(S.users[i].gr||"-")+'）</option>'}).join("")+'</select></div>'+
+ '<div class="card"><h2>記録</h2>'+(ks.length?ks.map(function(k){return'<div class="row"><span>'+k.slice(5).replace("-","/")+'</span><span style="display:flex;gap:6px;align-items:center"><input type="number" step="0.01" data-day="'+k+'" value="'+D[k].pts+'" style="width:90px;margin:0"><button class="s" data-a="asave" data-v="'+k+'">保存</button><button class="s" data-a="adel" data-v="'+k+'">削除</button>'+(D[k].img?'<button class="s" data-a="aproof" data-v="'+k+'">証拠</button>':'')+'</span></div>'}).join(""):'<p class="mu">記録がありません</p>')+'</div>'+
+ '<div class="card"><h2>日付を指定して追加</h2><input id="nd" type="date"><input id="np" type="number" step="0.01" placeholder="向上得点"><button data-a="aadd">追加(上書き)</button></div>'}
+function myRooms(){return Object.keys(S.rooms||{}).map(function(id){var r=S.rooms[id],m=(S.rm||{})[id]||{uids:[],joined:{}};return{id:id,name:r.name,code:r.code,uids:m.uids||[],my:(m.joined||{})[S.uid]||0}}).sort(function(a,b){return b.my-a.my})}
+function roomOk(r){return r.uids.length>=2}
+function roomPanel(r){var ids=r.uids.filter(function(i){return S.users[i]}),ws=wst(new Date()),top=null,v=0;ids.forEach(function(i){var t=wtot(i,ws);if(t>v){v=t;top=i}});
+ return withIds(ids,"ROOM「"+r.name+"」順位",function(){return rivalTableV()+rivalV()})+(top?'<div class="card"><h2>今週の1位</h2>'+plate(top)+' <b class="up">'+f2(v)+'点</b></div>':'')}
+function homeRoomV(){var r=myRooms().filter(roomOk)[0];return r?roomPanel(r):''}
+function roomCard(){var L=myRooms(),h='<div class="card"><h2>ROOM 友達ルーム</h2><p class="mu">友達だけのルームを作って、今週の向上得点で競います(1ルーム10人まで・2人以上で成立)。</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="s" data-a="rnew">ルームを作る</button><button class="s" data-a="rjoin">コードを入力する</button></div>';
+ if(S.rmode==="c")h+='<div style="margin-top:10px"><input id="rn" maxlength="20" placeholder="ルーム名(20文字まで)"><button data-a="rcreate">作成する</button></div>';
+ if(S.rmode==="j")h+='<div style="margin-top:10px"><input id="rcode" maxlength="8" placeholder="招待コード(6文字)" style="text-transform:uppercase"><button data-a="rjoincode">参加する</button></div>';
+ if(S.rmsg)h+='<div style="margin-top:8px;font-size:13px">'+S.rmsg+'</div>';
+ h+=L.length?L.map(function(r){var ok=roomOk(r);return'<div class="row" style="align-items:flex-start"><span style="min-width:0;overflow-wrap:anywhere"><b>'+esc(r.name)+'</b> <span class="chip'+(ok?" on":"")+'">'+(ok?"成立":"あと1人で成立")+'</span><div class="mu">コード <b style="color:var(--tx);letter-spacing:.15em">'+esc(r.code)+'</b> ・ '+r.uids.length+'/10人</div></span><span style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">'+(ok?'<button class="s" data-a="rview" data-v="'+esc(r.id)+'">順位</button>':'')+'<button class="s" data-a="rcopy" data-v="'+esc(r.code)+'">コピー</button><button class="s" data-a="rleave" data-v="'+esc(r.id)+'">退出</button></span></div>'}).join(""):'<p class="mu" style="margin-top:10px">まだルームに入っていません</p>';
+ return h+'</div>'}
+function rivalTab(){var h=roomCard();if(S.rview){var r=myRooms().filter(function(x){return x.id===S.rview})[0];if(r)return h+roomPanel(r)+'<div style="margin-bottom:12px"><button class="s" data-a="rview" data-v="">グループの表示に戻る</button></div>'}return h+rivalV()}
 function contactV(){var h='<div class="card"><h2>CONTACT お問い合わせ</h2><p class="mu">不具合・要望・講座データの間違いなどを送れます。メールアドレスや本名は書かないでください。個別の返信はできない場合があります。</p><select id="cc"><option>不具合</option><option>要望</option><option>講座データの間違い</option><option>点数の修正依頼</option><option>その他</option></select><textarea id="ct" rows="5" maxlength="500" placeholder="内容(500文字まで)"></textarea><button data-a="send">送信する</button><div id="cmsg" style="margin-top:8px;font-size:13px"></div></div>';
  if(S.admin){var l=(S.ct||[]).slice().sort(function(a,b){return b.at-a.at});
   h+='<div class="card"><h2>INBOX(管理者のみ)</h2>'+(l.length?l.map(function(c){return'<div class="row" style="align-items:flex-start"><span style="min-width:0;overflow-wrap:anywhere"><span class="chip on">'+esc(c.cat)+'</span> <span class="mu">'+new Date(c.at).toLocaleString("ja-JP")+'</span><div style="margin:4px 0">'+esc(c.text)+'</div>'+plate(c.uid)+'</span><button class="s" data-a="cdel" data-v="'+esc(c.id)+'">削除</button></div>'}).join(""):'<p class="mu">まだ届いていません</p>')+'</div>'}
@@ -298,73 +378,33 @@ function battleV(){var m=me();if(m.bg==null)return'<div class="card"><p class="m
  return'<div class="card"><h2>BATTLE #'+m.bg+'</h2><div class="big" style="font-size:34px">'+(rk+1)+'<span class="mu" style="font-size:14px"> 位 / '+rows.length+'人</span></div><div style="margin-top:6px">'+st+'</div><div class="mu">今週('+(ws.getMonth()+1)+'/'+ws.getDate()+'〜'+(we.getMonth()+1)+'/'+we.getDate()+')の向上得点の合計で競います</div></div>'+
  '<div class="card"><h2>RANKING</h2>'+rows.map(function(r,n){var me2=r.i===S.uid;return'<div class="row" style="'+(me2?'background:rgba(34,224,143,.08);border-radius:8px;padding:8px':'')+'"><span style="width:28px;font:700 16px ui-monospace,monospace;color:'+(n<3?'var(--g)':'var(--mu)')+'">'+(['🥇','🥈','🥉'][n]||(n+1))+'</span><span style="flex:1;min-width:0">'+plate(r.i)+'<div style="height:4px;border-radius:2px;background:var(--p2);margin-top:5px"><div style="height:4px;border-radius:2px;background:var(--g);width:'+(r.t/mx*100)+'%"></div></div></span><b>'+f2(r.t)+'</b></div>'}).join("")+'</div>'+
  '<p class="mu">バトルはリンクを知っている全員が対象で、1バトル最大20人です。人数が増えたら新しいバトルに振り分けられます。</p>'}
-function render(){var a=document.activeElement;if((S.tab==="contact"||S.tab==="home"||S.tab==="admin")&&a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName))return;
+function render(){var a=document.activeElement;if((S.tab==="contact"||S.tab==="rival")&&a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName))return;
  if(S.tab==="rv"&&a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&$("#rvlist")){$("#rvlist").innerHTML=rvList();return}
  var app=$("#app"),nav=$("#nav");var wh=$("#who");if(wh)wh.innerHTML=(S.uid&&me()&&me().gr)?plate(S.uid):"";
  if(!S.uid){app.innerHTML='<p class="mu">サインインが必要です。</p>';return}
  if(!me()||!me().gr||S.tab==="login"){nav.hidden=true;app.innerHTML=loginV();return}
  nav.hidden=false;nav.innerHTML=[["home","ホーム"],["rival","ライバル"],["rv","講座"],["gacha","ガチャ"],["title","称号"],["contact","問合せ"]].concat(S.admin?[["admin","管理"]]:[]).map(function(t){return'<button data-a="tab" data-v="'+t[0]+'" class="'+(S.tab===t[0]?"on":"")+'">'+t[1]+'</button>'}).join("");
- app.innerHTML=S.tab==="home"?homeV():S.tab==="rival"?rivalV():S.tab==="rv"?rvV():S.tab==="gacha"?gachaTab():S.tab==="contact"?contactV():S.tab==="admin"&&S.admin?adminV():titleTab()}
+ app.innerHTML=S.tab==="home"?homeV():S.tab==="rival"?rivalTab():S.tab==="rv"?rvV():S.tab==="admin"&&S.admin?adminV():S.tab==="gacha"?gachaTab():S.tab==="contact"?contactV():titleTab();if(S.tm&&$("#msg"))$("#msg").innerHTML=S.tm}
 
 /* ---------- logic ---------- */
 async function sha(s){var h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(h)).slice(0,8).map(function(x){return pad(x.toString(16))}).join("")}
 function saveMe(){var m=me();return db.collection("users").doc(S.uid).set(m)}
 function unlock(ids,m){var got=[];ids.forEach(function(id){if(!m.unlocked[id]){m.unlocked[id]=Date.now();got.push(tt(id)[1])}});return got}
-function adminV(){var us=Object.keys(S.users).filter(function(i){return S.users[i].gr}).sort(function(a,b){return(S.users[a].name||"")<(S.users[b].name||"")?-1:1}),sel=S.au&&S.users[S.au]?S.au:"";
- var h='<div class="card"><h2>ADMIN 点数の修正</h2><p class="mu">管理者だけが、ユーザーの点数を修正・追加・削除できます。一般ユーザーは、登録後の点数を変更できません。</p><select id="au"><option value="">ユーザーを選ぶ</option>'+us.map(function(i){return'<option value="'+esc(i)+'"'+(i===sel?" selected":"")+'>'+esc(S.users[i].name)+'('+esc(S.users[i].gr)+')</option>'}).join("")+'</select>';
- if(sel){var D=days(sel),ks=Object.keys(D).sort().reverse().slice(0,31);
-  h+=(ks.length?ks.map(function(k){return'<div class="row"><span>'+k.slice(5).replace("-","/")+'</span><span style="display:flex;gap:6px;align-items:center"><input class="ad" data-k="'+k+'" type="number" step="0.01" min="0" max="500" value="'+D[k].pts+'" style="width:90px;margin:0"><button class="s" data-a="asave" data-v="'+k+'">保存</button><button class="s" data-a="adel" data-v="'+k+'">削除</button>'+(D[k].img?'<button class="s" data-a="proof" data-v="'+esc(sel)+'|'+k+'">📷</button>':'')+'</span></div>'}).join(""):'<p class="mu">記録がありません</p>')+
-  '<div class="row" style="margin-top:8px"><input id="adk" type="date" style="margin:0;width:150px"><input id="adp" type="number" step="0.01" min="0" max="500" placeholder="得点" style="margin:0;width:90px"><button class="s" data-a="aadd">追加</button></div>'}
- return h+'<div id="msg">'+(S.hm||"")+'</div></div>'}
-async function adminPut(doc,msg){await db.collection("scores").doc(S.au).set(doc);toast('<span class="up">'+esc(msg)+'</span>')}
-async function adminSave(k){if(!S.admin||!S.au)return;var el=document.querySelector('.ad[data-k="'+k+'"]'),v=parseFloat(el&&el.value);
- if(!isFinite(v)||v<0||v>500){toast('<span class="dn">0〜500の数字で入れてください</span>');return}
- var doc={days:Object.assign({},days(S.au))};doc.days[k]=Object.assign({},doc.days[k]||{},{pts:Math.round(v*100)/100,adm:1});
- await adminPut(doc,k+" を "+f2(v)+" 点に修正しました")}
-async function adminDel(k){if(!S.admin||!S.au)return;if(!confirm(k+" の記録を削除しますか?"))return;
- var doc={days:Object.assign({},days(S.au))};delete doc.days[k];await adminPut(doc,k+" の記録を削除しました")}
-async function adminAdd(){if(!S.admin||!S.au)return;var k=($("#adk")||{}).value,v=parseFloat(($("#adp")||{}).value);
- if(!/^\d{4}-\d{2}-\d{2}$/.test(k||"")||!isFinite(v)||v<0||v>500){toast('<span class="dn">日付と、0〜500の得点を入れてください</span>');return}
- var doc={days:Object.assign({},days(S.au))};doc.days[k]={pts:Math.round(v*100)/100,mins:720,upd:k.slice(5).replace("-","/")+" 12:00",period:"",n:1,d:null,adm:1};
- await adminPut(doc,k+" の得点を追加しました")}
-var tessP=null;
-function loadTess(){if(window.Tesseract)return Promise.resolve();if(!tessP)tessP=new Promise(function(res,rej){var el=document.createElement("script");el.src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js";el.onload=res;el.onerror=function(){tessP=null;rej(new Error("読み取りエンジンを読み込めませんでした"))};document.head.appendChild(el)});return tessP}
-function parseOcr(t){var c=[],seen={},re=/(?<![\d.,])(\d{1,3})[.,](\d{2})(?!\d)/g,m;
- while((m=re.exec(t))){var v=parseFloat(m[1]+"."+m[2]);if(v<=500&&!seen[v]){seen[v]=1;c.push(v)}}
- var dm=/(\d{1,2})\s*[\/月]\s*(\d{1,2})\D{0,4}(\d{1,2})\s*[:：]\s*(\d{2})/.exec(t);
- return{c:c,dt:dm?{mo:+dm[1],d:+dm[2],h:+dm[3],mi:+dm[4]}:null}}
-async function runOcr(file){var tok=S.otok=(S.otok||0)+1;S.ocr={st:"run"};render();
- try{await loadTess();var r=await window.Tesseract.recognize(file,"eng"),p=parseOcr((r&&r.data&&r.data.text)||"");
-  if(tok!==S.otok)return;S.ocr={st:"done",c:p.c.slice(0,8),dt:p.dt};if(p.c.length===1&&!S.pt)S.pt=String(p.c[0])}
- catch(e){if(tok!==S.otok)return;S.ocr={st:"err"}}
- render()}
-function ocrV(){var o=S.ocr;if(!o)return"";
- if(o.st==="run")return'<div class="mu" style="margin-bottom:8px">🔍 画像から数字を読み取り中…(初回は読み取りエンジンの読み込みで少し時間がかかります)</div>';
- if(o.st==="err")return'<div class="mu" style="margin-bottom:8px">読み取りに失敗しました。得点を手入力してください。</div>';
- var h='<div class="mu" style="margin-bottom:6px">'+(o.c.length?'読み取れた数字です。今日の向上得点をタップしてください(違う場合は手入力)':'数字を読み取れませんでした。手入力してください')+'</div>';
- if(o.c.length)h+='<div class="chips">'+o.c.map(function(v){return'<span class="chip'+(parseFloat(S.pt)===v?" on":"")+'" data-a="pick" data-v="'+v+'">'+f2(v)+'</span>'}).join("")+'</div>';
- return h}
-function shrink(file){return new Promise(function(res,rej){var u=URL.createObjectURL(file),im=new Image();im.onload=function(){var k=Math.min(1,1280/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(function(b){b?res(b):rej(new Error("画像を変換できませんでした"))},"image/jpeg",0.72)};im.onerror=function(){URL.revokeObjectURL(u);rej(new Error("画像を読み込めませんでした。別のスクショで試してください"))};im.src=u})}
-async function uploadProof(file,k){var b=await shrink(file),p=S.uid+"/"+k+"_"+Date.now()+".jpg",r=await SB.storage.from("proofs").upload(p,b,{contentType:"image/jpeg"});if(r.error)throw r.error;return p}
-async function showProof(v){var pp=v.split("|"),dd=days(pp[0])[pp[1]]||{};if(!dd.img){warn("この日の証拠写真はありません");return}
- var w=window.open("","_blank"),sr=await SB.storage.from("proofs").createSignedUrl(dd.img,120);
- if(sr.error){if(w)w.close();throw sr.error}
- if(w)w.location=sr.data.signedUrl;else warn("ポップアップがブロックされました。許可してもう一度押してください")}
-async function submitManual(){
- if(busy)return;
- var pts=parseFloat(S.pt),file=S.pfile;
- if(!isFinite(pts)||pts<0||pts>500){toast('<span class="dn">向上得点は0〜500の数字で入れてください</span>');return}
- if(!file){toast('<span class="dn">証拠のスクショを選んでください</span>');return}
- var od=S.ocr&&S.ocr.dt,nw0=new Date();
- if(od&&(od.mo!==nw0.getMonth()+1||od.d!==nw0.getDate())){toast('<span class="dn">スクショの更新日が今日ではないようです(読み取り: '+od.mo+'/'+od.d+')。今日のスクショを選び直してください。</span>');return}
- busy=true;toast("登録しています…");
+async function submit(blob){
+ if(busy)return;busy=true;toast("画像を読み取っています…");
  try{
-  pts=Math.round(pts*100)/100;
-  var now=new Date(),k=dk(now),mins=now.getHours()*60+now.getMinutes(),upd=pad(now.getMonth()+1)+"/"+pad(now.getDate())+" "+pad(now.getHours())+":"+pad(now.getMinutes());
+  var r=window.__pend;
+  var mt=r&&/(\d{1,2})\s*[\/月]\s*(\d{1,2})\D+(\d{1,2})\s*[:時]\s*(\d{2})/.exec(r.updated||"");
+  if(!r||typeof r.points!=="number"||r.points<0||r.points>500||!mt){toast('<span class="dn">3項目(向上得点・対象期間・更新時刻)を読み取れませんでした。ホーム画面全体がはっきり写ったスクショで再登録してください。</span>');return}
+  var now=new Date(),k=dk(now);
+  if(+mt[1]!==now.getMonth()+1||+mt[2]!==now.getDate()){toast('<span class="dn">更新日が今日ではありません(読み取り: '+esc(r.updated)+')。今日のスクショのみ登録できます。</span>');return}
+  var mins=+mt[3]*60+ +mt[4],upd=pad(mt[1])+"/"+pad(mt[2])+" "+pad(mt[3])+":"+mt[4],pts=Math.round(r.points*100)/100;
   var doc={days:Object.assign({},days(S.uid))},cur=doc.days[k],m=me();
-  if(cur&&cur.pts===pts){toast('<span class="dn">同じ得点が登録済みです。</span>');return}
-  var ws=wst(now),lb=leader(ws),first=!Object.keys(doc.days).length,img=await uploadProof(file,k);
-  doc.days[k]={pts:pts,mins:mins,upd:upd,period:"",n:cur?cur.n+1:1,d:cur?Math.round((pts-cur.pts)*100)/100:null,img:img};
+  if(cur&&mins<cur.mins){toast('<span class="dn">登録済みの更新時刻('+esc(cur.upd)+')より古いスクショです。</span>');return}
+  if(cur&&mins===cur.mins&&pts===cur.pts){toast('<span class="dn">同じスクショは登録済みです。</span>');return}
+  var ws=wst(now),lb=leader(ws),first=!Object.keys(doc.days).length,img=null;
+  if(!assets)throw new Error("画像の保存が使えません");img=(await assets.upload(blob)).id;
+  doc.days[k]={pts:pts,mins:mins,upd:upd,period:r.period||"",n:cur?cur.n+1:1,d:cur?Math.round((pts-cur.pts)*100)/100:null,img:img};
   var o={};o[S.uid]=doc;var la=leader(ws,Object.assign({},S.scores,o));
   var D=doc.days,ids=[],h=mins/60;
   if(pts===0)ids.push("void");if(first)ids.push("pio");if(doc.days[k].n>=2)ids.push("kiz");
@@ -374,21 +414,32 @@ async function submitManual(){
   var sa=D[dk(addD(ws,5))],su=D[dk(addD(ws,6))];if((sa?sa.pts:0)+(su?su.pts:0)>=10)ids.push("wkd");
   if(la===S.uid&&lb&&lb!==S.uid)ids.push("gnt");
   await db.collection("scores").doc(S.uid).set(doc);
-  var o2=Object.assign({},S.scores,o),d0=derived(S.uid),d1=derived(S.uid,o2),nw=Object.keys(d1).filter(function(k2){return!d0[k2]}).map(function(k2){return tt(k2)[1]});var got=unlock(ids,m);if(got.length)await saveMe();got=got.concat(nw);
+  var o2=Object.assign({},S.scores,o),d0=derived(S.uid),d1=derived(S.uid,o2),nw=Object.keys(d1).filter(function(k){return!d0[k]}).map(function(k){return tt(k)[1]});var got=unlock(ids,m);if(got.length)await saveMe();got=got.concat(nw);
   var dd=doc.days[k].d;
-  S.pt="";S.pfile=null;S.ocr=null;
   toast('<span class="up">登録しました:'+f2(pts)+'点'+(dd!=null?'(前回比 '+(dd>=0?"+":"")+f2(dd)+'点・上書き)':'')+'</span>'+(got.length?'<br>🏅 称号解放:'+got.map(esc).join("、"):""));
-  render();
  }catch(e){toast('<span class="dn">登録に失敗しました:'+esc((e&&e.message)||"通信・権限を確認してください")+'</span>')}
  finally{busy=false}}
 
 document.addEventListener("click",async function(e){var t=e.target.closest("[data-a]");if(!t)return;var a=t.dataset.a,v=t.dataset.v;
  try{
- if(a==="signout"){try{await SB.auth.signOut()}catch(e){}location.reload();return}if(a==="tab"){S.tab=v;S.hm="";render()}else if(a==="reg"){await submitManual()}else if(a==="pick"){S.pt=v;render();var pe=$("#pt");if(pe)pe.value=v}else if(a==="asave"){await adminSave(v)}else if(a==="adel"){await adminDel(v)}else if(a==="aadd"){await adminAdd()}else if(a==="claim"){var pw=($("#adm")||{}).value;pw=(pw||"").trim();if(!pw){warn("合言葉を入れてください");return}var cr2=await SB.rpc("claim_admin",{p:pw});if(cr2.error)throw cr2.error;if(cr2.data===true){location.reload()}else warn("合言葉が違います")}else if(a==="proof"){await showProof(v)}
+ if(a==="tab"){S.tab=v;S.tm="";render()}
  else if(a==="logout"){S.tab="login";render()}
  else if(a==="login"){var n=$("#nick").value.trim(),p=$("#gr").value;if(!n||!p){warn("ニックネームと学年を入れてください");return}
   var m=JSON.parse(JSON.stringify(me()||{unlocked:{},title:""}));m.unlocked=m.unlocked||{};m.name=n;if(m.gr!==p||!m.jt)m.jt=Date.now();m.gr=p;delete m.room;warn("保存しています…");var m2=JSON.parse(JSON.stringify(m));await db.collection("users").doc(S.uid).set(m2);S.users[S.uid]=m2;S.ver=(S.ver||0)+1;S.tab="home";$("#fb").hidden=true;render()}
- else if(a==="flt"){S.flt=v;render()}else if(a==="tag"){S.tag=S.tag===v?"":v;render()}else if(a==="sort"){S.sort=v;render()}else if(a==="cs"){S.cs=v;render()}else if(a==="rcs"){var cc=CAT[+v];$("#rf").open=true;$("#rc").value=cc.n;$("#rs").value=cc.s;$("#rf").scrollIntoView({behavior:"smooth"})}else if(a==="rdel"){await db.collection("reviews").doc(v).delete()}else if(a==="skip"){if(S.gfxFin)S.gfxFin()}else if(a==="gs"){S.gs=v;S.gres=null;S.gmsg="";render()}else if(a==="draw"){var pr0=v.split("|");await doDraw(pr0[0],pr0[1])}else if(a==="buy"){await doBuy(v,+t.dataset.p)}else if(a==="ts"){S.ts=v;render()}else if(a==="cside"){S.cside=v;render()}else if(a==="crf"){S.crf=v;render()}else if(a==="cset"){await doCset(v)}else if(a==="crnd"){await doCrnd()}else if(a==="cdel"){var pr=v.split("|"),dd=S.ctd[pr[0]]||{},nm=(dd.msgs||[]).filter(function(m){return String(m.at)!==pr[1]});if(nm.length)await db.collection("contacts").doc(pr[0]).upd({uid:pr[0],name:dd.name||"",msgs:nm});else await db.collection("contacts").doc(pr[0]).delete()}else if(a==="send"){var tx=$("#ct").value.trim(),cm=$("#cmsg");if(tx.length<5){cm.innerHTML='<span class="dn">5文字以上で内容を書いてください</span>';return}if(Date.now()-(S.lastc||0)<30000){cm.innerHTML='<span class="dn">続けて送れません。少し待ってからもう一度送ってください</span>';return}var cr=db.collection("contacts").doc(S.uid),ms=[];try{var co=await cr.get();if(co&&co.exists)ms=co.data().msgs||[]}catch(e2){}ms.push({cat:$("#cc").value,text:tx,at:Date.now()});await cr.set({uid:S.uid,name:me().name,msgs:ms.slice(-20)});S.lastc=Date.now();$("#ct").value="";cm.innerHTML='<span class="up">送信しました。ありがとうございます!</span>'}
+ else if(a==="flt"){S.flt=v;render()}else if(a==="tag"){S.tag=S.tag===v?"":v;render()}else if(a==="sort"){S.sort=v;render()}else if(a==="cs"){S.cs=v;render()}else if(a==="rcs"){var cc=CAT[+v];$("#rf").open=true;$("#rc").value=cc.n;$("#rs").value=cc.s;$("#rf").scrollIntoView({behavior:"smooth"})}else if(a==="rdel"){await db.collection("reviews").doc(v).delete()}else if(a==="cand"){$("#pv").value=v}else if(a==="reg"){var pv=parseFloat($("#pv").value);if(!S.pend||!S.pend.blob){toast('<span class="dn">証拠のスクショを選んでください</span>');return}if(isNaN(pv)){toast('<span class="dn">向上得点を選ぶか入力してください</span>');return}window.__pend={points:pv,period:S.pend.period||"",updated:S.pend.updated||nowUpd()};await submit(S.pend.blob)}
+else if(a==="claim"){var okc=await SB.rpc("claim_admin",{p_code:$("#ac").value.trim()});if(okc)location.reload();else warn("合言葉が違います")}
+else if(a==="asave"){var iv=parseFloat(document.querySelector('[data-day="'+v+'"]').value);await SB.rpc("admin_set_score",{p_uid:S.au,p_day:v,p_pts:iv});await SB.refresh("scores")}
+else if(a==="adel"){if(confirm("この記録を削除しますか?")){await SB.rpc("admin_delete_score",{p_uid:S.au,p_day:v});await SB.refresh("scores")}}
+else if(a==="aadd"){var nd=$("#nd").value,np=parseFloat($("#np").value);if(!nd||isNaN(np)){warn("日付と点数を入れてください");return}await SB.rpc("admin_set_score",{p_uid:S.au,p_day:nd,p_pts:np});await SB.refresh("scores")}
+else if(a==="aproof"){var pth=(days(S.au)[v]||{}).img;if(pth){var u2=await SB.proofUrl(pth);window.open(u2,"_blank")}}
+else if(a==="rnew"){S.rmode=S.rmode==="c"?"":"c";S.rmsg="";render()}
+else if(a==="rjoin"){S.rmode=S.rmode==="j"?"":"j";S.rmsg="";render()}
+else if(a==="rcreate"){var rn=$("#rn").value.trim();if(!rn){warn("ルーム名を入れてください");return}var rr=await SB.rpc("create_room",{p_name:rn});S.rmode="";S.rmsg='<span class="up">作成しました。コード <b>'+esc(rr.code)+'</b> を友達に送ってください。</span>';await SB.refresh("rooms");await SB.refresh("room_members");render()}
+else if(a==="rjoincode"){var rcc=$("#rcode").value.trim();if(!rcc){warn("コードを入れてください");return}try{await SB.rpc("join_room",{p_code:rcc})}catch(e2){warn(/full/.test(e2.message)?"このルームは満員です":/not found/.test(e2.message)?"コードが見つかりません":/too many/.test(e2.message)?"入れるルームは10個までです":"参加できませんでした");return}S.rmode="";S.rmsg='<span class="up">参加しました。</span>';await SB.refresh("rooms");await SB.refresh("room_members");render()}
+else if(a==="rview"){S.rview=v;render()}
+else if(a==="rcopy"){try{await navigator.clipboard.writeText(v);warn("コードをコピーしました")}catch(e3){warn("コード: "+v)}}
+else if(a==="rleave"){if(confirm("このルームから退出しますか?")){await SB.rpc("leave_room",{p_room:v});if(S.rview===v)S.rview="";await SB.refresh("rooms");await SB.refresh("room_members");render()}}
+else if(a==="skip"){if(S.gfxFin)S.gfxFin()}else if(a==="gs"){S.gs=v;S.gres=null;S.gmsg="";render()}else if(a==="draw"){var pr0=v.split("|");await doDraw(pr0[0],pr0[1])}else if(a==="buy"){await doBuy(v,+t.dataset.p)}else if(a==="ts"){S.ts=v;render()}else if(a==="cside"){S.cside=v;render()}else if(a==="crf"){S.crf=v;render()}else if(a==="cset"){await doCset(v)}else if(a==="crnd"){await doCrnd()}else if(a==="cdel"){var pr=v.split("|"),dd=S.ctd[pr[0]]||{},nm=(dd.msgs||[]).filter(function(m){return String(m.at)!==pr[1]});if(nm.length)await db.collection("contacts").doc(pr[0]).set({uid:pr[0],name:dd.name||"",msgs:nm});else await db.collection("contacts").doc(pr[0]).delete()}else if(a==="send"){var tx=$("#ct").value.trim(),cm=$("#cmsg");if(tx.length<5){cm.innerHTML='<span class="dn">5文字以上で内容を書いてください</span>';return}if(Date.now()-(S.lastc||0)<30000){cm.innerHTML='<span class="dn">続けて送れません。少し待ってからもう一度送ってください</span>';return}var cr=db.collection("contacts").doc(S.uid),ms=[];try{var co=await cr.get();if(co&&co.exists)ms=co.data().msgs||[]}catch(e2){}ms.push({cat:$("#cc").value,text:tx,at:Date.now()});await cr.set({uid:S.uid,name:me().name,msgs:ms.slice(-20)});S.lastc=Date.now();$("#ct").value="";cm.innerHTML='<span class="up">送信しました。ありがとうございます!</span>'}
  else if(a==="star"){S.star=+v;$("#stars").innerHTML=stars()}
  else if(a==="qt"){var i=$("#rt");i.value=(i.value+" "+v).trim()}
  else if(a==="eq"){var m2=me();m2.title=v;await saveMe();render()}
@@ -397,35 +448,10 @@ document.addEventListener("click",async function(e){var t=e.target.closest("[dat
   await db.collection("reviews").doc(S.uid+"_"+Date.now()).set({uid:S.uid,course:c,subj:$("#rs").value,star:S.star,tags:tg,text:x,at:Date.now()});
   var m3=me(),cnt=S.rv.filter(function(r){return r.uid===S.uid}).length+1,g=cnt>=3?unlock(["som"],m3):[];if(g.length)await saveMe();
   ["#rc","#rt","#rx"].forEach(function(s){$(s).value=""});toast('<span class="up">投稿しました!</span>'+(g.length?'<br>🏅 称号解放:'+g.map(esc).join("、"):""))}
- }catch(err){var cd=(err&&(err.code||err.message))||"";warn(/42501|row-level/i.test(cd)?"書き込みが許可されませんでした。ページを読み込み直してから、もう一度試してください。":"失敗しました。通信・権限を確認してください("+cd+")")}});
-document.addEventListener("change",function(e){if(e.target.id==="au"){S.au=e.target.value;e.target.blur();render();return}if(e.target.id==="rc"){var c0=CAT.filter(function(x){return x.n===e.target.value})[0];if(c0)$("#rs").value=c0.s}if(e.target.id==="f"&&e.target.files[0]){S.pfile=e.target.files[0];runOcr(S.pfile)}});
-document.addEventListener("input",function(e){if(e.target.id==="q"){S.q=e.target.value;$("#rvlist").innerHTML=rvList()}else if(e.target.id==="cq"){S.cq=e.target.value;$("#cl").innerHTML=catList()}else if(e.target.id==="pt"){S.pt=e.target.value}});
+ }catch(err){var cd=(err&&(err.code||err.message))||"";warn(/invalid_argument/.test(cd)?"書き込み権限がありません。サイトの持ち主に、共有設定で「投稿できる権限(Contributor)」を付けてもらってください。":"失敗しました。通信・権限を確認してください("+cd+")")}});
+document.addEventListener("change",function(e){if(e.target.id==="asel"){S.au=e.target.value;render();return}if(e.target.id==="rc"){var c0=CAT.filter(function(x){return x.n===e.target.value})[0];if(c0)$("#rs").value=c0.s}if(e.target.id==="f"&&e.target.files[0]){ocrPick(e.target.files[0]);e.target.value=""}});
+document.addEventListener("input",function(e){if(e.target.id==="q"){S.q=e.target.value;$("#rvlist").innerHTML=rvList()}else if(e.target.id==="cq"){S.cq=e.target.value;$("#cl").innerHTML=catList()}});
 
-function mkDb(){
- function chk(r){if(r&&r.error)throw r.error;return r}
- return{collection:function(c){return{
-  doc:function(id){return{
-   set:async function(d){chk(await SB.from("docs").upsert({collection:c,id:id,data:d},{onConflict:"collection,id"}))},
-   upd:async function(d){chk(await SB.from("docs").update({data:d}).eq("collection",c).eq("id",id))},
-   get:async function(){var r=chk(await SB.from("docs").select("data").eq("collection",c).eq("id",id).maybeSingle());return{exists:!!r.data,data:function(){return r.data?r.data.data:undefined}}},
-   delete:async function(){chk(await SB.from("docs").delete().eq("collection",c).eq("id",id))}
-  }},
-  onSnapshot:function(ok,ng){
-   var alive=true,run=false,again=false,tm=0;
-   async function load(){
-    if(run){again=true;return}run=true;
-    try{
-     var all=[],from=0,step=1000;
-     for(;;){var r=chk(await SB.from("docs").select("id,data").eq("collection",c).order("id").range(from,from+step-1));all=all.concat(r.data);if(r.data.length<step)break;from+=step}
-     if(alive)ok({docs:all.map(function(x){return{id:x.id,data:function(){return x.data}}})});
-    }catch(e){if(alive&&ng)ng(e)}
-    run=false;if(again){again=false;load()}
-   }
-   load();
-   var ch=SB.channel("docs-"+c+"-"+Math.random().toString(36).slice(2)).on("postgres_changes",{event:"*",schema:"public",table:"docs",filter:"collection=eq."+c},function(){clearTimeout(tm);tm=setTimeout(load,300)}).subscribe();
-   return function(){alive=false;SB.removeChannel(ch)}
-  }
- }}}}
 function snap(col,fn){db.collection(col).onSnapshot(function(s){fn(s);render()},function(){$("#app").innerHTML='<p class="dn">読み込めませんでした。権限を確認してください。</p>'})}
 var ens=false;
 async function ensure(){var m=me();if(m&&m.gr&&!m.jt&&!ens){ens=true;m.jt=Date.now();try{await saveMe()}catch(e){}ens=false}return}
@@ -436,107 +462,17 @@ async function ensureOld(){var m=me();if(!m||ens||!m.gr)return;var cnt={},U=Obje
  var open=Object.keys(cnt).filter(function(b){return cnt[b]<20&&+b!==m.bg}),ks=Object.keys(cnt).map(Number);
  m.bg=open.length?+open[Math.floor(Math.random()*open.length)]:(ks.length?Math.max.apply(null,ks)+1:1);m.bj=Date.now();
  try{await saveMe()}catch(e){}ens=false}
-function copyText(t){return new Promise(function(res,rej){
- function fb(){try{var ta=document.createElement("textarea");ta.value=t;ta.style.cssText="position:fixed;top:0;left:0;opacity:0";document.body.appendChild(ta);ta.focus();ta.select();var ok=document.execCommand("copy");document.body.removeChild(ta);ok?res():rej(new Error("copy"))}catch(e){rej(e)}}
- if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(res,fb);else fb()})}
-function jwtRole(k){try{var p=k.split(".")[1].replace(/-/g,"+").replace(/_/g,"/");return JSON.parse(atob(p+"===".slice((p.length+3)%4))).role}catch(e){return""}}
-function setupV(){
- var el=document.getElementById("sqlsrc"),SQLT=el?el.textContent.replace(/^\s+/,""):"";
- var st='margin:0 0 6px;font-size:15px';
- $("#app").innerHTML='<div class="card"><h2>はじめの設定(公開する人だけ)</h2><p class="mu">この画面は、まだSupabaseにつながっていないときだけ出ます。上から順に、コピーと貼り付けだけで公開まで進めます。</p></div>'+
- '<div class="card"><h2 style="'+st+'">① データベースを作る</h2><p class="mu">Supabase(supabase.com)でプロジェクトを作り、左メニューの「SQL Editor」を開きます。下のボタンでSQLをコピーして貼り付け、「Run」を押します。結果に出る<b>「管理者の合言葉」</b>は、コピーして保管してください。</p><button id="s1">SQLをコピー</button> <span id="s1m" class="mu"></span></div>'+
- '<div class="card"><h2 style="'+st+'">② メール確認をオフにする</h2><p class="mu">Supabaseの「Authentication」→「Sign In / Providers」→「Email」を開き、<b>「Confirm email」をオフ</b>にして保存します。(オンのままだと、登録のたびに確認メールが必要になります。無料枠はメールの送信数が少ないため、友達が登録できなくなることがあります。)「Allow new users to sign up」はオンのままにしてください。</p></div>'+
- '<div class="card"><h2 style="'+st+'">③ 接続情報を貼る</h2><p class="mu">Supabaseの「Project Settings」→「API」から、次の2つをコピーして貼り付けます(anon または publishable のキーです)。</p><input id="cu" placeholder="Project URL(https://xxxx.supabase.co)" autocomplete="off"><input id="ck" placeholder="anon / publishable key" autocomplete="off"><div id="cm" class="mu"></div></div>'+
- '<div class="card"><h2 style="'+st+'">④ 公開用のHTMLをコピーする</h2><p class="mu">③を入れると押せます。コピーしたものを、ホスティングに貼り付けて公開します(貼り付け先の手順は手順書にあります)。</p><button id="s4">公開用HTMLをコピー</button> <span id="s4m" class="mu"></span><textarea id="s4t" readonly rows="4" style="display:none;margin-top:8px;width:100%"></textarea></div>';
- function flash(id,t,bad){var m=document.getElementById(id);if(m){m.textContent=t;m.className=bad?"dn":"mu"}}
- document.getElementById("s1").onclick=function(){copyText(SQLT).then(function(){flash("s1m","コピーしました。SQL Editorに貼り付けてください")},function(){flash("s1m","コピーできませんでした。もう一度押してください",1)})};
- document.getElementById("s4").onclick=function(){
-  var u=($("#cu").value||"").trim().replace(/\/+$/,""),k=($("#ck").value||"").trim();
-  if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(u)){flash("cm","Project URLは https://xxxx.supabase.co の形で入れてください",1);return}
-  if(/^sb_secret_/.test(k)||jwtRole(k)==="service_role"){flash("cm","それは公開してはいけない秘密のキーです。anon / publishable のキーを入れてください",1);return}
-  if(k.length<20||/\s/.test(k)){flash("cm","キーが正しく貼れていないようです",1);return}
-  flash("cm","");
-  var out=SRC0.replace(/window\.POSNEO_CONFIG=\{[^}]*\};/,function(){return"window.POSNEO_CONFIG="+JSON.stringify({url:u,anonKey:k})+";"})
-   .replace(/<script type="text\/plain" id="sqlsrc">[\s\S]*?<\/script>\s*/,"");
-  out="<!doctype html>\n"+out;
-  copyText(out).then(function(){flash("s4m","コピーしました。公開先に貼り付けてください")},function(){var t=document.getElementById("s4t");t.style.display="block";t.value=out;t.focus();t.select();flash("s4m","自動コピーできませんでした。下の欄を全選択してコピーしてください",1)})}}
-function authV(mode){
- mode=mode||S.am||"in";S.am=mode;
- var up=mode==="up",rs=mode==="reset",np=mode==="newpw";
- var ttl=np?"新しいパスワード":rs?"パスワードの再設定":up?"アカウント登録":"ログイン";
- var h='<div class="card"><h2>'+ttl+'</h2>';
- if(np)h+='<p class="mu">新しいパスワードを入れてください(8文字以上)。</p>';
- else if(rs)h+='<p class="mu">登録したメールアドレスに、再設定用のリンクを送ります。</p>';
- else if(up)h+='<p class="mu">メールアドレスとパスワードで登録します。メールアドレスは、ほかの利用者には見えません。ニックネームは、このあとで決めます。</p>';
- else h+='<p class="mu">登録したメールアドレスとパスワードでログインします。</p>';
- if(!np)h+='<input id="ae" type="email" inputmode="email" autocomplete="email" placeholder="メールアドレス" value="'+esc(S.ae||"")+'">';
- if(!rs)h+='<input id="ap" type="password" autocomplete="'+(up||np?"new-password":"current-password")+'" placeholder="パスワード'+(up||np?"(8文字以上)":"")+'">';
- if(up||np)h+='<input id="ap2" type="password" autocomplete="new-password" placeholder="パスワード(確認)">';
- h+='<button id="ago">'+(np?"変更する":rs?"再設定メールを送る":up?"登録する":"ログイン")+'</button><div id="am" class="mu" style="margin-top:8px"></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">';
- if(mode==="in")h+='<button class="s" data-m="up">新しく登録する</button><button class="s" data-m="reset">パスワードを忘れた</button>';
- else if(!np)h+='<button class="s" data-m="in">ログインへ戻る</button>';
- h+='</div></div>';
- $("#app").innerHTML=h;
- var nav=$("#nav");if(nav)nav.hidden=true;
- function say(t,bad){var m=$("#am");if(m){m.innerHTML=t;m.className=bad?"dn":"mu"}}
- function vErr(e){var t=(e&&e.message)||"";
-  if(/invalid login/i.test(t))return"メールアドレスかパスワードが違います";
-  if(/already registered|already been registered/i.test(t))return"このメールアドレスは登録済みです。ログインしてください";
-  if(/rate limit|too many/i.test(t))return"短時間に操作が多すぎます。しばらく待ってから、もう一度試してください";
-  if(/email not confirmed/i.test(t))return"メールの確認が終わっていません。届いたメールのリンクを開いてください";
-  if(/signups? not allowed|disabled/i.test(t))return"新しい登録は、今は受け付けていません";
-  if(/password/i.test(t)&&/(short|least|weak)/i.test(t))return"パスワードは8文字以上にしてください";
-  return"失敗しました:"+esc(t||"通信を確認してください")}
- Array.prototype.forEach.call(document.querySelectorAll("[data-m]"),function(b){b.onclick=function(){var e=$("#ae");if(e)S.ae=e.value;authV(b.getAttribute("data-m"))}});
- var go=$("#ago"),run=false;
- async function submit(){
-  if(run)return;
-  var em=(($("#ae")||{}).value||"").trim(),pw=($("#ap")||{}).value||"",pw2=($("#ap2")||{}).value||"";
-  S.ae=em;
-  if(!np&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){say("メールアドレスの形が正しくありません",1);return}
-  if(!rs&&!pw){say("パスワードを入れてください",1);return}
-  if((up||np)&&pw.length<8){say("パスワードは8文字以上にしてください",1);return}
-  if((up||np)&&pw!==pw2){say("確認用のパスワードが一致しません",1);return}
-  run=true;go.disabled=true;say("処理しています…");
-  try{
-   if(mode==="in"){var r=await SB.auth.signInWithPassword({email:em,password:pw});if(r.error)throw r.error;await start(r.data.session)}
-   else if(up){var r2=await SB.auth.signUp({email:em,password:pw});if(r2.error)throw r2.error;
-    if(r2.data&&r2.data.session)await start(r2.data.session);
-    else say("確認メールを送りました。メールのリンクを開いてから、ログインしてください。")}
-   else if(rs){var r3=await SB.auth.resetPasswordForEmail(em,{redirectTo:location.origin+location.pathname});if(r3.error)throw r3.error;say("再設定のメールを送りました。届いたリンクから、新しいパスワードを決めてください。")}
-   else{var r4=await SB.auth.updateUser({password:pw});if(r4.error)throw r4.error;S.rec=0;var g=await SB.auth.getSession();await start(g.data.session)}
-  }catch(e){say(vErr(e),1)}
-  run=false;go.disabled=false}
- go.onclick=submit;
- Array.prototype.forEach.call(document.querySelectorAll("#app input"),function(i){i.onkeydown=function(ev){if(ev.key==="Enter")submit()}})}
-async function start(ses){
- S.uid=ses.user.id;S.canW=true;S.ctd={};
- try{var ad=await SB.rpc("is_admin");S.admin=ad.data===true}catch(e){S.admin=false}
- db=mkDb();
- snap("users",function(s){S.users={};s.docs.forEach(function(d){S.users[d.id]=JSON.parse(JSON.stringify(d.data()||{}))});S.ver=(S.ver||0)+1;ensure();daily()});
- snap("scores",function(s){S.scores={};s.docs.forEach(function(d){S.scores[d.id]=d.data()})});
- snap("reviews",function(s){S.rv=s.docs.map(function(d){return Object.assign({id:d.id},d.data())})});
- if(S.admin)snap("contacts",function(s){S.ct=[];S.ctd={};s.docs.forEach(function(d){var x=d.data()||{};S.ctd[d.id]=x;(x.msgs||[]).forEach(function(m){S.ct.push({id:d.id+"|"+m.at,uid:d.id,cat:m.cat,text:m.text,at:m.at})})})});
- render()}
+function snapQ(col,fn){db.collection(col).onSnapshot(function(s){fn(s);render()},function(){})}
 async function init(){
- try{
-  var C=window.POSNEO_CONFIG||{};
-  window.__step="設定の確認";
-  if(!C.url||!C.anonKey||/YOUR_/.test(C.url+C.anonKey)){setupV();return}
-  if(!window.supabase){$("#app").innerHTML='<div class="card"><p class="dn">接続用の部品(Supabase)を読み込めませんでした。</p><p class="mu">通信が不安定か、広告ブロックなどが止めている可能性があります。別の通信(Wi-Fiとモバイル回線)や別のブラウザで、開き直してください。</p></div>';return}
-  var REC=/type=recovery/.test(location.hash)||/type=recovery/.test(location.search);
-  window.__step="接続の準備";
-  SB=window.supabase.createClient(C.url,C.anonKey,{auth:{lock:async function(n,t,fn){return await fn()}}});
-  SB.auth.onAuthStateChange(function(ev){
-   if(ev==="PASSWORD_RECOVERY"){S.rec=1;if(!S.uid)authV("newpw")}
-   else if(ev==="SIGNED_OUT"&&S.uid)location.reload()});
-  window.__step="ログイン状態の確認";
-  var ss=await Promise.race([SB.auth.getSession(),new Promise(function(r){setTimeout(function(){r({data:{session:null},tmo:1})},8000)})]),ses=ss.data&&ss.data.session;
-  window.__step=ss.tmo?"確認が時間切れ":"画面の表示";
-  if(REC||S.rec){S.rec=1;authV("newpw");return}
-  if(!ses){authV("in");return}
-  await start(ses);
- }catch(e){$("#app").innerHTML='<p class="dn">接続できませんでした:'+esc((e&&e.message)||"")+'</p>'}}
+ try{user=await claude.use("user");db=await claude.use("db");assets=await claude.use("assets");sample=await claude.use("sample");
+  if(!user||!db){$("#app").innerHTML='<p class="mu">サインインが必要です。</p>';return}
+  S.uid=await user.id();try{S.canW=user.can?await user.can("data.write"):null}catch(e){}try{S.admin=await user.canEdit();S.ctd={}}catch(e){}
+  snap("users",function(s){S.users={};s.docs.forEach(function(d){S.users[d.id]=JSON.parse(JSON.stringify(d.data()||{}))});S.ver=(S.ver||0)+1;ensure();daily()});
+  snap("scores",function(s){S.scores={};s.docs.forEach(function(d){S.scores[d.id]=d.data()})});
+  snap("reviews",function(s){S.rv=s.docs.map(function(d){return Object.assign({id:d.id},d.data())})});
+  snapQ("rooms",function(s){S.rooms={};s.docs.forEach(function(d){S.rooms[d.id]=d.data()})});snapQ("room_members",function(s){S.rm={};s.docs.forEach(function(d){S.rm[d.id]=d.data()})});
+  if(S.admin)snap("contacts",function(s){S.ct=[];S.ctd={};s.docs.forEach(function(d){var x=d.data()||{};S.ctd[d.id]=x;(x.msgs||[]).forEach(function(m){S.ct.push({id:d.id+"|"+m.at,uid:d.id,cat:m.cat,text:m.text,at:m.at})})})});
+ }catch(e){$("#app").innerHTML='<p class="dn">この環境では動作しません。</p>'}}
 init();
 })();
 </script></body></html>
