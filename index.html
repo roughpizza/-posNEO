@@ -332,7 +332,6 @@ function adminV(){
  }
  return h+'<div id="msg">'+(S.hm||"")+'</div></div>';
 }
-```[cite: 3]
 async function adminPut(doc,msg){await db.collection("scores").doc(S.au).set(doc);toast('<span class="up">'+esc(msg)+'</span>')}
 async function adminSave(k){if(!S.admin||!S.au)return;var el=document.querySelector('.ad[data-k="'+k+'"]'),v=parseFloat(el&&el.value);
  if(!isFinite(v)||v<0||v>500){toast('<span class="dn">0〜500の数字で入れてください</span>');return}
