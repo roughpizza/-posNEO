@@ -244,9 +244,9 @@ async function adminGrant(){if(!S.admin||!S.au)return;await db.collection("grant
 async function adminRevoke(){if(!S.admin||!S.au)return;await db.collection("grants").doc(S.au).delete();if(S.grants)delete S.grants[S.au];toast('<span class="up">「至高の思考」を回収しました</span>');render()}
 async function adminBan(on){if(!S.admin||!S.au||S.au===S.uid)return;if(on)await db.collection("bans").doc(S.au).set({at:Date.now()});else await db.collection("bans").doc(S.au).delete();
  S.bans=S.bans||{};if(on)S.bans[S.au]={at:Date.now()};else delete S.bans[S.au];S.bv=(S.bv||0)+1;toast('<span class="up">'+(on?"BANしました(画面を隠しています)":"BANを解除しました")+'</span>');render()}
-var CHG0=[{at:Date.parse("2026-11-27T12:00:00+09:00"),title:"称号「至高の思考」と管理画面を追加",text:"管理者だけが授与できる特別称号、授与のポップアップ、管理画面の色分けと2段階の確認、BAN(画面を隠すだけ)、30日を過ぎた証拠写真の自動整理、この更新履歴を追加しました。",b:1}];
+var CHG0=[];
 function chgV(){var l=(S.chg||[]).concat(CHG0).sort(function(a,b){return b.at-a.at});
- var h='<div class="card"><h2>UPDATE 更新履歴</h2>'+l.map(function(c){return'<div class="row" style="align-items:flex-start"><span style="min-width:0;overflow-wrap:anywhere"><span class="mu">'+new Date(c.at).toLocaleDateString("ja-JP")+'</span><div style="margin:2px 0"><b>'+esc(c.title)+'</b></div><div class="mu">'+esc(c.text||"")+'</div></span>'+(S.admin&&!c.b?ab("d","chgdel",c.id,"削除"):'')+'</div>'}).join("")+'</div>';
+ var h='<div class="card"><h2>UPDATE 更新履歴</h2>'+(l.length?l.map(function(c){return'<div class="row" style="align-items:flex-start"><span style="min-width:0;overflow-wrap:anywhere"><span class="mu">'+new Date(c.at).toLocaleDateString("ja-JP")+'</span><div style="margin:2px 0"><b>'+esc(c.title)+'</b></div><div class="mu">'+esc(c.text||"")+'</div></span>'+(S.admin&&!c.b?ab("d","chgdel",c.id,"削除"):'')+'</div>'}).join(""):'<p class="mu">まだありません</p>')+'</div>';
  if(S.admin)h+='<div class="card"><h2>UPDATE 追記(管理者のみ)</h2><input id="clt" maxlength="40" placeholder="見出し(例 称号を追加)"><textarea id="clx" rows="3" maxlength="300" placeholder="内容(300文字まで)"></textarea><button class="ab c" data-a="chgadd">追記する</button><div id="clm" class="mu" style="margin-top:6px"></div></div>';
  return h}
 
